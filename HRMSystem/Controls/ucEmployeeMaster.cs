@@ -23,7 +23,7 @@ namespace HRMSystem.Controls
         {
             InitializeComponent();
         }
-        private void InitialMasterPage()
+        public void InitialMasterPage()
         {
             try
             {

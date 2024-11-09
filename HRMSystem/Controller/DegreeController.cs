@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraBars.Navigation;
+﻿
+using DevExpress.XtraBars.Navigation;
 using HRMSystem.Controls;
 using HRMSystem.Interfaces;
 using HRMSystem.Utilities;
@@ -12,12 +13,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class DepartmentController : IucControlController
+    public class DegreeController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public ucDepartmentDetail detailForm;
+        public ucChungChi detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -53,11 +54,11 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var phongBan = context.PhongBans.Find(masterForm.GetPrimaryKey("MaPB"));
+                    var model = context.ChungChis.Find(masterForm.GetPrimaryKey("MaChucVu"));
 
-                    if (phongBan != null)
+                    if (model != null)
                     {
-                        context.PhongBans.Remove(phongBan);
+                        context.ChungChis.Remove(model);
 
                         context.SaveChanges();
 
@@ -65,7 +66,7 @@ namespace HRMSystem.Controller
 
                 }
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
@@ -77,9 +78,9 @@ namespace HRMSystem.Controller
                 clsCommon.OpenWaitingForm(View);
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaPB"));
+                InitialDetailPage(masterForm.GetPrimaryKey("MaChucVu"));
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
@@ -90,7 +91,7 @@ namespace HRMSystem.Controller
                 clsCommon.OpenWaitingForm(View);
                 InitialDetailPage("");
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
@@ -101,14 +102,14 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new ucDepartmentDetail() { Dock = DockStyle.Fill };
-                detailForm.MaPB = pKey;
+                detailForm = new ucChungChi() { Dock = DockStyle.Fill };
+                detailForm.MaCV = pKey;
                 detailForm.BackButtonClick -= DetailForm_BackButtonClick; ;
                 detailForm.BackButtonClick += DetailForm_BackButtonClick;
                 View.PageDetail.Controls.Add(detailForm);
                 View.NavigatorFrame.SelectedPage = View.PageDetail;
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
         }
 
         private void DetailForm_BackButtonClick(object sender, EventArgs e)
@@ -118,7 +119,7 @@ namespace HRMSystem.Controller
                 clsCommon.OpenWaitingForm(View);
                 InitialMasterPage();
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
@@ -126,11 +127,21 @@ namespace HRMSystem.Controller
         {
             using (var context = new AppDbContext())
             {
-                var query = context.PhongBans.ToList();
-
+                var query = (from cm in context.ChungChis
+                             join tdcm in context.NhanViens
+                             on cm.MaNV equals tdcm.MaNV
+                             select new
+                             {
+                                 cm.MaCC,
+                                 cm.TenCC,
+                                 tdcm.TenNV,
+                                 cm.NgayCap,
+                                 cm.NgayHetHan,
+                                 cm.NoiCap
+                             }).ToList();
                 clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Quản lý Phòng Ban");
-                masterForm.SetDataSource(query, clsInitialGridColumn.InitialDepartment());
+                masterForm.SetTitle("Quản lý Chứng chỉ");
+                masterForm.SetDataSource(query, clsInitialGridColumn.InitialDegree());
                 masterForm.SetSpecialGridProperties();
 
             }
@@ -145,7 +156,7 @@ namespace HRMSystem.Controller
                 clsCommon.OpenWaitingForm(View);
                 InitialMasterPage();
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 

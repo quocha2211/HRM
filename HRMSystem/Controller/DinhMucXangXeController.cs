@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class DepartmentController : IucControlController
+    public class DinhMucXangXeController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public ucDepartmentDetail detailForm;
+        public ucDinhMucXangXe detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -53,11 +53,11 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var phongBan = context.PhongBans.Find(masterForm.GetPrimaryKey("MaPB"));
+                    var model = context.DinhMucXangXes.Find(masterForm.GetPrimaryKey("MaDMXX"));
 
-                    if (phongBan != null)
+                    if (model != null)
                     {
-                        context.PhongBans.Remove(phongBan);
+                        context.DinhMucXangXes.Remove(model);
 
                         context.SaveChanges();
 
@@ -77,7 +77,7 @@ namespace HRMSystem.Controller
                 clsCommon.OpenWaitingForm(View);
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaPB"));
+                InitialDetailPage(masterForm.GetPrimaryKey("MaDMXX"));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -101,8 +101,8 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new ucDepartmentDetail() { Dock = DockStyle.Fill };
-                detailForm.MaPB = pKey;
+                detailForm = new ucDinhMucXangXe() { Dock = DockStyle.Fill };
+                detailForm.MaDMXX = pKey;
                 detailForm.BackButtonClick -= DetailForm_BackButtonClick; ;
                 detailForm.BackButtonClick += DetailForm_BackButtonClick;
                 View.PageDetail.Controls.Add(detailForm);
@@ -126,11 +126,11 @@ namespace HRMSystem.Controller
         {
             using (var context = new AppDbContext())
             {
-                var query = context.PhongBans.ToList();
+                var query = context.DinhMucXangXes.ToList();
 
                 clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Quản lý Phòng Ban");
-                masterForm.SetDataSource(query, clsInitialGridColumn.InitialDepartment());
+                masterForm.SetTitle("Quản lý Định Mức Xăng Xe");
+                masterForm.SetDataSource(query, clsInitialGridColumn.InitialDinhMucXangXe());
                 masterForm.SetSpecialGridProperties();
 
             }

@@ -17,23 +17,24 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controls
 {
-    public partial class ucExpertiseDetail : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucDutyDetail : DevExpress.XtraEditors.XtraUserControl
     {
 
         public event EventHandler BackButtonClick;
-        public string MaCM;
+        public string MaCV;
         private BindingSource bindingSource = new BindingSource();
-        public ucExpertiseDetail()
+        public ucDutyDetail()
         {
             InitializeComponent();
         }
 
-        private void InitializeDataBindings(Expertise chuyenmon)
+        private void InitializeDataBindings(ChucVu model)
         {
-            bindingSource.DataSource = chuyenmon;
-            txtMaCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaCM));
-            txtTenCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.TenCM));
-            cbTDCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaTDCM), true, DataSourceUpdateMode.OnPropertyChanged);
+            bindingSource.DataSource = model;
+            txtMaCM.DataBindings.Add("Text", bindingSource, nameof(ChucVu.MaChucVu));
+            txtTenPB.DataBindings.Add("Text", bindingSource, nameof(ChucVu.TenChucVu));
+            txtCapDo.DataBindings.Add("Text", bindingSource, nameof(ChucVu.CapDo));
+            txtNu.DataBindings.Add("EditValue", bindingSource, nameof(ChucVu.HeSoChucDanh));
 
         }
         
@@ -48,47 +49,48 @@ namespace HRMSystem.Controls
             try
             {
                 this.ActiveControl = null;
-                Expertise chuyenmon = (Expertise)bindingSource.Current;
-                if (chuyenmon == null)
+                ChucVu model = (ChucVu)bindingSource.Current;
+                if (model == null)
                 {
+                    MessageBox.Show("Lưu thất bại.");
                     return;
                 }
 
                 using (var context = new AppDbContext())
                 {
-                    context.ChuyenMons.AddOrUpdate(chuyenmon);
+                    context.ChucVus.AddOrUpdate(model);
 
                     context.SaveChanges();
                 }
 
-                MessageBox.Show("Thông tin nhân viên đã được lưu thành công.");
+                MessageBox.Show("Thông tin đã được lưu thành công.");
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucChucVuDetail", ex.ToString()); }
             
         }
 
-        private void ucExpertiseDetail_Load(object sender, EventArgs e)
+        private void ucChucVuDetail_Load(object sender, EventArgs e)
         {
             try
             {
-                clsCommon.initialValue("TrinhDoChuyenMon", "MaTDCM", "TenTDCM", cbTDCMView, cbTDCM, clsInitialGridColumn.InitialExpertise());
-                if (string.IsNullOrEmpty(MaCM))
+                //clsCommon.initialValue("TrinhDoChuyenMon", "MaTDCM", "TenTDCM", cbTDCMView, cbTDCM, clsInitialGridColumn.InitialDepartment());
+                if (string.IsNullOrEmpty(MaCV))
                 {
-                    InitializeDataBindings(new Expertise());
+                    InitializeDataBindings(new ChucVu());
                 }
                 else
                 {
                     using (var context = new AppDbContext())
                     {
-                        var chuyenMon = context.ChuyenMons.Find(Convert.ToInt32( MaCM));
-                        InitializeDataBindings(chuyenMon);
+                        var model = context.ChucVus.Find(Convert.ToInt32( MaCV));
+                        InitializeDataBindings(model);
 
                     }
                 }
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucChucVuDetail", ex.ToString()); }
         }
 
         private void btnBack_EditValueChanged(object sender, EventArgs e)

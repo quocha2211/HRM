@@ -137,7 +137,7 @@ namespace HRMSystem.Controller
                                  }).ToList();
 
                     clsCommon.OpenWaitingForm(View);
-                    masterForm.SetTitle("Quản lý Chuyên Môn");
+                    masterForm.SetTitle("Quản lý Ngoại ngữ");
                     masterForm.SetDataSource(query, clsInitialGridColumn.InitialLanguage());
                     masterForm.SetSpecialGridProperties();
 
@@ -159,8 +159,5 @@ namespace HRMSystem.Controller
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LanguageController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
-
-
-
     }
 }

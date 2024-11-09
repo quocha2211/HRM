@@ -17,26 +17,25 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controls
 {
-    public partial class ucExpertiseDetail : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucDinhMucXangXe : DevExpress.XtraEditors.XtraUserControl
     {
 
         public event EventHandler BackButtonClick;
-        public string MaCM;
+        public string MaDMXX;
         private BindingSource bindingSource = new BindingSource();
-        public ucExpertiseDetail()
+        public ucDinhMucXangXe()
         {
             InitializeComponent();
         }
 
-        private void InitializeDataBindings(Expertise chuyenmon)
+        private void InitializeDataBindings(DinhMucXangXe model)
         {
-            bindingSource.DataSource = chuyenmon;
-            txtMaCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaCM));
-            txtTenCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.TenCM));
-            cbTDCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaTDCM), true, DataSourceUpdateMode.OnPropertyChanged);
-
+            bindingSource.DataSource = model;
+            txtMaMLTT.DataBindings.Add("Text", bindingSource, nameof(DinhMucXangXe.MaDMXX));
+            txtVung.DataBindings.Add("Text", bindingSource, nameof(DinhMucXangXe.TenPTien));
+            txtMLTTC.DataBindings.Add("Text", bindingSource, nameof(DinhMucXangXe.DMXX));
         }
-        
+
 
         private async void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -48,47 +47,48 @@ namespace HRMSystem.Controls
             try
             {
                 this.ActiveControl = null;
-                Expertise chuyenmon = (Expertise)bindingSource.Current;
-                if (chuyenmon == null)
+                DinhMucXangXe model = (DinhMucXangXe)bindingSource.Current;
+                if (model == null)
                 {
+                    MessageBox.Show("Lưu thất bại.");
                     return;
                 }
 
                 using (var context = new AppDbContext())
                 {
-                    context.ChuyenMons.AddOrUpdate(chuyenmon);
+                    context.DinhMucXangXes.AddOrUpdate(model);
 
                     context.SaveChanges();
                 }
 
-                MessageBox.Show("Thông tin nhân viên đã được lưu thành công.");
+                MessageBox.Show("Thông tin đã được lưu thành công.");
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucDinhMucXangXeDetail", ex.ToString()); }
             
         }
 
-        private void ucExpertiseDetail_Load(object sender, EventArgs e)
+        private void ucDinhMucXangXeDetail_Load(object sender, EventArgs e)
         {
             try
             {
-                clsCommon.initialValue("TrinhDoChuyenMon", "MaTDCM", "TenTDCM", cbTDCMView, cbTDCM, clsInitialGridColumn.InitialExpertise());
-                if (string.IsNullOrEmpty(MaCM))
+                
+                if (string.IsNullOrEmpty(MaDMXX))
                 {
-                    InitializeDataBindings(new Expertise());
+                    InitializeDataBindings(new DinhMucXangXe());
                 }
                 else
                 {
                     using (var context = new AppDbContext())
                     {
-                        var chuyenMon = context.ChuyenMons.Find(Convert.ToInt32( MaCM));
-                        InitializeDataBindings(chuyenMon);
+                        var model = context.DinhMucXangXes.Find(Convert.ToInt32( MaDMXX));
+                        InitializeDataBindings(model);
 
                     }
                 }
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucDinhMucXangXeDetail", ex.ToString()); }
         }
 
         private void btnBack_EditValueChanged(object sender, EventArgs e)

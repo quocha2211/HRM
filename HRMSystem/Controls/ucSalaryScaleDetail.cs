@@ -16,62 +16,62 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controls
 {
-    public partial class ucLanguageDetail : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucSalaryScaleDetail : DevExpress.XtraEditors.XtraUserControl
     {
 
         public event EventHandler BackButtonClick;
-        public string MaNN;
+        public string MaTL;
         private BindingSource bindingSource = new BindingSource();
-        public ucLanguageDetail()
+        public ucSalaryScaleDetail()
         {
             InitializeComponent();
         }
 
-        private void InitializeDataBindings(Language ngoaiNgu)
+        private void InitializeDataBindings(ThangLuong thangLuong)
         {
-            bindingSource.DataSource = ngoaiNgu;
-            txtMaCM.DataBindings.Add("Text", bindingSource, nameof(Language.MaNN));
-            txtTenCM.DataBindings.Add("Text", bindingSource, nameof(Language.TenNN));
-            cbTDCM.DataBindings.Add("Text", bindingSource, nameof(Language.MaTDNN), true, DataSourceUpdateMode.OnPropertyChanged);
+            bindingSource.DataSource = thangLuong;
+            txtMaCM.DataBindings.Add("Text", bindingSource, nameof(ThangLuong.MaTL));
+            txtTenCM.DataBindings.Add("Text", bindingSource, nameof(ThangLuong.TenTL));
+            cbTDCM.DataBindings.Add("Text", bindingSource, nameof(ThangLuong.DienGiai), true, DataSourceUpdateMode.OnPropertyChanged);
 
         }
 
         private async void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.ActiveControl = null;
-            Language ngoaiNgu = (Language)bindingSource.Current;
-            if (ngoaiNgu == null)
+            ThangLuong thangLuong = (ThangLuong)bindingSource.Current;
+            if (thangLuong == null)
             {
-                MessageBox.Show("Thông tin ngoại ngữ lưu thất bại.");
+                MessageBox.Show("Lưu thất bại.");
                 return;
             }
 
             using (var context = new AppDbContext())
             {
-                context.NgoaiNgus.AddOrUpdate(ngoaiNgu);
+                context.ThangLuongs.AddOrUpdate(thangLuong);
 
                 await context.SaveChangesAsync();
             }
 
-            MessageBox.Show("Thông tin ngoại ngữ đã được lưu thành công.");
+            MessageBox.Show("Thông tin đã được lưu thành công.");
         }
 
-        private void ucLanguageDetail_Load(object sender, EventArgs e)
+        private void ucThangLuongDetail_Load(object sender, EventArgs e)
         {
             try
             {
                 
                
-                if (string.IsNullOrEmpty(MaNN))
+                if (string.IsNullOrEmpty(MaTL))
                 {
-                    InitializeDataBindings(new Language());
+                    InitializeDataBindings(new ThangLuong());
                 }
                 else
                 {
                     using (var context = new AppDbContext())
                     {
-                        var ngoaiNgu = context.NgoaiNgus.Find( Convert.ToInt32(MaNN));
-                        InitializeDataBindings(ngoaiNgu);
+                        var thangLuong = context.ThangLuongs.Find( Convert.ToInt32(MaTL));
+                        InitializeDataBindings(thangLuong);
                     }
                 }
 

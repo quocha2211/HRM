@@ -17,23 +17,25 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controls
 {
-    public partial class ucExpertiseDetail : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucDepartmentDetail : DevExpress.XtraEditors.XtraUserControl
     {
 
         public event EventHandler BackButtonClick;
-        public string MaCM;
+        public string MaPB;
         private BindingSource bindingSource = new BindingSource();
-        public ucExpertiseDetail()
+        public ucDepartmentDetail()
         {
             InitializeComponent();
         }
 
-        private void InitializeDataBindings(Expertise chuyenmon)
+        private void InitializeDataBindings(PhongBan phongBan)
         {
-            bindingSource.DataSource = chuyenmon;
-            txtMaCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaCM));
-            txtTenCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.TenCM));
-            cbTDCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaTDCM), true, DataSourceUpdateMode.OnPropertyChanged);
+            bindingSource.DataSource = phongBan;
+            txtMaCM.DataBindings.Add("Text", bindingSource, nameof(PhongBan.MaPB));
+            txtTenPB.DataBindings.Add("Text", bindingSource, nameof(PhongBan.TenPB));
+            txtCapDo.DataBindings.Add("Text", bindingSource, nameof(PhongBan.CapDo));
+            txtNu.DataBindings.Add("EditValue", bindingSource, nameof(PhongBan.DoTuoiVeHuuNu));
+            txtNam.DataBindings.Add("EditValue", bindingSource, nameof(PhongBan.DoTuoiVeHuuNam));
 
         }
         
@@ -48,15 +50,15 @@ namespace HRMSystem.Controls
             try
             {
                 this.ActiveControl = null;
-                Expertise chuyenmon = (Expertise)bindingSource.Current;
-                if (chuyenmon == null)
+                PhongBan phongBan = (PhongBan)bindingSource.Current;
+                if (phongBan == null)
                 {
                     return;
                 }
 
                 using (var context = new AppDbContext())
                 {
-                    context.ChuyenMons.AddOrUpdate(chuyenmon);
+                    context.PhongBans.AddOrUpdate(phongBan);
 
                     context.SaveChanges();
                 }
@@ -64,31 +66,31 @@ namespace HRMSystem.Controls
                 MessageBox.Show("Thông tin nhân viên đã được lưu thành công.");
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucPhongBanDetail", ex.ToString()); }
             
         }
 
-        private void ucExpertiseDetail_Load(object sender, EventArgs e)
+        private void ucPhongBanDetail_Load(object sender, EventArgs e)
         {
             try
             {
-                clsCommon.initialValue("TrinhDoChuyenMon", "MaTDCM", "TenTDCM", cbTDCMView, cbTDCM, clsInitialGridColumn.InitialExpertise());
-                if (string.IsNullOrEmpty(MaCM))
+                //clsCommon.initialValue("TrinhDoChuyenMon", "MaTDCM", "TenTDCM", cbTDCMView, cbTDCM, clsInitialGridColumn.InitialDepartment());
+                if (string.IsNullOrEmpty(MaPB))
                 {
-                    InitializeDataBindings(new Expertise());
+                    InitializeDataBindings(new PhongBan());
                 }
                 else
                 {
                     using (var context = new AppDbContext())
                     {
-                        var chuyenMon = context.ChuyenMons.Find(Convert.ToInt32( MaCM));
-                        InitializeDataBindings(chuyenMon);
+                        var phongBan = context.PhongBans.Find(Convert.ToInt32( MaPB));
+                        InitializeDataBindings(phongBan);
 
                     }
                 }
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucPhongBanDetail", ex.ToString()); }
         }
 
         private void btnBack_EditValueChanged(object sender, EventArgs e)

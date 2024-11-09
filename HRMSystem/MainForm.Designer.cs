@@ -39,16 +39,11 @@
             this.btnSkills = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement13 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnProvince = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnReligion = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.grpProfile = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnEmployee = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -197,16 +192,11 @@
             this.btnSkills,
             this.accordionControlElement6,
             this.accordionControlElement9,
-            this.accordionControlElement5,
             this.accordionControlElement7,
             this.accordionControlElement8,
             this.accordionControlElement10,
             this.accordionControlElement13,
-            this.accordionControlElement14,
-            this.accordionControlElement17,
-            this.btnProvince,
-            this.accordionControlElement15,
-            this.btnReligion});
+            this.accordionControlElement14});
             this.grpCategory.Expanded = true;
             this.grpCategory.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.categorize;
             this.grpCategory.Name = "grpCategory";
@@ -250,18 +240,7 @@
             this.accordionControlElement9.Name = "accordionControlElement9";
             this.accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement9.Text = "Quản lý thang lương";
-            // 
-            // accordionControlElement5
-            // 
-            this.accordionControlElement5.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement5.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement5.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement5.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement5.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement5.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement5.Name = "accordionControlElement5";
-            this.accordionControlElement5.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement5.Text = "Quản lý trình độ văn hóa";
+            this.accordionControlElement9.Click += new System.EventHandler(this.accordionControlElement9_Click);
             // 
             // accordionControlElement7
             // 
@@ -274,6 +253,7 @@
             this.accordionControlElement7.Name = "accordionControlElement7";
             this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement7.Text = "Quản lý chứng chỉ";
+            this.accordionControlElement7.Click += new System.EventHandler(this.accordionControlElement7_Click);
             // 
             // accordionControlElement8
             // 
@@ -286,6 +266,7 @@
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement8.Text = "Quản lý mức lương tối thiểu";
+            this.accordionControlElement8.Click += new System.EventHandler(this.accordionControlElement8_Click);
             // 
             // accordionControlElement10
             // 
@@ -298,6 +279,7 @@
             this.accordionControlElement10.Name = "accordionControlElement10";
             this.accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement10.Text = "Quản lý định mức xăng xe";
+            this.accordionControlElement10.Click += new System.EventHandler(this.accordionControlElement10_Click);
             // 
             // accordionControlElement13
             // 
@@ -324,57 +306,6 @@
             this.accordionControlElement14.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement14.Text = "Quản lý chức vụ";
             this.accordionControlElement14.Click += new System.EventHandler(this.accordionControlElement14_Click);
-            // 
-            // accordionControlElement17
-            // 
-            this.accordionControlElement17.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement17.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement17.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement17.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement17.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement17.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement17.Name = "accordionControlElement17";
-            this.accordionControlElement17.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement17.Text = "Quản lý quan hệ nhân thân";
-            // 
-            // btnProvince
-            // 
-            this.btnProvince.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProvince.Appearance.Hovered.Options.UseFont = true;
-            this.btnProvince.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProvince.Appearance.Normal.Options.UseFont = true;
-            this.btnProvince.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProvince.Appearance.Pressed.Options.UseFont = true;
-            this.btnProvince.Name = "btnProvince";
-            this.btnProvince.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnProvince.Text = "Quản lý tỉnh thành";
-            this.btnProvince.Click += new System.EventHandler(this.btnProvince_Click);
-            // 
-            // accordionControlElement15
-            // 
-            this.accordionControlElement15.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement15.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement15.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement15.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement15.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement15.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement15.Name = "accordionControlElement15";
-            this.accordionControlElement15.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement15.Text = "Quản lý dân tộc";
-            this.accordionControlElement15.Click += new System.EventHandler(this.accordionControlElement15_Click);
-            // 
-            // btnReligion
-            // 
-            this.btnReligion.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReligion.Appearance.Hovered.Options.UseFont = true;
-            this.btnReligion.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReligion.Appearance.Normal.Options.UseFont = true;
-            this.btnReligion.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReligion.Appearance.Pressed.Options.UseFont = true;
-            this.btnReligion.Name = "btnReligion";
-            this.btnReligion.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnReligion.Text = "Quản lý tôn giáo";
-            this.btnReligion.Click += new System.EventHandler(this.btnReligion_Click);
             // 
             // grpProfile
             // 
@@ -996,18 +927,13 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnSkills;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement btnProvince;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement13;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement14;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement15;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement btnReligion;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnEmployee;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;

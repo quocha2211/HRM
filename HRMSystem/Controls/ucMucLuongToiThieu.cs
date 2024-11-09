@@ -17,26 +17,26 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controls
 {
-    public partial class ucExpertiseDetail : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucMucLuongToiThieu : DevExpress.XtraEditors.XtraUserControl
     {
 
         public event EventHandler BackButtonClick;
-        public string MaCM;
+        public string MaMLTT;
         private BindingSource bindingSource = new BindingSource();
-        public ucExpertiseDetail()
+        public ucMucLuongToiThieu()
         {
             InitializeComponent();
         }
 
-        private void InitializeDataBindings(Expertise chuyenmon)
+        private void InitializeDataBindings(MucLuongToiThieu model)
         {
-            bindingSource.DataSource = chuyenmon;
-            txtMaCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaCM));
-            txtTenCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.TenCM));
-            cbTDCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaTDCM), true, DataSourceUpdateMode.OnPropertyChanged);
-
+            bindingSource.DataSource = model;
+            txtMaMLTT.DataBindings.Add("Text", bindingSource, nameof(MucLuongToiThieu.MaMLTT));
+            dNgayCap.DataBindings.Add("Text", bindingSource, nameof(MucLuongToiThieu.NgayAD));
+            txtVung.DataBindings.Add("Text", bindingSource, nameof(MucLuongToiThieu.MLTTVung));
+            txtMLTTC.DataBindings.Add("Text", bindingSource, nameof(MucLuongToiThieu.MLTTC));
         }
-        
+
 
         private async void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -48,47 +48,48 @@ namespace HRMSystem.Controls
             try
             {
                 this.ActiveControl = null;
-                Expertise chuyenmon = (Expertise)bindingSource.Current;
-                if (chuyenmon == null)
+                MucLuongToiThieu model = (MucLuongToiThieu)bindingSource.Current;
+                if (model == null)
                 {
+                    MessageBox.Show("Lưu thất bại.");
                     return;
                 }
 
                 using (var context = new AppDbContext())
                 {
-                    context.ChuyenMons.AddOrUpdate(chuyenmon);
+                    context.MucLuongToiThieus.AddOrUpdate(model);
 
                     context.SaveChanges();
                 }
 
-                MessageBox.Show("Thông tin nhân viên đã được lưu thành công.");
+                MessageBox.Show("Thông tin đã được lưu thành công.");
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucMucLuongToiThieuDetail", ex.ToString()); }
             
         }
 
-        private void ucExpertiseDetail_Load(object sender, EventArgs e)
+        private void ucMucLuongToiThieuDetail_Load(object sender, EventArgs e)
         {
             try
             {
-                clsCommon.initialValue("TrinhDoChuyenMon", "MaTDCM", "TenTDCM", cbTDCMView, cbTDCM, clsInitialGridColumn.InitialExpertise());
-                if (string.IsNullOrEmpty(MaCM))
+                
+                if (string.IsNullOrEmpty(MaMLTT))
                 {
-                    InitializeDataBindings(new Expertise());
+                    InitializeDataBindings(new MucLuongToiThieu());
                 }
                 else
                 {
                     using (var context = new AppDbContext())
                     {
-                        var chuyenMon = context.ChuyenMons.Find(Convert.ToInt32( MaCM));
-                        InitializeDataBindings(chuyenMon);
+                        var model = context.MucLuongToiThieus.Find(Convert.ToInt32( MaMLTT));
+                        InitializeDataBindings(model);
 
                     }
                 }
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucMucLuongToiThieuDetail", ex.ToString()); }
         }
 
         private void btnBack_EditValueChanged(object sender, EventArgs e)

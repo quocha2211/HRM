@@ -262,6 +262,9 @@
   <ItemGroup>
     <Compile Include="AppDbContext.cs" />
     <Compile Include="Controller\BaseController.cs" />
+    <Compile Include="Controller\DegreeController.cs" />
+    <Compile Include="Controller\DinhMucXangXeController.cs" />
+    <Compile Include="Controller\MinSalaryController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\EmployeeBothController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
@@ -271,6 +274,7 @@
     <Compile Include="Controller\ReligionController.cs" />
     <Compile Include="Controller\ProvinceController.cs" />
     <Compile Include="Controller\ExpertiseController.cs" />
+    <Compile Include="Controller\SalaryScaleController.cs" />
     <Compile Include="Controls\ucBaseDoubleList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -282,6 +286,42 @@
     </Compile>
     <Compile Include="Controls\ucBaseMasterDetail.Designer.cs">
       <DependentUpon>ucBaseMasterDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDinhMucXangXe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucDinhMucXangXe.Designer.cs">
+      <DependentUpon>ucDinhMucXangXe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucMucLuongToiThieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucMucLuongToiThieu.Designer.cs">
+      <DependentUpon>ucMucLuongToiThieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucChungChi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucChungChi.Designer.cs">
+      <DependentUpon>ucChungChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDutyDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucDutyDetail.Designer.cs">
+      <DependentUpon>ucDutyDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDepartmentDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucDepartmentDetail.Designer.cs">
+      <DependentUpon>ucDepartmentDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucSalaryScaleDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucSalaryScaleDetail.Designer.cs">
+      <DependentUpon>ucSalaryScaleDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ucLanguageDetail.cs">
       <SubType>UserControl</SubType>
@@ -320,11 +360,19 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChucVu.cs" />
+    <Compile Include="Models\ChungChi.cs" />
+    <Compile Include="Models\DinhMucXangXe.cs" />
     <Compile Include="Models\Expertise.cs" />
     <Compile Include="Models\GridColumnModel.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\MucLuongToiThieu.cs" />
+    <Compile Include="Models\PhongBan.cs" />
+    <Compile Include="Models\QuanHeNhanThan.cs" />
+    <Compile Include="Models\ThangLuong.cs" />
     <Compile Include="Models\TrinhDoChuyenMon.cs" />
     <Compile Include="Models\TrinhDoNgoaiNgu.cs" />
+    <Compile Include="Models\TrinhDoVanHoa.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -341,6 +389,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucBaseMasterDetail.resx">
       <DependentUpon>ucBaseMasterDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucDinhMucXangXe.resx">
+      <DependentUpon>ucDinhMucXangXe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucMucLuongToiThieu.resx">
+      <DependentUpon>ucMucLuongToiThieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucChungChi.resx">
+      <DependentUpon>ucChungChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucDutyDetail.resx">
+      <DependentUpon>ucDutyDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucDepartmentDetail.resx">
+      <DependentUpon>ucDepartmentDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucSalaryScaleDetail.resx">
+      <DependentUpon>ucSalaryScaleDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucLanguageDetail.resx">
       <DependentUpon>ucLanguageDetail.cs</DependentUpon>

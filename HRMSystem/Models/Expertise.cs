@@ -13,7 +13,7 @@ public class Expertise
     public string TenCM { get; set; }
 
     
-    public int? MaTDCM { get; set; }
+    public int MaTDCM { get; set; }
 
     
     public TrinhDoChuyenMon TrinhDoChuyenMon { get; set; }

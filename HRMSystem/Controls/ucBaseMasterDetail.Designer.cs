@@ -1,6 +1,6 @@
 ﻿namespace HRMSystem.Controls
 {
-    partial class ucEmployeeMaster
+    partial class ucBaseMasterDetail
     {
         /// <summary> 
         /// Required designer variable.

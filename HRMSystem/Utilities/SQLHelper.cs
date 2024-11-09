@@ -15,7 +15,7 @@ namespace HRMSystem.Utilities
         {
             //string path = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
             //string path = @"Server=DESKTOP-QVR4L71;Database=HRMsystem;Trusted_Connection=True;";
-            string path = @"Server=DESKTOP-8M9LGM5;Database=HRMsystem;Trusted_Connection=True;";
+            string path = @"Server=QUOCHA\SQLEXPRESS;Database=HRMsystem;Trusted_Connection=True;";
             return path;
         }
         public static DataTable Select(string strComm)

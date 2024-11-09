@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -174,15 +175,34 @@ namespace HRMSystem.Controls
             BackButtonClick?.Invoke(sender, e);
         }
 
-        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private async void btnSave_ItemClickAsync(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
                 Users nhanVien = (Users)bindingSource.Current;
 
-               
+                if (nhanVien == null)
+                {
+                    return;
+                }
+
+                using (var context = new AppDbContext())
+                {
+                    context.NhanViens.AddOrUpdate(nhanVien);
+
+                    await context.SaveChangesAsync();  
+                }
+
+                MessageBox.Show("Thông tin nhân viên đã được lưu thành công.");
+
+
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeDetail", ex.ToString()); }
+        }
+
+        private void btnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            BackButtonClick?.Invoke(sender, e);
         }
     }
 }

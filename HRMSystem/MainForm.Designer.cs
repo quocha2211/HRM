@@ -224,6 +224,7 @@
             this.btnSkills.Name = "btnSkills";
             this.btnSkills.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnSkills.Text = "Quản lý chuyên môn";
+            this.btnSkills.Click += new System.EventHandler(this.btnSkills_Click);
             // 
             // accordionControlElement6
             // 
@@ -236,6 +237,7 @@
             this.accordionControlElement6.Name = "accordionControlElement6";
             this.accordionControlElement6.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement6.Text = "Quản lý ngoại ngữ";
+            this.accordionControlElement6.Click += new System.EventHandler(this.accordionControlElement6_Click);
             // 
             // accordionControlElement9
             // 
@@ -851,7 +853,7 @@
             this.npWelcome.Caption = "npWelcome";
             this.npWelcome.Controls.Add(this.label1);
             this.npWelcome.Font = new System.Drawing.Font("Tahoma", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.npWelcome.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.npWelcome.Margin = new System.Windows.Forms.Padding(5);
             this.npWelcome.Name = "npWelcome";
             this.npWelcome.Size = new System.Drawing.Size(1058, 668);
             // 

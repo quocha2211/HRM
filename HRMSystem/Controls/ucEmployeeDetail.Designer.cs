@@ -525,7 +525,7 @@
             this.btnSave.Id = 4;
             this.btnSave.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Save;
             this.btnSave.Name = "btnSave";
-            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClickAsync);
             // 
             // btnCancel
             // 
@@ -533,6 +533,7 @@
             this.btnCancel.Id = 5;
             this.btnCancel.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Cancel1;
             this.btnCancel.Name = "btnCancel";
+            this.btnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancel_ItemClick);
             // 
             // standaloneBarDockControl1
             // 

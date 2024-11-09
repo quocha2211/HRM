@@ -10,6 +10,30 @@ namespace HRMSystem.Utilities
 {
     public static class clsInitialGridColumn
     {
+        public static List<GridColumnModel> InitialLanguage()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Id", FieldName = "MaNN", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngoại ngữ", FieldName = "TenNN", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trình độ Ngoại ngữ", FieldName = "TenTDNN", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+        public static List<GridColumnModel> InitialExpertise()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Id", FieldName = "MaCM", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Chuyên Môn", FieldName = "TenCM", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trình độ chuyên môn", FieldName = "TenTDCM", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
         public static List<GridColumnModel> InitialProvince()
         {
             List<GridColumnModel> lst = new List<GridColumnModel>();

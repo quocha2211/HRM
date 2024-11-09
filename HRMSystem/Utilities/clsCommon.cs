@@ -5,11 +5,13 @@ using DevExpress.Utils.MVVM.Services;
 using DevExpress.Utils.Svg;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraSplashScreen;
 using DocumentFormat.OpenXml.Spreadsheet;
 using ExcelDataReader;
 using HRMSystem.Interfaces;
+using HRMSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -178,7 +180,19 @@ namespace HRMSystem.Utilities
         //        return null;
         //    }
         //}
+        public static void initialValue(string tableName, string valueMember, string displayMember, GridView grv, SearchLookUpEdit cbo, List<GridColumnModel> lst)
+        {
+            try
+            {
+                grv.InitialGridColumn(lst);
+                cbo.Properties.DataSource = clsSQLAllValue.GetAllValueFromTable(tableName);
+                cbo.Properties.ValueMember = valueMember;
+                cbo.Properties.DisplayMember = displayMember;
+                grv.SetGridControlProperties();
 
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeDetail", ex.ToString()); }
+        }
         public static void OpenChildPage(string userControlName, string controllerName, NavigationFrame navigator)
         {
             try

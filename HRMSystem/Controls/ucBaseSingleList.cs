@@ -17,6 +17,7 @@ namespace HRMSystem.Controls
     {
         public event EventHandler AddButtonClick;
         public event EventHandler EditButtonClick;
+        public event EventHandler DeleteButtonClick;
         public ucBaseSingleList()
         {
             InitializeComponent();
@@ -26,6 +27,16 @@ namespace HRMSystem.Controls
             lblTitle.Text = title;
         }
         public void SetDataSource(DataTable dt, List<GridColumnModel> lstInitialGridColumn)
+        {
+            try
+            {
+                grvData.InitialGridColumn(lstInitialGridColumn);
+                grdData.DataSource = dt;
+                grvData.SetGridControlProperties();
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, this.Name, ex.ToString()); }
+        }
+        public void SetDataSource(object dt, List<GridColumnModel> lstInitialGridColumn)
         {
             try
             {
@@ -69,6 +80,17 @@ namespace HRMSystem.Controls
         private void grdData_DoubleClick(object sender, EventArgs e)
         {
             EditButtonClick?.Invoke(sender, e);
+        }
+
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xoá không ?", "Câu hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                DeleteButtonClick?.Invoke(sender, e);
+            }
+
         }
     }
 }

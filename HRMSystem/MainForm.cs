@@ -81,5 +81,15 @@ namespace HRMSystem
         {
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseSingleList", "HRMSystem.Controller.DepartmentController", Navigator);
         }
+
+        private void btnSkills_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ExpertiseController", Navigator);
+        }
+
+        private void accordionControlElement6_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.LanguageController", Navigator);
+        }
     }
 }

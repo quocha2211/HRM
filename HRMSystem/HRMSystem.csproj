@@ -261,18 +261,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDbContext.cs" />
+    <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\EmployeeBothController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\EthnicController.cs" />
     <Compile Include="Controller\DutyController.cs" />
+    <Compile Include="Controller\LanguageController.cs" />
     <Compile Include="Controller\ReligionController.cs" />
     <Compile Include="Controller\ProvinceController.cs" />
+    <Compile Include="Controller\ExpertiseController.cs" />
     <Compile Include="Controls\ucBaseDoubleList.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ucBaseDoubleList.Designer.cs">
       <DependentUpon>ucBaseDoubleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucBaseMasterDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucBaseMasterDetail.Designer.cs">
+      <DependentUpon>ucBaseMasterDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucLanguageDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucLanguageDetail.Designer.cs">
+      <DependentUpon>ucLanguageDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucExpertisesDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucExpertisesDetail.Designer.cs">
+      <DependentUpon>ucExpertisesDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ucBaseSingleList.cs">
       <SubType>UserControl</SubType>
@@ -299,7 +320,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Expertise.cs" />
     <Compile Include="Models\GridColumnModel.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\TrinhDoChuyenMon.cs" />
+    <Compile Include="Models\TrinhDoNgoaiNgu.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -313,6 +338,15 @@
     <Compile Include="Utilities\SQLiteHelper.cs" />
     <EmbeddedResource Include="Controls\ucBaseDoubleList.resx">
       <DependentUpon>ucBaseDoubleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucBaseMasterDetail.resx">
+      <DependentUpon>ucBaseMasterDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucLanguageDetail.resx">
+      <DependentUpon>ucLanguageDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucExpertisesDetail.resx">
+      <DependentUpon>ucExpertisesDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucBaseSingleList.resx">
       <DependentUpon>ucBaseSingleList.cs</DependentUpon>

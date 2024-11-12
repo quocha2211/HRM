@@ -345,11 +345,11 @@
     <Compile Include="Controls\ucEmployeeMaster.Designer.cs">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmCertificateDetail.cs">
+    <Compile Include="Forms\frmLevelSalaryDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmCertificateDetail.Designer.cs">
-      <DependentUpon>frmCertificateDetail.cs</DependentUpon>
+    <Compile Include="Forms\frmLevelSalaryDetail.Designer.cs">
+      <DependentUpon>frmLevelSalaryDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmDepartmentDetail.cs">
       <SubType>Form</SubType>
@@ -381,11 +381,11 @@
     <Compile Include="Forms\frmLevelExpertisesDetail.Designer.cs">
       <DependentUpon>frmLevelExpertisesDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSalaryLevelDetail.cs">
+    <Compile Include="Forms\frmPetrolNorms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSalaryLevelDetail.Designer.cs">
-      <DependentUpon>frmSalaryLevelDetail.cs</DependentUpon>
+    <Compile Include="Forms\frmPetrolNorms.Designer.cs">
+      <DependentUpon>frmPetrolNorms.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IucControlController.cs" />
     <Compile Include="MainForm.cs">
@@ -457,8 +457,8 @@
     <EmbeddedResource Include="Controls\ucEmployeeMaster.resx">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCertificateDetail.resx">
-      <DependentUpon>frmCertificateDetail.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmLevelSalaryDetail.resx">
+      <DependentUpon>frmLevelSalaryDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDepartmentDetail.resx">
       <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
@@ -475,8 +475,8 @@
     <EmbeddedResource Include="Forms\frmLevelExpertisesDetail.resx">
       <DependentUpon>frmLevelExpertisesDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSalaryLevelDetail.resx">
-      <DependentUpon>frmSalaryLevelDetail.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmPetrolNorms.resx">
+      <DependentUpon>frmPetrolNorms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

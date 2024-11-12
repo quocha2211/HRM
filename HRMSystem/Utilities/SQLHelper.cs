@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
@@ -9,14 +10,12 @@ namespace HRMSystem.Utilities
 {
     public static class SQLHelper
     {
-        //public static string ConnectionString = @"Server=DESKTOP-QVR4L71;Database=Learning;uid=sa;pwd=123@123a;";
         public static string ConnectionString = "";
         public static string LoadPath()
         {
-            //string path = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
-            //string path = @"Server=DESKTOP-QVR4L71;Database=HRMsystem;Trusted_Connection=True;";
-            string path = @"Server=QUOCHA\SQLEXPRESS;Database=HRMsystem;Trusted_Connection=True;";
-            return path;
+            string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            return connectionString;
+
         }
         public static DataTable Select(string strComm)
         {

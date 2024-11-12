@@ -282,12 +282,6 @@
     <Compile Include="Controls\ucBaseMasterDetail.Designer.cs">
       <DependentUpon>ucBaseMasterDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ucChungChi.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ucChungChi.Designer.cs">
-      <DependentUpon>ucChungChi.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ucBaseSingleList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -396,9 +390,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucBaseMasterDetail.resx">
       <DependentUpon>ucBaseMasterDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ucChungChi.resx">
-      <DependentUpon>ucChungChi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucBaseSingleList.resx">
       <DependentUpon>ucBaseSingleList.cs</DependentUpon>

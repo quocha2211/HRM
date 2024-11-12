@@ -94,12 +94,12 @@ namespace HRMSystem
 
         private void accordionControlElement9_Click(object sender, EventArgs e)
         {
-            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.SalaryScaleController", Navigator);
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.LevelSalaryController", Navigator);
         }
 
         private void accordionControlElement7_Click(object sender, EventArgs e)
         {
-            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.DegreeController", Navigator);
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.CertificateDetailController", Navigator);
         }
 
         private void accordionControlElement8_Click(object sender, EventArgs e)
@@ -110,7 +110,22 @@ namespace HRMSystem
 
         private void accordionControlElement10_Click(object sender, EventArgs e)
         {
-            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.DinhMucXangXeController", Navigator);
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.PetrolNormsController", Navigator);
+        }
+
+        private void accordionControlElement1_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.LevelExpertiseController", Navigator);
+        }
+
+        private void accordionControlElement5_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.LevelLanguageController", Navigator);
+        }
+
+        private void accordionControlElement11_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.LevelEducationalController", Navigator);
         }
     }
 }

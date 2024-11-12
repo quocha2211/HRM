@@ -88,6 +88,9 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
+            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement11 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.Sidebar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Navigator)).BeginInit();
             this.Navigator.SuspendLayout();
@@ -196,7 +199,10 @@
             this.accordionControlElement8,
             this.accordionControlElement10,
             this.accordionControlElement13,
-            this.accordionControlElement14});
+            this.accordionControlElement14,
+            this.accordionControlElement1,
+            this.accordionControlElement5,
+            this.accordionControlElement11});
             this.grpCategory.Expanded = true;
             this.grpCategory.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.categorize;
             this.grpCategory.Name = "grpCategory";
@@ -885,6 +891,27 @@
             this.skinBarSubItem1.Id = 0;
             this.skinBarSubItem1.Name = "skinBarSubItem1";
             // 
+            // accordionControlElement1
+            // 
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement1.Text = "Quản lý trình độ chuyên môn";
+            this.accordionControlElement1.Click += new System.EventHandler(this.accordionControlElement1_Click);
+            // 
+            // accordionControlElement5
+            // 
+            this.accordionControlElement5.Name = "accordionControlElement5";
+            this.accordionControlElement5.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement5.Text = "Quản lý trình độ ngoại ngữ";
+            this.accordionControlElement5.Click += new System.EventHandler(this.accordionControlElement5_Click);
+            // 
+            // accordionControlElement11
+            // 
+            this.accordionControlElement11.Name = "accordionControlElement11";
+            this.accordionControlElement11.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement11.Text = "Quản lý trình độ văn hoá";
+            this.accordionControlElement11.Click += new System.EventHandler(this.accordionControlElement11_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -974,5 +1001,8 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
         private System.Windows.Forms.Label label1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
     }
 }

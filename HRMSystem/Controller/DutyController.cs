@@ -1,6 +1,7 @@
 ﻿
 using DevExpress.XtraBars.Navigation;
 using HRMSystem.Controls;
+using HRMSystem.Forms;
 using HRMSystem.Interfaces;
 using HRMSystem.Utilities;
 using System;
@@ -18,7 +19,7 @@ namespace HRMSystem.Controller
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public ucDutyDetail detailForm;
+        public frmDutyDetail detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -102,7 +103,7 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new ucDutyDetail() { Dock = DockStyle.Fill };
+                detailForm = new frmDutyDetail() { Dock = DockStyle.Fill };
                 detailForm.MaCV = pKey;
                 detailForm.BackButtonClick -= DetailForm_BackButtonClick; ;
                 detailForm.BackButtonClick += DetailForm_BackButtonClick;

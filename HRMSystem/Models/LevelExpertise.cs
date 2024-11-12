@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 
 [Table("TrinhDoChuyenMon")]
-public class TrinhDoChuyenMon
+public class LevelExpertise
 {
     [Key]  
     public int MaTDCM { get; set; }
@@ -12,5 +12,6 @@ public class TrinhDoChuyenMon
     [StringLength(150)]  
     public string TenTDCM { get; set; }
 
-    public ICollection<Expertise> ChuyenMons { get; set; } 
+    public int MaCM { get; set; }
+
 }

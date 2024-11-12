@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 [Table("TrinhDoNgoaiNgu")]
-public class TrinhDoNgoaiNgu
+public class LevelLanguage
 {
     [Key]  
     public int MaTDNN { get; set; }
@@ -12,5 +12,5 @@ public class TrinhDoNgoaiNgu
     [StringLength(150)] 
     public string TenTDNN { get; set; }
 
-    public ICollection<Language> Languages { get; set; }  
+    public int MaNN { get; set; }
 }

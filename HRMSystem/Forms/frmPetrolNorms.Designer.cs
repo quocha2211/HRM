@@ -63,8 +63,9 @@
             this.groupControl1.Controls.Add(this.layoutControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(600, 194);
+            this.groupControl1.Size = new System.Drawing.Size(400, 124);
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "Định mức xăng xe";
             // 
@@ -73,20 +74,22 @@
             this.layoutControl1.Controls.Add(this.txtName);
             this.layoutControl1.Controls.Add(this.txtLevel);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(2, 34);
+            this.layoutControl1.Location = new System.Drawing.Point(2, 23);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(596, 158);
+            this.layoutControl1.Size = new System.Drawing.Size(396, 99);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 12);
+            this.txtName.Location = new System.Drawing.Point(8, 7);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
             this.txtName.Properties.AdvancedModeOptions.Label = "Tên phương tiện";
             this.txtName.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtName.Size = new System.Drawing.Size(572, 48);
+            this.txtName.Size = new System.Drawing.Size(380, 34);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 4;
             // 
@@ -97,14 +100,15 @@
             0,
             0,
             0});
-            this.txtLevel.Location = new System.Drawing.Point(12, 64);
+            this.txtLevel.Location = new System.Drawing.Point(8, 43);
+            this.txtLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLevel.Name = "txtLevel";
             this.txtLevel.Properties.AdvancedModeOptions.Label = "Định mức";
             this.txtLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtLevel.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtLevel.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtLevel.Size = new System.Drawing.Size(572, 48);
+            this.txtLevel.Size = new System.Drawing.Size(380, 34);
             this.txtLevel.StyleController = this.layoutControl1;
             this.txtLevel.TabIndex = 5;
             // 
@@ -116,7 +120,7 @@
             this.layoutControlItem1,
             this.layoutControlItem2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(596, 158);
+            this.Root.Size = new System.Drawing.Size(396, 99);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -124,16 +128,16 @@
             this.layoutControlItem1.Control = this.txtName;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(576, 52);
+            this.layoutControlItem1.Size = new System.Drawing.Size(382, 36);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtLevel;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 52);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 36);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(576, 86);
+            this.layoutControlItem2.Size = new System.Drawing.Size(382, 51);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -173,6 +177,7 @@
             this.btnSave.Id = 0;
             this.btnSave.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.save3;
             this.btnSave.Name = "btnSave";
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // btnBack
             // 
@@ -180,6 +185,7 @@
             this.btnBack.Id = 1;
             this.btnBack.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.ChromeBackMirrored1;
             this.btnBack.Name = "btnBack";
+            this.btnBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBack_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -187,15 +193,17 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(600, 0);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.barDockControlTop.Size = new System.Drawing.Size(400, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 194);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 124);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(600, 36);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.barDockControlBottom.Size = new System.Drawing.Size(400, 26);
             // 
             // barDockControlLeft
             // 
@@ -203,21 +211,23 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 194);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 124);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(600, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(400, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 194);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 124);
             // 
             // frmPetrolNorms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 230);
+            this.ClientSize = new System.Drawing.Size(400, 150);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -225,11 +235,13 @@
             this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IconOptions.SvgImage = global::HRMSystem.Properties.Resources.Icon;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximumSize = new System.Drawing.Size(600, 230);
             this.MinimumSize = new System.Drawing.Size(600, 230);
             this.Name = "frmPetrolNorms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Thông tin chi tiết";
+            this.Load += new System.EventHandler(this.frmPetrolNorms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

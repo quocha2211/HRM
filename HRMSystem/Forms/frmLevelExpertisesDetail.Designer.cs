@@ -32,6 +32,8 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.txtLevel = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.txtLevelView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -43,19 +45,17 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.txtLevel = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLevel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLevelView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLevel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -65,8 +65,9 @@
             this.groupControl1.Controls.Add(this.layoutControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(600, 194);
+            this.groupControl1.Size = new System.Drawing.Size(400, 124);
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "Thông tin chi tiết";
             // 
@@ -75,22 +76,53 @@
             this.layoutControl1.Controls.Add(this.txtName);
             this.layoutControl1.Controls.Add(this.txtLevel);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(2, 34);
+            this.layoutControl1.Location = new System.Drawing.Point(2, 23);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(596, 158);
+            this.layoutControl1.Size = new System.Drawing.Size(396, 99);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 42);
+            this.txtName.Location = new System.Drawing.Point(12, 50);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Properties.AdvancedModeOptions.Label = "Trình độ";
             this.txtName.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtName.Size = new System.Drawing.Size(572, 48);
+            this.txtName.Size = new System.Drawing.Size(372, 34);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 4;
+            // 
+            // txtLevel
+            // 
+            this.txtLevel.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtLevel.Location = new System.Drawing.Point(12, 12);
+            this.txtLevel.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLevel.Name = "txtLevel";
+            this.txtLevel.Properties.AdvancedModeOptions.Label = "Chuyên môn/ Ngoại ngữ";
+            this.txtLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtLevel.Properties.NullText = "";
+            this.txtLevel.Properties.PopupView = this.txtLevelView;
+            this.txtLevel.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtLevel.Size = new System.Drawing.Size(372, 34);
+            this.txtLevel.StyleController = this.layoutControl1;
+            this.txtLevel.TabIndex = 5;
+            // 
+            // txtLevelView
+            // 
+            this.txtLevelView.DetailHeight = 227;
+            this.txtLevelView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.txtLevelView.Name = "txtLevelView";
+            this.txtLevelView.OptionsEditForm.PopupEditFormWidth = 533;
+            this.txtLevelView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.txtLevelView.OptionsView.ShowGroupPanel = false;
             // 
             // Root
             // 
@@ -100,15 +132,15 @@
             this.layoutControlItem1,
             this.layoutControlItem2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(596, 158);
+            this.Root.Size = new System.Drawing.Size(396, 99);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txtName;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 30);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 38);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(576, 108);
+            this.layoutControlItem1.Size = new System.Drawing.Size(376, 41);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -117,7 +149,7 @@
             this.layoutControlItem2.Control = this.txtLevel;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(576, 30);
+            this.layoutControlItem2.Size = new System.Drawing.Size(376, 38);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -157,6 +189,7 @@
             this.btnSave.Id = 0;
             this.btnSave.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.save3;
             this.btnSave.Name = "btnSave";
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // btnBack
             // 
@@ -164,6 +197,7 @@
             this.btnBack.Id = 1;
             this.btnBack.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.ChromeBackMirrored1;
             this.btnBack.Name = "btnBack";
+            this.btnBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBack_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -171,15 +205,17 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(600, 0);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(2);
+            this.barDockControlTop.Size = new System.Drawing.Size(400, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 194);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 124);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(600, 36);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2);
+            this.barDockControlBottom.Size = new System.Drawing.Size(400, 26);
             // 
             // barDockControlLeft
             // 
@@ -187,47 +223,23 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 194);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 124);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(600, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(400, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 194);
-            // 
-            // txtLevel
-            // 
-            this.txtLevel.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtLevel.Location = new System.Drawing.Point(12, 12);
-            this.txtLevel.Name = "txtLevel";
-            this.txtLevel.Properties.AdvancedModeOptions.Label = "Chuyên môn/ Ngoại ngữ";
-            this.txtLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtLevel.Properties.NullText = "";
-            this.txtLevel.Properties.PopupView = this.searchLookUpEdit1View;
-            this.txtLevel.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtLevel.Size = new System.Drawing.Size(572, 26);
-            this.txtLevel.StyleController = this.layoutControl1;
-            this.txtLevel.TabIndex = 5;
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 124);
             // 
             // frmLevelExpertisesDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 230);
+            this.ClientSize = new System.Drawing.Size(400, 150);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -235,22 +247,24 @@
             this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IconOptions.SvgImage = global::HRMSystem.Properties.Resources.Icon;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(600, 230);
-            this.MinimumSize = new System.Drawing.Size(600, 230);
+            this.MinimumSize = new System.Drawing.Size(400, 150);
             this.Name = "frmLevelExpertisesDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Thông tin chi tiết";
+            this.Load += new System.EventHandler(this.frmLevelExpertisesDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLevel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLevelView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLevel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,6 +287,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraEditors.SearchLookUpEdit txtLevel;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Views.Grid.GridView txtLevelView;
     }
 }

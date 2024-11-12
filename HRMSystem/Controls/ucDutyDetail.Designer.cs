@@ -130,7 +130,7 @@
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.layoutControl2);
-            this.groupControl1.Location = new System.Drawing.Point(12, -79);
+            this.groupControl1.Location = new System.Drawing.Point(12, 58);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(2);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1566, 798);
@@ -522,7 +522,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(67, -125);
+            this.label1.Location = new System.Drawing.Point(67, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1511, 32);
@@ -533,7 +533,7 @@
             // btnBack
             // 
             this.btnBack.EditValue = global::HRMSystem.Properties.Resources.Back;
-            this.btnBack.Location = new System.Drawing.Point(12, -125);
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.MenuManager = this.barManager1;
             this.btnBack.Name = "btnBack";

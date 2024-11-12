@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraBars.Navigation;
+﻿
+using DevExpress.XtraBars.Navigation;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using HRMSystem.Controls;
 using HRMSystem.Forms;
 using HRMSystem.Interfaces;
@@ -13,12 +15,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class DepartmentController : IucControlController
+    public class LevelEducationalController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public frmDepartmentDetail detailForm;
+        public frmLevelEducationalDetail detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -54,11 +56,11 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var phongBan = context.PhongBans.Find(masterForm.GetPrimaryKey("MaPB"));
+                    var chuyenMon = context.ChuyenMons.Find(masterForm.GetPrimaryKey("MaTDVH"));
 
-                    if (phongBan != null)
+                    if (chuyenMon != null)
                     {
-                        context.PhongBans.Remove(phongBan);
+                        context.ChuyenMons.Remove(chuyenMon);
 
                         context.SaveChanges();
 
@@ -66,7 +68,7 @@ namespace HRMSystem.Controller
 
                 }
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LevelEducationalController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
@@ -75,12 +77,11 @@ namespace HRMSystem.Controller
         {
             try
             {
-                
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaPB"));
+                InitialDetailPage(masterForm.GetPrimaryKey("MaTDVH"));
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LevelEducationalController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
@@ -88,29 +89,46 @@ namespace HRMSystem.Controller
         {
             try
             {
-               
                 InitialDetailPage("");
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LevelEducationalController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
         private void InitialDetailPage(string pKey)
         {
+
             try
             {
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new frmDepartmentDetail() { Dock = DockStyle.Fill };
-                detailForm.MaPB = pKey;
-                var rs = detailForm.ShowDialog();
-                if (rs == DialogResult.OK)
+
+                detailForm = new frmLevelEducationalDetail() { Dock = DockStyle.Fill };
+                detailForm.MaTDVH = pKey;
+                var result = detailForm.ShowDialog();
+                if (result == DialogResult.OK)
                 {
                     LoadData();
                 }
+
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LevelEducationalController", ex.ToString()); }
+        }
+
+        private void LoadData()
+        {
+            using (var context = new AppDbContext())
+            {
+
+
+                var query = context.TrinhDoVanHoas.ToList();
+                clsCommon.OpenWaitingForm(View);
+                masterForm.SetTitle("Quản lý Trình Độ Văn Hoá");
+                masterForm.SetDataSource(query, clsInitialGridColumn.InitialLevelEducational());
+                masterForm.SetSpecialGridProperties();
+
+            }
         }
 
         private void DetailForm_BackButtonClick(object sender, EventArgs e)
@@ -124,24 +142,10 @@ namespace HRMSystem.Controller
             finally { clsCommon.CloseWaitingForm(); }
         }
 
-        private void LoadData()
-        {
-            using (var context = new AppDbContext())
-            {
-                var query = context.PhongBans.ToList();
-
-                clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Quản lý Phòng Ban");
-                masterForm.SetDataSource(query, clsInitialGridColumn.InitialDepartment());
-                masterForm.SetSpecialGridProperties();
-
-            }
-        }
-
         private void MasterController_Load(object sender, EventArgs e)
         {
-
             LoadData();
+
 
         }
 
@@ -152,7 +156,7 @@ namespace HRMSystem.Controller
                 clsCommon.OpenWaitingForm(View);
                 InitialMasterPage();
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LevelEducationalController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 

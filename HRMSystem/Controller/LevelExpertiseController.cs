@@ -1,6 +1,7 @@
-﻿
-using DevExpress.XtraBars.Navigation;
+﻿using DevExpress.XtraBars.Navigation;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using HRMSystem.Controls;
+using HRMSystem.Forms;
 using HRMSystem.Interfaces;
 using HRMSystem.Utilities;
 using System;
@@ -13,12 +14,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class DegreeController : IucControlController
+    public class LevelExpertiseController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public ucChungChi detailForm;
+        public frmLevelExpertisesDetail detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -54,19 +55,19 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.ChungChis.Find(masterForm.GetPrimaryKey("MaChucVu"));
+                    var chuyenMon = context.ChuyenMons.Find(masterForm.GetPrimaryKey("MaTDCM"));  
 
-                    if (model != null)
+                    if (chuyenMon != null)
                     {
-                        context.ChungChis.Remove(model);
+                        context.ChuyenMons.Remove(chuyenMon);  
 
                         context.SaveChanges();
 
                     }
-
+                    
                 }
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
@@ -75,12 +76,11 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaChucVu"));
+                InitialDetailPage(Convert.ToInt32( masterForm.GetPrimaryKey("MaTDCM")));
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
@@ -88,28 +88,39 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
-                InitialDetailPage("");
+                InitialDetailPage(0);
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
-        private void InitialDetailPage(string pKey)
+        private void InitialDetailPage(int id)
         {
+           
             try
             {
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new ucChungChi() { Dock = DockStyle.Fill };
-                detailForm.MaCV = pKey;
-                detailForm.BackButtonClick -= DetailForm_BackButtonClick; ;
-                detailForm.BackButtonClick += DetailForm_BackButtonClick;
-                View.PageDetail.Controls.Add(detailForm);
-                View.NavigatorFrame.SelectedPage = View.PageDetail;
+
+                using (var context = new AppDbContext())
+                {
+                    var chuyenMon = context.TrinhDoChuyenMons.Find(id);
+                    detailForm = new frmLevelExpertisesDetail() { Dock = DockStyle.Fill };
+                    detailForm.screenIndex = 0;
+                    if (id > 0)
+                        detailForm.levelExpertise = chuyenMon;
+                    else
+                        detailForm.levelExpertise = new LevelExpertise();
+                    var dialogResult = detailForm.ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        LoadData();
+                    }    
+                }
+
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LanguageController", ex.ToString()); }
         }
 
         private void DetailForm_BackButtonClick(object sender, EventArgs e)
@@ -119,34 +130,35 @@ namespace HRMSystem.Controller
                 clsCommon.OpenWaitingForm(View);
                 InitialMasterPage();
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
+        }
+
+        private void LoadData()
+        {
+            using (var context = new AppDbContext())
+            {
+                var query = (from cm in context.ChuyenMons
+                             join tdcm in context.TrinhDoChuyenMons
+                             on cm.MaCM equals tdcm.MaCM
+                             select new
+                             {
+                                 tdcm.MaTDCM,
+                                 cm.TenCM,
+                                 tdcm.TenTDCM
+                             }).ToList();
+
+                clsCommon.OpenWaitingForm(View);
+                masterForm.SetTitle("Quản lý Trình Độ Chuyên Môn");
+                masterForm.SetDataSource(query, clsInitialGridColumn.InitialLevelExpertise());
+                masterForm.SetSpecialGridProperties();
+
+            }
         }
 
         private void MasterController_Load(object sender, EventArgs e)
         {
-            using (var context = new AppDbContext())
-            {
-                var query = (from cm in context.ChungChis
-                             join tdcm in context.NhanViens
-                             on cm.MaNV equals tdcm.MaNV
-                             select new
-                             {
-                                 cm.MaCC,
-                                 cm.TenCC,
-                                 tdcm.TenNV,
-                                 cm.NgayCap,
-                                 cm.NgayHetHan,
-                                 cm.NoiCap
-                             }).ToList();
-                clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Quản lý Chứng chỉ");
-                masterForm.SetDataSource(query, clsInitialGridColumn.InitialDegree());
-                masterForm.SetSpecialGridProperties();
-
-            }
-
-
+            LoadData();
         }
 
         private void View_Load(object sender, EventArgs e)
@@ -156,11 +168,11 @@ namespace HRMSystem.Controller
                 clsCommon.OpenWaitingForm(View);
                 InitialMasterPage();
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
-
-
+        
+        
     }
 }

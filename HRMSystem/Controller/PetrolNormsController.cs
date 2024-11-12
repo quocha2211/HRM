@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars.Navigation;
 using HRMSystem.Controls;
+using HRMSystem.Forms;
 using HRMSystem.Interfaces;
 using HRMSystem.Utilities;
 using System;
@@ -12,12 +13,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class DinhMucXangXeController : IucControlController
+    public class PetrolNormsController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public ucDinhMucXangXe detailForm;
+        public frmPetrolNorms detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -74,7 +75,6 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 if (masterForm == null)
                     return;
                 InitialDetailPage(masterForm.GetPrimaryKey("MaDMXX"));
@@ -87,7 +87,6 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 InitialDetailPage("");
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
@@ -101,12 +100,13 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new ucDinhMucXangXe() { Dock = DockStyle.Fill };
+                detailForm = new frmPetrolNorms() { Dock = DockStyle.Fill };
                 detailForm.MaDMXX = pKey;
-                detailForm.BackButtonClick -= DetailForm_BackButtonClick; ;
-                detailForm.BackButtonClick += DetailForm_BackButtonClick;
-                View.PageDetail.Controls.Add(detailForm);
-                View.NavigatorFrame.SelectedPage = View.PageDetail;
+                var rs = detailForm.ShowDialog();
+                if (rs == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
         }
@@ -122,7 +122,7 @@ namespace HRMSystem.Controller
             finally { clsCommon.CloseWaitingForm(); }
         }
 
-        private void MasterController_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             using (var context = new AppDbContext())
             {
@@ -135,7 +135,11 @@ namespace HRMSystem.Controller
 
             }
 
+        }
 
+        private void MasterController_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void View_Load(object sender, EventArgs e)

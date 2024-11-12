@@ -32,6 +32,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.cbNhanVien = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.brInformation = new DevExpress.XtraBars.Bar();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
@@ -55,7 +56,6 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.cbNhanVien = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.cbNhanVienView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtMaCC = new DevExpress.XtraEditors.TextEdit();
             this.txtTenCC = new DevExpress.XtraEditors.TextEdit();
@@ -88,8 +88,8 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbNhanVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbNhanVienView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenCC.Properties)).BeginInit();
@@ -138,7 +138,7 @@
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.layoutControl2);
-            this.groupControl1.Location = new System.Drawing.Point(12, -103);
+            this.groupControl1.Location = new System.Drawing.Point(12, 58);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(2);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1566, 822);
@@ -163,6 +163,18 @@
             this.layoutControl2.Size = new System.Drawing.Size(1562, 797);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
+            // 
+            // cbNhanVien
+            // 
+            this.cbNhanVien.Location = new System.Drawing.Point(93, 89);
+            this.cbNhanVien.MenuManager = this.barManager1;
+            this.cbNhanVien.Name = "cbNhanVien";
+            this.cbNhanVien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbNhanVien.Properties.PopupView = this.cbNhanVienView;
+            this.cbNhanVien.Size = new System.Drawing.Size(1457, 20);
+            this.cbNhanVien.StyleController = this.layoutControl2;
+            this.cbNhanVien.TabIndex = 23;
             // 
             // barManager1
             // 
@@ -393,18 +405,6 @@
             this.barStaticItem1.Id = 3;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
-            // cbNhanVien
-            // 
-            this.cbNhanVien.Location = new System.Drawing.Point(93, 89);
-            this.cbNhanVien.MenuManager = this.barManager1;
-            this.cbNhanVien.Name = "cbNhanVien";
-            this.cbNhanVien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbNhanVien.Properties.PopupView = this.cbNhanVienView;
-            this.cbNhanVien.Size = new System.Drawing.Size(1457, 20);
-            this.cbNhanVien.StyleController = this.layoutControl2;
-            this.cbNhanVien.TabIndex = 23;
-            // 
             // cbNhanVienView
             // 
             this.cbNhanVienView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
@@ -571,7 +571,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(67, -149);
+            this.label1.Location = new System.Drawing.Point(67, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1511, 32);
@@ -582,7 +582,7 @@
             // btnBack
             // 
             this.btnBack.EditValue = global::HRMSystem.Properties.Resources.Back;
-            this.btnBack.Location = new System.Drawing.Point(12, -149);
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.MenuManager = this.barManager1;
             this.btnBack.Name = "btnBack";
@@ -706,8 +706,8 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbNhanVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbNhanVienView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenCC.Properties)).EndInit();

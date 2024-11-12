@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HRMSystem.Models
 {
     [Table("MucLuongToiThieu")]
-    public class MucLuongToiThieu
+    public class MinSalary
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

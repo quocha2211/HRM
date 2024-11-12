@@ -32,11 +32,12 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.cbTDCM = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.brInformation = new DevExpress.XtraBars.Bar();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnCancel = new DevExpress.XtraBars.BarButtonItem();
+            this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
@@ -55,6 +56,7 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.cbTDCMView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtTenCM = new DevExpress.XtraEditors.TextEdit();
             this.txtMaCM = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -63,6 +65,7 @@
             this.simpleSeparator2 = new DevExpress.XtraLayout.SimpleSeparator();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.a = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new DevExpress.XtraEditors.PictureEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -73,16 +76,15 @@
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
-            this.cbTDCM = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cbTDCMView = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTDCM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTDCMView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenCM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -91,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.a)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -99,9 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTDCM.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTDCMView)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -147,15 +147,18 @@
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // standaloneBarDockControl1
+            // cbTDCM
             // 
-            this.standaloneBarDockControl1.CausesValidation = false;
-            this.standaloneBarDockControl1.Location = new System.Drawing.Point(12, 12);
-            this.standaloneBarDockControl1.Manager = this.barManager1;
-            this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1538, 24);
-            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
+            this.cbTDCM.EditValue = "";
+            this.cbTDCM.Location = new System.Drawing.Point(111, 89);
+            this.cbTDCM.MenuManager = this.barManager1;
+            this.cbTDCM.Name = "cbTDCM";
+            this.cbTDCM.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbTDCM.Properties.PopupView = this.cbTDCMView;
+            this.cbTDCM.Size = new System.Drawing.Size(1439, 20);
+            this.cbTDCM.StyleController = this.layoutControl2;
+            this.cbTDCM.TabIndex = 16;
             // 
             // barManager1
             // 
@@ -219,6 +222,16 @@
             this.btnCancel.Id = 5;
             this.btnCancel.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Cancel1;
             this.btnCancel.Name = "btnCancel";
+            // 
+            // standaloneBarDockControl1
+            // 
+            this.standaloneBarDockControl1.CausesValidation = false;
+            this.standaloneBarDockControl1.Location = new System.Drawing.Point(12, 12);
+            this.standaloneBarDockControl1.Manager = this.barManager1;
+            this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1538, 24);
+            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // bar1
             // 
@@ -376,6 +389,13 @@
             this.barStaticItem1.Id = 3;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
+            // cbTDCMView
+            // 
+            this.cbTDCMView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.cbTDCMView.Name = "cbTDCMView";
+            this.cbTDCMView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.cbTDCMView.OptionsView.ShowGroupPanel = false;
+            // 
             // txtTenCM
             // 
             this.txtTenCM.Location = new System.Drawing.Point(111, 41);
@@ -452,6 +472,14 @@
             this.a.Name = "a";
             this.a.Size = new System.Drawing.Size(1542, 24);
             this.a.TextSize = new System.Drawing.Size(87, 13);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.cbTDCM;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 77);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(1542, 24);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(87, 13);
             // 
             // label1
             // 
@@ -572,34 +600,6 @@
             this.bar3.StandaloneBarDockControl = this.standaloneBarDockControl1;
             this.bar3.Text = "Main menu";
             // 
-            // cbTDCM
-            // 
-            this.cbTDCM.EditValue = "";
-            this.cbTDCM.Location = new System.Drawing.Point(111, 89);
-            this.cbTDCM.MenuManager = this.barManager1;
-            this.cbTDCM.Name = "cbTDCM";
-            this.cbTDCM.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbTDCM.Properties.PopupView = this.cbTDCMView;
-            this.cbTDCM.Size = new System.Drawing.Size(1439, 20);
-            this.cbTDCM.StyleController = this.layoutControl2;
-            this.cbTDCM.TabIndex = 16;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.cbTDCM;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 77);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(1542, 24);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(87, 13);
-            // 
-            // cbTDCMView
-            // 
-            this.cbTDCMView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.cbTDCMView.Name = "cbTDCMView";
-            this.cbTDCMView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.cbTDCMView.OptionsView.ShowGroupPanel = false;
-            // 
             // ucExpertiseDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,7 +619,9 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbTDCM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTDCMView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenCM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -628,6 +630,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.a)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -636,9 +639,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTDCM.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTDCMView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,15 +28,15 @@ namespace HRMSystem.Controls
             InitializeComponent();
         }
 
-        private void InitializeDataBindings(ChungChi model)
+        private void InitializeDataBindings(Certificate model)
         {
             bindingSource.DataSource = model;
-            txtMaCC.DataBindings.Add("Text", bindingSource, nameof(ChungChi.MaCC));
-            txtTenCC.DataBindings.Add("Text", bindingSource, nameof(ChungChi.TenCC));
-            cbNhanVien.DataBindings.Add("EditValue", bindingSource, nameof(ChungChi.MaNV));
-            dNgayCap.DataBindings.Add("Text", bindingSource, nameof(ChungChi.NgayCap));
-            dNgayHetHan.DataBindings.Add("Text", bindingSource, nameof(ChungChi.NgayHetHan));
-            txtNoiCap.DataBindings.Add("Text", bindingSource, nameof(ChungChi.NoiCap));
+            txtMaCC.DataBindings.Add("Text", bindingSource, nameof(Certificate.MaCC));
+            txtTenCC.DataBindings.Add("Text", bindingSource, nameof(Certificate.TenCC));
+            cbNhanVien.DataBindings.Add("EditValue", bindingSource, nameof(Certificate.MaNV));
+            dNgayCap.DataBindings.Add("Text", bindingSource, nameof(Certificate.NgayCap));
+            dNgayHetHan.DataBindings.Add("Text", bindingSource, nameof(Certificate.NgayHetHan));
+            txtNoiCap.DataBindings.Add("Text", bindingSource, nameof(Certificate.NoiCap));
         }
 
 
@@ -50,7 +50,7 @@ namespace HRMSystem.Controls
             try
             {
                 this.ActiveControl = null;
-                ChungChi model = (ChungChi)bindingSource.Current;
+                Certificate model = (Certificate)bindingSource.Current;
                 if (model == null)
                 {
                     MessageBox.Show("Lưu thất bại.");
@@ -81,7 +81,7 @@ namespace HRMSystem.Controls
                 clsCommon.initialValue("NhanVien", "MaNV", "TenNV", cbNhanVienView, cbNhanVien, lst);
                 if (string.IsNullOrEmpty(MaCV))
                 {
-                    InitializeDataBindings(new ChungChi());
+                    InitializeDataBindings(new Certificate());
                 }
                 else
                 {

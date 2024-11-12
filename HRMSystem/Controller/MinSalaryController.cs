@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars.Navigation;
 using HRMSystem.Controls;
+using HRMSystem.Forms;
 using HRMSystem.Interfaces;
 using HRMSystem.Utilities;
 using System;
@@ -17,7 +18,7 @@ namespace HRMSystem.Controller
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public ucMucLuongToiThieu detailForm;
+        public frmMinSalaryDetail detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -74,7 +75,6 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 if (masterForm == null)
                     return;
                 InitialDetailPage(masterForm.GetPrimaryKey("MaMLTT"));
@@ -87,7 +87,6 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 InitialDetailPage("");
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
@@ -101,28 +100,18 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new ucMucLuongToiThieu() { Dock = DockStyle.Fill };
+                detailForm = new frmMinSalaryDetail() { Dock = DockStyle.Fill };
                 detailForm.MaMLTT = pKey;
-                detailForm.BackButtonClick -= DetailForm_BackButtonClick; ;
-                detailForm.BackButtonClick += DetailForm_BackButtonClick;
-                View.PageDetail.Controls.Add(detailForm);
-                View.NavigatorFrame.SelectedPage = View.PageDetail;
+                var rs = detailForm.ShowDialog();
+                if (rs == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
         }
 
-        private void DetailForm_BackButtonClick(object sender, EventArgs e)
-        {
-            try
-            {
-                clsCommon.OpenWaitingForm(View);
-                InitialMasterPage();
-            }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }
-            finally { clsCommon.CloseWaitingForm(); }
-        }
-
-        private void MasterController_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             using (var context = new AppDbContext())
             {
@@ -134,8 +123,22 @@ namespace HRMSystem.Controller
                 masterForm.SetSpecialGridProperties();
 
             }
+        }
 
+        private void DetailForm_BackButtonClick(object sender, EventArgs e)
+        {
+            try
+            {
+                clsCommon.OpenWaitingForm(View);
+                InitialMasterPage();
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+            finally { clsCommon.CloseWaitingForm(); }
+        }
 
+        private void MasterController_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void View_Load(object sender, EventArgs e)
@@ -148,8 +151,6 @@ namespace HRMSystem.Controller
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
-
-
 
     }
 }

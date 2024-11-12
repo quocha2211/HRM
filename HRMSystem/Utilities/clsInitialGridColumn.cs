@@ -11,6 +11,18 @@ namespace HRMSystem.Utilities
     public static class clsInitialGridColumn
     {
 
+        public static List<GridColumnModel> InitialLevelEducational()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaTDVH", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên trình độ văn hoá", FieldName = "TenTDVH", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
         public static List<GridColumnModel> InitialDinhMucXangXe()
         {
             List<GridColumnModel> lst = new List<GridColumnModel>();
@@ -67,7 +79,8 @@ namespace HRMSystem.Utilities
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;
         }
-        public static List<GridColumnModel> InitialLanguage()
+
+        public static List<GridColumnModel> InitialLevelLanguage()
         {
             List<GridColumnModel> lst = new List<GridColumnModel>();
             try
@@ -79,6 +92,32 @@ namespace HRMSystem.Utilities
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;
         }
+
+        public static List<GridColumnModel> InitialLanguage()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Id", FieldName = "MaNN", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngoại ngữ", FieldName = "TenNN", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
+        public static List<GridColumnModel> InitialLevelExpertise()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Id", FieldName = "MaTDCM", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Chuyên Môn", FieldName = "TenCM", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trình độ chuyên môn", FieldName = "TenTDCM", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
         public static List<GridColumnModel> InitialExpertise()
         {
             List<GridColumnModel> lst = new List<GridColumnModel>();
@@ -86,7 +125,6 @@ namespace HRMSystem.Utilities
             {
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Id", FieldName = "MaCM", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Chuyên Môn", FieldName = "TenCM", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trình độ chuyên môn", FieldName = "TenTDCM", Visible = true });
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;

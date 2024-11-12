@@ -33,7 +33,6 @@ namespace HRMSystem.Controls
             bindingSource.DataSource = chuyenmon;
             txtMaCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaCM));
             txtTenCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.TenCM));
-            cbTDCM.DataBindings.Add("Text", bindingSource, nameof(Expertise.MaTDCM), true, DataSourceUpdateMode.OnPropertyChanged);
 
         }
         

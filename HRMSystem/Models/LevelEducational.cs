@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace HRMSystem.Models
 {
     [Table("TrinhDoVanHoa")]
-    public class TrinhDoVanHoa
+    public class LevelEducational
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

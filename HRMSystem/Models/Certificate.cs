@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HRMSystem.Models
 {
     [Table("ChungChi")]
-    public class ChungChi
+    public class Certificate
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

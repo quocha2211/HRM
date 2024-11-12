@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraBars.Navigation;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using HRMSystem.Controls;
+using HRMSystem.Forms;
 using HRMSystem.Interfaces;
 using HRMSystem.Utilities;
 using System;
@@ -17,7 +19,7 @@ namespace HRMSystem.Controller
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public ucExpertiseDetail detailForm;
+        public frmExpertisesDetail detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -74,10 +76,9 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaCM"));
+                InitialDetailPage(Convert.ToInt32( masterForm.GetPrimaryKey("MaCM")));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -87,28 +88,55 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
-                InitialDetailPage("");
+                InitialDetailPage(0);
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
-        private void InitialDetailPage(string pKey)
+        private void InitialDetailPage(int id)
         {
+           
             try
             {
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new ucExpertiseDetail() { Dock = DockStyle.Fill };
-                detailForm.MaCM = pKey;
-                detailForm.BackButtonClick -= DetailForm_BackButtonClick; ;
-                detailForm.BackButtonClick += DetailForm_BackButtonClick;
-                View.PageDetail.Controls.Add(detailForm);
-                View.NavigatorFrame.SelectedPage = View.PageDetail;
+
+                using (var context = new AppDbContext())
+                {
+                    var chuyenMon = context.ChuyenMons.Find(id);
+                    detailForm = new frmExpertisesDetail() { Dock = DockStyle.Fill };
+                    detailForm.screenIndex = 1;
+                    if (id > 0)
+                        detailForm.ChuyenMon = chuyenMon;
+                    else
+                        detailForm.ChuyenMon = new Expertise();
+                    
+                    var rs = detailForm.ShowDialog();
+                    if(rs == DialogResult.OK)
+                    {
+                        LoadData();
+                    }    
+                }
+
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LanguageController", ex.ToString()); }
+        }
+
+        private void LoadData()
+        {
+            using (var context = new AppDbContext())
+            {
+
+
+                var query = context.ChuyenMons.ToList();
+                clsCommon.OpenWaitingForm(View);
+                masterForm.SetTitle("Quản lý Chuyên Môn");
+                masterForm.SetDataSource(query, clsInitialGridColumn.InitialExpertise());
+                masterForm.SetSpecialGridProperties();
+
+            }
         }
 
         private void DetailForm_BackButtonClick(object sender, EventArgs e)
@@ -124,24 +152,7 @@ namespace HRMSystem.Controller
 
         private void MasterController_Load(object sender, EventArgs e)
         {
-            using (var context = new AppDbContext())
-            {
-                var query = (from cm in context.ChuyenMons
-                            join tdcm in context.TrinhDoChuyenMons
-                            on cm.MaTDCM equals tdcm.MaTDCM
-                            select new
-                            {
-                                cm.MaCM,
-                                cm.TenCM,
-                                tdcm.TenTDCM
-                            }).ToList();
-
-                clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Quản lý Chuyên Môn");
-                masterForm.SetDataSource(query, clsInitialGridColumn.InitialExpertise());
-                masterForm.SetSpecialGridProperties();
-
-            }
+            LoadData();
 
             
         }

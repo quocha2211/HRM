@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars.Navigation;
 using HRMSystem.Controls;
+using HRMSystem.Forms;
 using HRMSystem.Interfaces;
 using HRMSystem.Utilities;
 using System;
@@ -16,7 +17,7 @@ namespace HRMSystem.Controller
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public ucLanguageDetail detailForm;
+        public frmExpertisesDetail detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -31,6 +32,8 @@ namespace HRMSystem.Controller
                 if (masterForm != null)
                     masterForm.Dispose();
                 masterController = new BaseController();
+
+
                 masterForm = new ucBaseSingleList() { Dock = DockStyle.Fill };
 
 
@@ -45,7 +48,7 @@ namespace HRMSystem.Controller
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ex", ex.ToString()); }
         }
-     
+
         private void MasterForm_DeleteButtonClick(object sender, EventArgs e)
         {
             try
@@ -72,10 +75,9 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaNN"));
+                InitialDetailPage( Convert.ToInt32(masterForm.GetPrimaryKey("MaNN")));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LanguageController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -85,26 +87,32 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
-                InitialDetailPage("");
+                InitialDetailPage(0);
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LanguageController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
         }
 
-        private void InitialDetailPage(string pKey)
+        private void InitialDetailPage(int id)
         {
             try
             {
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new ucLanguageDetail() { Dock = DockStyle.Fill };
-                detailForm.MaNN = pKey;
-                detailForm.BackButtonClick -= DetailForm_BackButtonClick; 
-                detailForm.BackButtonClick += DetailForm_BackButtonClick;
-                View.PageDetail.Controls.Add(detailForm);
-                View.NavigatorFrame.SelectedPage = View.PageDetail;
+
+                using (var context = new AppDbContext())
+                {
+                    var ngoaiNgu = context.NgoaiNgus.Find(id);
+                    detailForm = new frmExpertisesDetail() { Dock = DockStyle.Fill };
+                    detailForm.screenIndex = 1; 
+                    if(id > 0)
+                        detailForm.NgoaiNgu = ngoaiNgu;
+                    else
+                        detailForm.NgoaiNgu = new Language();
+                    detailForm.ShowDialog();
+                }
+
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "LanguageController", ex.ToString()); }
         }
@@ -126,16 +134,8 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var query = (from nn in context.NgoaiNgus
-                                 join tdnn in context.TrinhDoNgoaiNgus
-                                 on nn.MaTDNN equals tdnn.MaTDNN
-                                 select new
-                                 {
-                                     nn.MaNN,
-                                     nn.TenNN,
-                                     tdnn.TenTDNN
-                                 }).ToList();
 
+                    var query = context.NgoaiNgus.ToList();
                     clsCommon.OpenWaitingForm(View);
                     masterForm.SetTitle("Quản lý Ngoại ngữ");
                     masterForm.SetDataSource(query, clsInitialGridColumn.InitialLanguage());
@@ -143,7 +143,7 @@ namespace HRMSystem.Controller
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }

@@ -345,6 +345,24 @@
     <Compile Include="Controls\ucEmployeeMaster.Designer.cs">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmCertificateDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCertificateDetail.Designer.cs">
+      <DependentUpon>frmCertificateDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmExpertisesDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmExpertisesDetail.Designer.cs">
+      <DependentUpon>frmExpertisesDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLevelEducationalDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLevelEducationalDetail.Designer.cs">
+      <DependentUpon>frmLevelEducationalDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmLevelSalaryDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,12 +386,6 @@
     </Compile>
     <Compile Include="Forms\frmMinSalaryDetail.Designer.cs">
       <DependentUpon>frmMinSalaryDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmExpertisesDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmExpertisesDetail.Designer.cs">
-      <DependentUpon>frmExpertisesDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmLevelExpertisesDetail.cs">
       <SubType>Form</SubType>
@@ -457,6 +469,15 @@
     <EmbeddedResource Include="Controls\ucEmployeeMaster.resx">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCertificateDetail.resx">
+      <DependentUpon>frmCertificateDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmExpertisesDetail.resx">
+      <DependentUpon>frmExpertisesDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLevelEducationalDetail.resx">
+      <DependentUpon>frmLevelEducationalDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLevelSalaryDetail.resx">
       <DependentUpon>frmLevelSalaryDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -468,9 +489,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMinSalaryDetail.resx">
       <DependentUpon>frmMinSalaryDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmExpertisesDetail.resx">
-      <DependentUpon>frmExpertisesDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLevelExpertisesDetail.resx">
       <DependentUpon>frmLevelExpertisesDetail.cs</DependentUpon>

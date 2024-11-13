@@ -43,7 +43,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.txtAddress = new DevExpress.XtraEditors.MemoEdit();
+            this.txtDes = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -53,7 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDes.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -71,7 +71,7 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.txtName);
-            this.layoutControl1.Controls.Add(this.txtAddress);
+            this.layoutControl1.Controls.Add(this.txtDes);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(2, 34);
             this.layoutControl1.Name = "layoutControl1";
@@ -112,7 +112,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.txtAddress;
+            this.layoutControlItem2.Control = this.txtDes;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 52);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(576, 236);
@@ -195,15 +195,15 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 344);
             // 
-            // txtAddress
+            // txtDes
             // 
-            this.txtAddress.Location = new System.Drawing.Point(12, 64);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Properties.AdvancedModeOptions.Label = "Mô tả";
-            this.txtAddress.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtAddress.Size = new System.Drawing.Size(572, 232);
-            this.txtAddress.StyleController = this.layoutControl1;
-            this.txtAddress.TabIndex = 5;
+            this.txtDes.Location = new System.Drawing.Point(12, 64);
+            this.txtDes.Name = "txtDes";
+            this.txtDes.Properties.AdvancedModeOptions.Label = "Mô tả";
+            this.txtDes.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtDes.Size = new System.Drawing.Size(572, 232);
+            this.txtDes.StyleController = this.layoutControl1;
+            this.txtDes.TabIndex = 5;
             // 
             // frmLevelSalaryDetail
             // 
@@ -231,7 +231,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDes.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,6 +253,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraEditors.MemoEdit txtAddress;
+        private DevExpress.XtraEditors.MemoEdit txtDes;
     }
 }

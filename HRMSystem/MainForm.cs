@@ -127,5 +127,10 @@ namespace HRMSystem
         {
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.LevelEducationalController", Navigator);
         }
+
+        private void accordionControlElement21_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.EmployeeRankingController", Navigator);
+        }
     }
 }

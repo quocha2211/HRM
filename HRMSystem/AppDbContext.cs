@@ -9,7 +9,7 @@ public class AppDbContext : DbContext
     public DbSet<LevelExpertise> TrinhDoChuyenMons { get; set; }
     public DbSet<LevelLanguage>  TrinhDoNgoaiNgus { get; set; }
 
-    public DbSet<ThangLuong> ThangLuongs { get; set; }
+    public DbSet<SalaryScale> ThangLuongs { get; set; }
 
     public DbSet<LevelEducational> TrinhDoVanHoas { get; set; }
 
@@ -20,6 +20,15 @@ public class AppDbContext : DbContext
     public DbSet<PhongBan> PhongBans { get; set; }
     public DbSet<ChucVu> ChucVus { get; set; }
     public DbSet<QuanHeThanNhan> QuanHeThanNhans { get; set; }
+
+    public DbSet<EmployeeRanking> XepLoaiNhanViens { get; set; }
+    public DbSet<EmployeeTransfer> DieuChuyenCongTacs { get; set; }
+
+    public DbSet<Payroll> BangLuongs { get; set; }
+    public DbSet<Contract> HopDongs { get; set; }
+
+
+
 
     public AppDbContext() : base("name=MyConnectionString")
     {

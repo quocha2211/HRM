@@ -255,7 +255,9 @@
     <Compile Include="AppDbContext.cs" />
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\CertificateDetailController.cs" />
+    <Compile Include="Controller\EmployeeTranferController.cs" />
     <Compile Include="Controller\LevelEducationalController.cs" />
+    <Compile Include="Controller\EmployeeRankingController.cs" />
     <Compile Include="Controller\PetrolNormsController.cs" />
     <Compile Include="Controller\LevelLanguageController.cs" />
     <Compile Include="Controller\LevelExpertiseController.cs" />
@@ -299,6 +301,18 @@
     </Compile>
     <Compile Include="Controls\ucEmployeeMaster.Designer.cs">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEmployeeTranfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEmployeeTranfer.Designer.cs">
+      <DependentUpon>frmEmployeeTranfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEmployeeRanking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEmployeeRanking.Designer.cs">
+      <DependentUpon>frmEmployeeRanking.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmCertificateDetail.cs">
       <SubType>Form</SubType>
@@ -363,14 +377,19 @@
     </Compile>
     <Compile Include="Models\ChucVu.cs" />
     <Compile Include="Models\Certificate.cs" />
+    <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\DinhMucXangXe.cs" />
+    <Compile Include="Models\EmployeeRanking.cs" />
+    <Compile Include="Models\EmployeeTransfer.cs" />
     <Compile Include="Models\Expertise.cs" />
     <Compile Include="Models\GridColumnModel.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\MinSalary.cs" />
+    <Compile Include="Models\Payroll.cs" />
     <Compile Include="Models\PhongBan.cs" />
     <Compile Include="Models\QuanHeNhanThan.cs" />
-    <Compile Include="Models\ThangLuong.cs" />
+    <Compile Include="Models\SalaryGradeCoefficient.cs" />
+    <Compile Include="Models\SalaryScale.cs" />
     <Compile Include="Models\LevelExpertise.cs" />
     <Compile Include="Models\LevelLanguage.cs" />
     <Compile Include="Models\LevelEducational.cs" />
@@ -399,6 +418,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucEmployeeMaster.resx">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEmployeeTranfer.resx">
+      <DependentUpon>frmEmployeeTranfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEmployeeRanking.resx">
+      <DependentUpon>frmEmployeeRanking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCertificateDetail.resx">
       <DependentUpon>frmCertificateDetail.cs</DependentUpon>

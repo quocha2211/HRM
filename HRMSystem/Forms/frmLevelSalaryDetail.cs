@@ -25,11 +25,11 @@ namespace HRMSystem.Forms
         }
   
 
-        private void InitializeDataBindings(ThangLuong thangLuong)
+        private void InitializeDataBindings(SalaryScale thangLuong)
         {
             bindingSource.DataSource = thangLuong;
-            txtName.DataBindings.Add("Text", bindingSource, nameof(ThangLuong.TenTL));
-            txtAddress.DataBindings.Add("Text", bindingSource, nameof(ThangLuong.DienGiai));
+            txtName.DataBindings.Add("Text", bindingSource, nameof(SalaryScale.TenTL));
+            txtAddress.DataBindings.Add("Text", bindingSource, nameof(SalaryScale.DienGiai));
 
         }
 
@@ -37,7 +37,7 @@ namespace HRMSystem.Forms
         {
             this.Focus();
             groupControl1.Focus();
-            ThangLuong thangLuong = (ThangLuong)bindingSource.Current;
+            SalaryScale thangLuong = (SalaryScale)bindingSource.Current;
             if (thangLuong == null)
             {
                 MessageBox.Show("Lưu thất bại.");
@@ -63,7 +63,7 @@ namespace HRMSystem.Forms
 
                 if (string.IsNullOrEmpty(MaTL))
                 {
-                    InitializeDataBindings(new ThangLuong());
+                    InitializeDataBindings(new SalaryScale());
                 }
                 else
                 {

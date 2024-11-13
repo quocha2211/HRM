@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HRMSystem.Models
 {
     [Table("ThangLuong")]
-    public class ThangLuong
+    public class SalaryScale
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

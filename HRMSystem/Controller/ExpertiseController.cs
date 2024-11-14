@@ -108,7 +108,7 @@ namespace HRMSystem.Controller
                 {
                     var chuyenMon = context.ChuyenMons.Find(id);
                     detailForm = new frmExpertisesDetail() { Dock = DockStyle.Fill };
-                    detailForm.screenIndex = 1;
+                    detailForm.screenIndex = 0;
                     if (id > 0)
                         detailForm.ChuyenMon = chuyenMon;
                     else

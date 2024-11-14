@@ -59,8 +59,8 @@ namespace HRMSystem.Forms
         {
             try
             {
-               
-                this.ActiveControl = null;
+
+                this.groupControl1.Focus();
 
                 using (var context = new AppDbContext())
                 {

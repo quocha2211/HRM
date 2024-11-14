@@ -59,7 +59,7 @@ namespace HRMSystem.Controller
             {
 
                 var query = context.NhanViens.ToList();
-                View.SetTitle("Quản lý Chuyên Môn");
+                View.SetTitle("Quản lý Danh Sách Nhân Viên");
                 View.SetDataSource(query, clsInitialGridColumn.InitialEmployee());
                 View.SetSpecialGridProperties();
 

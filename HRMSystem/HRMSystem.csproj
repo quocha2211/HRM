@@ -258,6 +258,8 @@
     <Compile Include="Controller\EmployeeTranferController.cs" />
     <Compile Include="Controller\LevelEducationalController.cs" />
     <Compile Include="Controller\EmployeeRankingController.cs" />
+    <Compile Include="Controller\SalaryAdvanceController.cs" />
+    <Compile Include="Controller\TimeKeepingController.cs" />
     <Compile Include="Controller\PetrolNormsController.cs" />
     <Compile Include="Controller\LevelLanguageController.cs" />
     <Compile Include="Controller\LevelExpertiseController.cs" />
@@ -301,6 +303,18 @@
     </Compile>
     <Compile Include="Controls\ucEmployeeMaster.Designer.cs">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSalaryAdvance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSalaryAdvance.Designer.cs">
+      <DependentUpon>frmSalaryAdvance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTimeKeeping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTimeKeeping.Designer.cs">
+      <DependentUpon>frmTimeKeeping.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmEmployeeTranfer.cs">
       <SubType>Form</SubType>
@@ -388,11 +402,13 @@
     <Compile Include="Models\Payroll.cs" />
     <Compile Include="Models\PhongBan.cs" />
     <Compile Include="Models\QuanHeNhanThan.cs" />
+    <Compile Include="Models\SalaryAdvance.cs" />
     <Compile Include="Models\SalaryGradeCoefficient.cs" />
     <Compile Include="Models\SalaryScale.cs" />
     <Compile Include="Models\LevelExpertise.cs" />
     <Compile Include="Models\LevelLanguage.cs" />
     <Compile Include="Models\LevelEducational.cs" />
+    <Compile Include="Models\TimeKeeping.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -418,6 +434,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucEmployeeMaster.resx">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSalaryAdvance.resx">
+      <DependentUpon>frmSalaryAdvance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTimeKeeping.resx">
+      <DependentUpon>frmTimeKeeping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEmployeeTranfer.resx">
       <DependentUpon>frmEmployeeTranfer.cs</DependentUpon>

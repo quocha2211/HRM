@@ -55,7 +55,7 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var chuyenMon = context.ChuyenMons.Find(masterForm.GetPrimaryKey("MaCM"));  
+                    var chuyenMon = context.ChuyenMons.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaCM")));  
 
                     if (chuyenMon != null)
                     {
@@ -63,6 +63,7 @@ namespace HRMSystem.Controller
 
                         context.SaveChanges();
 
+                        LoadData();
                     }
                     
                 }
@@ -128,7 +129,6 @@ namespace HRMSystem.Controller
         {
             using (var context = new AppDbContext())
             {
-
 
                 var query = context.ChuyenMons.ToList();
                 clsCommon.OpenWaitingForm(View);

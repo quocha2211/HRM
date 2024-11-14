@@ -60,7 +60,6 @@
             this.accordionControlElement26 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement28 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement29 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.grpReport = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement39 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -454,8 +453,7 @@
             this.accordionControlElement25,
             this.accordionControlElement26,
             this.accordionControlElement27,
-            this.accordionControlElement28,
-            this.accordionControlElement29});
+            this.accordionControlElement28});
             this.grpSalary.Expanded = true;
             this.grpSalary.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.financial;
             this.grpSalary.Name = "grpSalary";
@@ -485,6 +483,7 @@
             this.accordionControlElement26.Name = "accordionControlElement26";
             this.accordionControlElement26.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement26.Text = "Quản lý tạm ứng, phụ cấp";
+            this.accordionControlElement26.Click += new System.EventHandler(this.accordionControlElement26_Click);
             // 
             // accordionControlElement27
             // 
@@ -509,18 +508,7 @@
             this.accordionControlElement28.Name = "accordionControlElement28";
             this.accordionControlElement28.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement28.Text = "Quản lý chấm công, tính lương";
-            // 
-            // accordionControlElement29
-            // 
-            this.accordionControlElement29.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement29.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement29.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement29.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement29.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement29.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement29.Name = "accordionControlElement29";
-            this.accordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement29.Text = "Quản lý bảo hiểm";
+            this.accordionControlElement28.Click += new System.EventHandler(this.accordionControlElement28_Click);
             // 
             // grpReport
             // 
@@ -974,7 +962,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement26;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement27;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement28;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement29;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement37;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement36;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement35;

@@ -55,13 +55,15 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.DieuChuyenCongTacs.Find(masterForm.GetPrimaryKey("MaCCT"));
+                    var model = context.DieuChuyenCongTacs.Find( Convert.ToInt32(masterForm.GetPrimaryKey("MaCCT")));
 
                     if (model != null)
                     {
                         context.DieuChuyenCongTacs.Remove(model);
 
                         context.SaveChanges();
+
+                        LoadData();
 
                     }
 
@@ -137,7 +139,7 @@ namespace HRMSystem.Controller
                                  xl.MaCCT,
                                  nv.TenNV,
                                  pb.TenPB,
-                                 bl.b
+                                
                                  xl.NgayChuyen,
                                  xl.SoQD,
                                  xl.GhiChu

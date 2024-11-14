@@ -39,6 +39,8 @@ namespace HRMSystem.Controls
                 masterForm.EditButtonClick -= MasterForm_EditButtonClick;
                 masterForm.EditButtonClick += MasterForm_EditButtonClick;
 
+               
+
                 masterController.Initialize(masterForm);
                 pageMaster.Controls.Add(masterForm);
                 Navigator.SelectedPage = pageMaster;
@@ -46,6 +48,7 @@ namespace HRMSystem.Controls
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }
         }
 
+        
         private void MasterForm_EditButtonClick(object sender, EventArgs e)
         {
             try

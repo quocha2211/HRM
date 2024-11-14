@@ -54,13 +54,15 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.MucLuongToiThieus.Find(masterForm.GetPrimaryKey("MaMLTT"));
+                    var model = context.MucLuongToiThieus.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaMLTT")));
 
                     if (model != null)
                     {
                         context.MucLuongToiThieus.Remove(model);
 
                         context.SaveChanges();
+
+                        LoadData();
 
                     }
 

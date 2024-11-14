@@ -63,6 +63,7 @@ namespace HRMSystem.Controller
 
                         context.SaveChanges();
 
+                        LoadData();
                     }
 
                 }
@@ -105,10 +106,11 @@ namespace HRMSystem.Controller
                     detailForm.Dispose();
                 detailForm = new frmDutyDetail() { Dock = DockStyle.Fill };
                 detailForm.MaCV = pKey;
-                detailForm.BackButtonClick -= DetailForm_BackButtonClick; ;
-                detailForm.BackButtonClick += DetailForm_BackButtonClick;
-                View.PageDetail.Controls.Add(detailForm);
-                View.NavigatorFrame.SelectedPage = View.PageDetail;
+                var rs = detailForm.ShowDialog();
+                if (rs == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }
         }
@@ -124,7 +126,7 @@ namespace HRMSystem.Controller
             finally { clsCommon.CloseWaitingForm(); }
         }
 
-        private void MasterController_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             using (var context = new AppDbContext())
             {
@@ -136,6 +138,11 @@ namespace HRMSystem.Controller
                 masterForm.SetSpecialGridProperties();
 
             }
+        }
+
+        private void MasterController_Load(object sender, EventArgs e)
+        {
+            LoadData();
 
 
         }

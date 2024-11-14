@@ -112,6 +112,40 @@ namespace HRMSystem.Utilities
             return lst;
         }
 
+        public static List<GridColumnModel> InitialBangTamUng()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaBTU", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tháng", FieldName = "Thang", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Năm", FieldName = "Nam", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số tiền tạm ứng", FieldName = "SoTienTU", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Diễn giải", FieldName = "DienGiai", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Nhân viên", FieldName = "TenNV", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày tạm ứng", FieldName = "NgayTU", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
+
+        public static List<GridColumnModel> InitialChamCong()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaCCTL", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên chấm công", FieldName = "TenCCTL", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Năm", FieldName = "Nam", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tháng", FieldName = "Thang", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày tính công", FieldName = "NgayTinhCong", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số ngày công", FieldName = "NgayCongTrongThang", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
         public static List<GridColumnModel> InitialMinSalary()
         {
             List<GridColumnModel> lst = new List<GridColumnModel>();
@@ -176,6 +210,18 @@ namespace HRMSystem.Utilities
             {
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Id", FieldName = "MaNN", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngoại ngữ", FieldName = "TenNN", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
+        public static List<GridColumnModel> InitialWorkStatus()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Id", FieldName = "MaTTLV", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trạng thái làm việc", FieldName = "TenTTLV", Visible = true });
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;

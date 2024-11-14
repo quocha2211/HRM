@@ -132,5 +132,15 @@ namespace HRMSystem
         {
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.EmployeeRankingController", Navigator);
         }
+
+        private void accordionControlElement28_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.TimeKeepingController", Navigator);
+        }
+
+        private void accordionControlElement26_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.SalaryAdvanceController", Navigator);
+        }
     }
 }

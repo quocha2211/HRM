@@ -18,6 +18,7 @@ namespace HRMSystem.Controls
         public event EventHandler AddButtonClick;
         public event EventHandler EditButtonClick;
         public event EventHandler DeleteButtonClick;
+        public event EventHandler ReLoadButtonClick;
         public ucBaseSingleList()
         {
             InitializeComponent();
@@ -90,6 +91,12 @@ namespace HRMSystem.Controls
             {
                 DeleteButtonClick?.Invoke(sender, e);
             }
+
+        }
+
+        private void btnLoad_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ReLoadButtonClick?.Invoke(sender, e);
 
         }
     }

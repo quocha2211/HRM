@@ -54,13 +54,14 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var phongBan = context.PhongBans.Find(masterForm.GetPrimaryKey("MaPB"));
+                    var phongBan = context.PhongBans.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaPB")));
 
                     if (phongBan != null)
                     {
                         context.PhongBans.Remove(phongBan);
 
                         context.SaveChanges();
+                        LoadData();
 
                     }
 

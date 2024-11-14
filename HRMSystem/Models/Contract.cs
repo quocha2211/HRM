@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace HRMSystem.Models
     [Table("HopDong")]
     public class Contract
     {
+        [Key]
         public int MaHD { get; set; } // MaHD (Primary Key, Identity)
         public int MaLoaiHD { get; set; } // MaLoaiHD (Nullable, FK to LoaiHopDong)
         public int MaNV { get; set; } // MaNV (Nullable, FK to NhanVien)

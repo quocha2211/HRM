@@ -75,16 +75,16 @@ namespace HRMSystem.Models
         [Required]
         public DateTime NgayVaoLam { get; set; }
 
-        public DateTime NgayRoiCoQuan { get; set; }
+        public DateTime? NgayRoiCoQuan { get; set; }
 
         [StringLength(150)]
         public string LyDo { get; set; }
 
-        public double HeSoLuong { get; set; }
+        public double? HeSoLuong { get; set; }
 
-        public double HeSoPhuCap { get; set; }
+        public double? HeSoPhuCap { get; set; }
 
-        public double HeSoTNVK { get; set; }
+        public double? HeSoTNVK { get; set; }
 
         [Required]
         public int SoSocBH { get; set; }
@@ -123,34 +123,34 @@ namespace HRMSystem.Models
         [StringLength(50)]
         public string NhomMau { get; set; }
 
-        public DateTime NgayNhapNgu { get; set; }
+        public DateTime? NgayNhapNgu { get; set; }
 
-        public DateTime NgayXuatNgu { get; set; }
+        public DateTime? NgayXuatNgu { get; set; }
 
         [StringLength(50)]
         public string QuanHamCaoNhat { get; set; }
 
-        public int ThoiGianNangBacHSL { get; set; }
+        public int? ThoiGianNangBacHSL { get; set; }
 
-        public bool KhongChoPhepNangLuong { get; set; }
+        public bool? KhongChoPhepNangLuong { get; set; }
 
-        public bool RoiCoQuan { get; set; }
+        public bool? RoiCoQuan { get; set; }
 
-        public bool NghiHuu { get; set; }
+        public bool? NghiHuu { get; set; }
 
-        public double LuongCoSo { get; set; }
+        public double? LuongCoSo { get; set; }
 
-        public int MaDMXX { get; set; }
-        public int MaTG { get; set; }
-        public int MaChucVu { get; set; }
-        public int MaXL { get; set; }
-        public int MaTT { get; set; }
-        public int MaTDVH { get; set; }
-        public int MaDT { get; set; }
-        public int MaCM { get; set; }
-        public int MaNN { get; set; }
-        public int MaTDLLCT { get; set; }
-        public int MaTTLV { get; set; }
+        public int? MaDMXX { get; set; }
+        public int? MaTG { get; set; }
+        public int? MaChucVu { get; set; }
+        public int? MaXL { get; set; }
+        public int? MaTT { get; set; }
+        public int? MaTDVH { get; set; }
+        public int? MaDT { get; set; }
+        public int? MaCM { get; set; }
+        public int? MaNN { get; set; }
+        public int? MaTDLLCT { get; set; }
+        public int? MaTTLV { get; set; }
 
         //// Navigation Properties (Foreign Key Relationships)
         //public virtual ChucVu ChucVu { get; set; }

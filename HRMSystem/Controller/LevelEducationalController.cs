@@ -64,6 +64,8 @@ namespace HRMSystem.Controller
 
                         context.SaveChanges();
 
+                        LoadData();
+
                     }
 
                 }
@@ -120,7 +122,6 @@ namespace HRMSystem.Controller
         {
             using (var context = new AppDbContext())
             {
-
 
                 var query = context.TrinhDoVanHoas.ToList();
                 clsCommon.OpenWaitingForm(View);

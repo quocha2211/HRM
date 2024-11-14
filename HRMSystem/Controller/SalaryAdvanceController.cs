@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars.Navigation;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using HRMSystem.Controls;
 using HRMSystem.Forms;
 using HRMSystem.Interfaces;
@@ -13,12 +14,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class EmployeeRankingController : IucControlController
+    public class SalaryAdvanceController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public frmEmployeeRanking detailForm;
+        public frmSalaryAdvance detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -54,15 +55,16 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.XepLoaiNhanViens.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaXLCB")));
+                    var model = context.BangTamUngs.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaBTU")));
 
                     if (model != null)
                     {
-                        context.XepLoaiNhanViens.Remove(model);
+                        context.BangTamUngs.Remove(model);
 
                         context.SaveChanges();
 
                         LoadData();
+
                     }
 
                 }
@@ -78,7 +80,7 @@ namespace HRMSystem.Controller
             {
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaXLCB"));
+                InitialDetailPage(masterForm.GetPrimaryKey("MaBTU"));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -101,8 +103,8 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new frmEmployeeRanking() { Dock = DockStyle.Fill };
-                detailForm.MaXLCB = pKey;
+                detailForm = new frmSalaryAdvance() { Dock = DockStyle.Fill };
+                detailForm.MaBTU = pKey;
                 var rs = detailForm.ShowDialog();
                 if (rs == DialogResult.OK)
                 {
@@ -125,29 +127,34 @@ namespace HRMSystem.Controller
 
         private void LoadData()
         {
-            using (var context = new AppDbContext())
+            try
             {
-                var query = (from xl in context.XepLoaiNhanViens
-                             join nv in context.NhanViens
-                             on xl.MaNV equals nv.MaNV
-                             join pb in context.PhongBans
-                             on xl.MaPB equals pb.MaPB
-                             select new
-                             {
-                                 xl.MaXLCB,
-                                 nv.TenNV,
-                                 pb.TenPB,
-                                 xl.XepLoai,
-                                 xl.DanhHieu,
-                                 xl.GhiChu
-                             }).ToList();
+                using (var context = new AppDbContext())
+                {
+                    var query = (from btu in context.BangTamUngs
+                                 join nv in context.NhanViens on btu.MaNV equals nv.MaNV
+                                 select new
+                                 {
+                                     btu.MaBTU,
+                                     btu.NgayTU,
+                                     btu.Thang,
+                                     btu.Nam,
+                                     btu.DienGiai,
+                                     btu.SoTienTU,
+                                     nv.TenNV
 
-                clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Quản lý Xếp Loại Cán Bộ");
-                masterForm.SetDataSource(query, clsInitialGridColumn.InitialEmployeeRanking());
-                masterForm.SetSpecialGridProperties();
+                                 }).ToList();
 
+                    clsCommon.OpenWaitingForm(View);
+                    masterForm.SetTitle("Quản lý Bảng Tạm Ứng ");
+                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialBangTamUng());
+                    masterForm.SetSpecialGridProperties();
+                }
             }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }
+            finally { clsCommon.CloseWaitingForm(); }
+            
+
 
         }
 

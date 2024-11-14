@@ -81,11 +81,11 @@
             // grdData
             // 
             this.grdData.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.grdData.Location = new System.Drawing.Point(8, 66);
+            this.grdData.Location = new System.Drawing.Point(12, 75);
             this.grdData.MainView = this.grvData;
             this.grdData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grdData.Name = "grdData";
-            this.grdData.Size = new System.Drawing.Size(928, 476);
+            this.grdData.Size = new System.Drawing.Size(920, 462);
             this.grdData.TabIndex = 6;
             this.grdData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvData});
@@ -105,11 +105,11 @@
             // standaloneBarDockControl1
             // 
             this.standaloneBarDockControl1.CausesValidation = false;
-            this.standaloneBarDockControl1.Location = new System.Drawing.Point(8, 40);
+            this.standaloneBarDockControl1.Location = new System.Drawing.Point(12, 47);
             this.standaloneBarDockControl1.Manager = this.barManager1;
             this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(928, 24);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(920, 24);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // barManager1
@@ -157,6 +157,7 @@
             this.btnLoad.Id = 1;
             this.btnLoad.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.SyncBadge12;
             this.btnLoad.Name = "btnLoad";
+            this.btnLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoad_ItemClick);
             // 
             // btnAdd
             // 
@@ -229,7 +230,7 @@
             // 
             this.lblTitle.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Appearance.Options.UseFont = true;
-            this.lblTitle.Location = new System.Drawing.Point(8, 7);
+            this.lblTitle.Location = new System.Drawing.Point(12, 12);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(80, 27);
@@ -258,43 +259,43 @@
             this.lcTitle.Control = this.lblTitle;
             this.lcTitle.Location = new System.Drawing.Point(0, 0);
             this.lcTitle.Name = "lcTitle";
-            this.lcTitle.Size = new System.Drawing.Size(930, 29);
+            this.lcTitle.Size = new System.Drawing.Size(924, 31);
             this.lcTitle.TextSize = new System.Drawing.Size(0, 0);
             this.lcTitle.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 30);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 32);
             this.emptySpaceItem2.MaxSize = new System.Drawing.Size(7, 3);
             this.emptySpaceItem2.MinSize = new System.Drawing.Size(7, 3);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(930, 3);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(924, 3);
             this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleSeparator1
             // 
             this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(0, 29);
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 31);
             this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(930, 1);
+            this.simpleSeparator1.Size = new System.Drawing.Size(924, 1);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.standaloneBarDockControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 33);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 35);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(930, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(924, 28);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.grdData;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 59);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 63);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(930, 478);
+            this.layoutControlItem2.Size = new System.Drawing.Size(924, 466);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 

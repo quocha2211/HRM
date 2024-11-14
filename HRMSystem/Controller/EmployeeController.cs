@@ -18,16 +18,59 @@ namespace HRMSystem.Controller
         {
             View = _view as ucBaseSingleList;
             View.Load += View_Load;
+
+            View.DeleteButtonClick += MasterForm_DeleteButtonClick; 
+
+            View.ReLoadButtonClick += MasterForm_ReLoadButtonClick; 
+        }
+
+        private void MasterForm_DeleteButtonClick(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var model = context.NhanViens.Find(Convert.ToInt32(View.GetPrimaryKey("MaNV")));
+
+                    if (model != null)
+                    {
+                        context.NhanViens.Remove(model);
+
+                        context.SaveChanges();
+
+                        LoadData();
+                    }
+
+                }
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
+            finally {  }
+        }
+
+        private void MasterForm_ReLoadButtonClick(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+
+        private void LoadData()
+        {
+            using (var context = new AppDbContext())
+            {
+
+                var query = context.NhanViens.ToList();
+                View.SetTitle("Quản lý Chuyên Môn");
+                View.SetDataSource(query, clsInitialGridColumn.InitialEmployee());
+                View.SetSpecialGridProperties();
+
+            }
         }
 
         private void View_Load(object sender, EventArgs e)
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
-                View.SetTitle("Quản lý nhân viên");
-                View.SetDataSource(SQLHelper.GetDataTableFromSP("GetNhanVienDetails", new string[0], new object[0]), clsInitialGridColumn.InitialEmployee());
-                View.SetSpecialGridProperties();
+                LoadData();
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "EmployeeController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }

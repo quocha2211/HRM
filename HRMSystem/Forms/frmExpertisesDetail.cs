@@ -81,7 +81,9 @@ namespace HRMSystem.Forms
 
                 }
 
-                MessageBox.Show("Thông tin đã được lưu thành công.");
+                DialogResult = MessageBox.Show("Thông tin đã được lưu thành công.");
+
+                this.Close();
 
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucExpertiseDetail", ex.ToString()); }

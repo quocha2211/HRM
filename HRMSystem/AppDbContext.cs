@@ -26,7 +26,9 @@ public class AppDbContext : DbContext
 
     public DbSet<Payroll> BangLuongs { get; set; }
     public DbSet<Contract> HopDongs { get; set; }
+    public DbSet<TimeKeeping> ChamCongTLs { get; set; }
 
+    public DbSet<SalaryAdvance> BangTamUngs { get; set; }
 
 
 

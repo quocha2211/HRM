@@ -55,13 +55,15 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.NgoaiNgus.Find(masterForm.GetPrimaryKey("MaCM"));
+                    var model = context.NgoaiNgus.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaNN")));
 
                     if (model != null)
                     {
                         context.NgoaiNgus.Remove(model);
 
                         context.SaveChanges();
+
+                        LoadData();
 
                     }
 
@@ -110,7 +112,11 @@ namespace HRMSystem.Controller
                         detailForm.NgoaiNgu = ngoaiNgu;
                     else
                         detailForm.NgoaiNgu = new Language();
-                    detailForm.ShowDialog();
+                    var rs = detailForm.ShowDialog();
+                    if (rs == DialogResult.OK)
+                    {
+                        LoadData();
+                    }
                 }
 
             }
@@ -128,7 +134,7 @@ namespace HRMSystem.Controller
             finally { clsCommon.CloseWaitingForm(); }
         }
 
-        private void MasterController_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             try
             {
@@ -147,6 +153,11 @@ namespace HRMSystem.Controller
             {
 
             }
+        }
+
+        private void MasterController_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void View_Load(object sender, EventArgs e)

@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class EmployeeRankingController : IucControlController
+    public class TimeKeepingController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public frmEmployeeRanking detailForm;
+        public frmTimeKeeping detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -54,15 +54,16 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.XepLoaiNhanViens.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaXLCB")));
+                    var model = context.ChamCongTLs.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaCCTL")));
 
                     if (model != null)
                     {
-                        context.XepLoaiNhanViens.Remove(model);
+                        context.ChamCongTLs.Remove(model);
 
                         context.SaveChanges();
 
                         LoadData();
+
                     }
 
                 }
@@ -78,7 +79,7 @@ namespace HRMSystem.Controller
             {
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaXLCB"));
+                InitialDetailPage(masterForm.GetPrimaryKey("MaCCTL"));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -101,8 +102,8 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new frmEmployeeRanking() { Dock = DockStyle.Fill };
-                detailForm.MaXLCB = pKey;
+                detailForm = new frmTimeKeeping() { Dock = DockStyle.Fill };
+                detailForm.MaCCTL = pKey;
                 var rs = detailForm.ShowDialog();
                 if (rs == DialogResult.OK)
                 {
@@ -125,29 +126,22 @@ namespace HRMSystem.Controller
 
         private void LoadData()
         {
-            using (var context = new AppDbContext())
+            try
             {
-                var query = (from xl in context.XepLoaiNhanViens
-                             join nv in context.NhanViens
-                             on xl.MaNV equals nv.MaNV
-                             join pb in context.PhongBans
-                             on xl.MaPB equals pb.MaPB
-                             select new
-                             {
-                                 xl.MaXLCB,
-                                 nv.TenNV,
-                                 pb.TenPB,
-                                 xl.XepLoai,
-                                 xl.DanhHieu,
-                                 xl.GhiChu
-                             }).ToList();
+                using (var context = new AppDbContext())
+                {
+                    var query = context.ChamCongTLs.ToList();
 
-                clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Quản lý Xếp Loại Cán Bộ");
-                masterForm.SetDataSource(query, clsInitialGridColumn.InitialEmployeeRanking());
-                masterForm.SetSpecialGridProperties();
+                    clsCommon.OpenWaitingForm(View);
+                    masterForm.SetTitle("Quản lý Chấm Công");
+                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialChamCong());
+                    masterForm.SetSpecialGridProperties();
 
+                }
             }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }
+            finally { clsCommon.CloseWaitingForm(); }
+            
 
         }
 

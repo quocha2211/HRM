@@ -55,13 +55,15 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.ChungChis.Find(masterForm.GetPrimaryKey("MaChucVu"));
+                    var model = context.ChungChis.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaChucVu")));
 
                     if (model != null)
                     {
                         context.ChungChis.Remove(model);
 
                         context.SaveChanges();
+
+                        LoadData();
 
                     }
 

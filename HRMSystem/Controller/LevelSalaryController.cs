@@ -55,7 +55,7 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.ThangLuongs.Find(masterForm.GetPrimaryKey("MaTL"));
+                    var model = context.ThangLuongs.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaTL")));
 
                     if (model != null)
                     {
@@ -63,6 +63,7 @@ namespace HRMSystem.Controller
 
                         context.SaveChanges();
 
+                        LoadData();
                     }
 
                 }

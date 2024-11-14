@@ -30,9 +30,9 @@ namespace HRMSystem.Forms
         private void InitializeDataBindings(ChucVu model)
         {
             bindingSource.DataSource = model;
-            txtName.DataBindings.Add("Text", bindingSource, nameof(ChucVu.TenChucVu));
-            txtLevel.DataBindings.Add("Text", bindingSource, nameof(ChucVu.CapDo));
-            txtHS.DataBindings.Add("EditValue", bindingSource, nameof(ChucVu.HeSoChucDanh));
+            txtName.DataBindings.Add("Text", bindingSource, nameof(ChucVu.TenChucVu), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtLevel.DataBindings.Add("Text", bindingSource, nameof(ChucVu.CapDo), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtHS.DataBindings.Add("EditValue", bindingSource, nameof(ChucVu.HeSoChucDanh), true, DataSourceUpdateMode.OnPropertyChanged);
 
         }
 
@@ -41,7 +41,7 @@ namespace HRMSystem.Forms
         {
             try
             {
-                this.ActiveControl = null;
+                this.groupControl1.Focus();
                 ChucVu model = (ChucVu)bindingSource.Current;
                 if (model == null)
                 {
@@ -56,7 +56,9 @@ namespace HRMSystem.Forms
                     context.SaveChanges();
                 }
 
-                MessageBox.Show("Thông tin đã được lưu thành công.");
+                DialogResult = MessageBox.Show("Thông tin đã được lưu thành công.");
+
+                this.Close();
 
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucChucVuDetail", ex.ToString()); }

@@ -55,7 +55,7 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.ChucVus.Find(masterForm.GetPrimaryKey("MaChucVu"));
+                    var model = context.ChucVus.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaChucVu")));
 
                     if (model != null)
                     {
@@ -77,7 +77,6 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 if (masterForm == null)
                     return;
                 InitialDetailPage(masterForm.GetPrimaryKey("MaChucVu"));
@@ -90,7 +89,6 @@ namespace HRMSystem.Controller
         {
             try
             {
-                clsCommon.OpenWaitingForm(View);
                 InitialDetailPage("");
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ChucVuController", ex.ToString()); }

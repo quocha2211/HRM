@@ -32,7 +32,7 @@ namespace HRMSystem.Forms
             txtRank.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.XepLoai));
             txtTitleRank.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.DanhHieu));
             txtNote.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.GhiChu));
-            txtDepartment.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeRanking.MaPB), true, DataSourceUpdateMode.OnPropertyChanged);
+            //txtDepartment.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeRanking.MaPB), true, DataSourceUpdateMode.OnPropertyChanged);
             cboEmployee.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeRanking.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
@@ -83,6 +83,8 @@ namespace HRMSystem.Forms
                     using (var context = new AppDbContext())
                     {
                         var model = context.XepLoaiNhanViens.Find(Convert.ToInt32(MaXLCB));
+                        if (string.IsNullOrEmpty(model.XepLoai))
+                            model.XepLoai = "giỏi";
                         InitializeDataBindings(model);
 
                     }

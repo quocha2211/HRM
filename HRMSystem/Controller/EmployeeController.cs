@@ -55,15 +55,92 @@ namespace HRMSystem.Controller
 
         private void LoadData()
         {
-            using (var context = new AppDbContext())
+            try
             {
+                using (var context = new AppDbContext())
+                {
 
-                var query = context.NhanViens.ToList();
-                View.SetTitle("Quản lý Danh Sách Nhân Viên");
-                View.SetDataSource(query, clsInitialGridColumn.InitialEmployee());
-                View.SetSpecialGridProperties();
+                    var query = (from nv in context.NhanViens
+                                 join cm in context.ChuyenMons on nv.MaCM equals cm.MaCM
+                                 join nn in context.NgoaiNgus on nv.MaNN equals nn.MaNN
+                                 join xx in context.DinhMucXangXes on nv.MaDMXX equals xx.MaDMXX
+                                 join tg in context.TonGiaos on nv.MaTG equals tg.MaTG
+                                 join cv in context.ChucVus on nv.MaChucVu equals cv.MaChucVu
+                                 join xl in context.XepLoaiNhanViens on nv.MaChucVu equals xl.MaXLCB
+                                 join vh in context.TrinhDoVanHoas on nv.MaChucVu equals vh.MaTDVH
+                                 join lv in context.TrangThaiLamViecs on nv.MaTTLV equals lv.MaTTLV
+                                 join tt in context.TinhThanhs on nv.MaTT equals tt.MaTT
+                                 join dt in context.DanTocs on nv.MaTT equals dt.MaDT
+                                 select new
+                                 {
+                                     nv.MaNV,
+                                     nv.TenNV,
+                                     nv.BiDanh,
+                                     nv.GioiTinh,
+                                     nv.NgaySinh,
+                                     nv.QueQuan,
+                                     nv.NoiSinh,
+                                     nv.NoiOHienTai,
+                                     nv.SoCCCD,
+                                     nv.NgayCap,
+                                     nv.NoiCap,
+                                     nv.Email,
+                                     nv.SoDienThoai,
+                                     nv.Anh,
+                                     nv.NgayVaoDoan,
+                                     nv.NoiVaoDoan,
+                                     nv.NgayVaoDang,
+                                     nv.NoiVaoDang,
+                                     nv.NgayVaoLam,
+                                     nv.NgayRoiCoQuan,
+                                     nv.LyDo,
+                                     nv.HeSoLuong,
+                                     nv.HeSoPhuCap,
+                                     nv.HeSoTNVK,
+                                     nv.SoSocBH,
+                                     nv.NgayCapSo,
+                                     nv.NoiCapSo,
+                                     nv.SoThe,
+                                     nv.SoTaiKhoan,
+                                     nv.NganHang,
+                                     nv.TinhTrangHonNhan,
+                                     nv.TinhTrangSuckhoe,
+                                     nv.ChieuCao,
+                                     nv.CanNang,
+                                     nv.NhomMau,
+                                     nv.NgayNhapNgu,
+                                     nv.NgayXuatNgu,
+                                     nv.QuanHamCaoNhat,
+                                     nv.ThoiGianNangBacHSL,
+                                     nv.KhongChoPhepNangLuong,
+                                     nv.RoiCoQuan,
+                                     nv.NghiHuu,
+                                     nv.LuongCoSo,
+                                     xx.DMXX,
+                                     xx.TenPTien,
+                                     tg.TenTG,
+                                     cv.TenChucVu,
+                                     xl.XepLoai,
+                                     tt.TenTT,
+                                     vh.TenTDVH,
+                                     dt.TenDT,
+                                     nn.TenNN,
+                                     nv.MaTDLLCT,
+                                     lv.TenTTLV,
+                                     cm.TenCM
+                                 });
 
+                    var result = query.ToList();
+
+                    View.SetTitle("Quản lý Danh Sách Nhân Viên");
+                    View.SetDataSource(result, clsInitialGridColumn.InitialEmployee());
+                    View.SetSpecialGridProperties();
+                }
             }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ExpertiseController", ex.ToString()); }
+            finally { }
+           
+
         }
 
         private void View_Load(object sender, EventArgs e)

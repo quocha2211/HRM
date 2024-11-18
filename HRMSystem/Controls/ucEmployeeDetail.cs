@@ -46,7 +46,7 @@ namespace HRMSystem.Controls
             txtNganHangSTK.DataBindings.Add("Text", bindingSource, nameof(Users.SoTaiKhoan), true, DataSourceUpdateMode.OnPropertyChanged);
             txtBaoHiemNoiCap.DataBindings.Add("Text", bindingSource, nameof(Users.NoiCapSo), true, DataSourceUpdateMode.OnPropertyChanged);
             txtLiDo.DataBindings.Add("Text", bindingSource, nameof(Users.LyDo), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtTinhTrangSucKhoe.DataBindings.Add("Text", bindingSource, nameof(Users.TinhTrangSuckhoe), true, DataSourceUpdateMode.OnPropertyChanged);          
+            txtTinhTrangSucKhoe.DataBindings.Add("Text", bindingSource, nameof(Users.TinhTrangSuckhoe), true, DataSourceUpdateMode.OnPropertyChanged);
             cboNganHang.DataBindings.Add("Text", bindingSource, nameof(Users.NganHang), true, DataSourceUpdateMode.OnPropertyChanged);
             txtChieuCao.DataBindings.Add("Text", bindingSource, nameof(Users.ChieuCao), true, DataSourceUpdateMode.OnPropertyChanged);
             txtCanNang.DataBindings.Add("Text", bindingSource, nameof(Users.CanNang), true, DataSourceUpdateMode.OnPropertyChanged);
@@ -75,9 +75,9 @@ namespace HRMSystem.Controls
             txtBaoHiemNgayCap.DataBindings.Add("Text", bindingSource, nameof(Users.NgayCapSo), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // Nullable DateTime for exit dates
-            txtNgayRoiCoQuan.DataBindings.Add("Text", bindingSource, nameof(Users.NgayRoiCoQuan),true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayRoiCoQuan.DataBindings.Add("Text", bindingSource, nameof(Users.NgayRoiCoQuan), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtNgayNhapNgu.DataBindings.Add("Text", bindingSource, nameof(Users.NgayNhapNgu),true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayNhapNgu.DataBindings.Add("Text", bindingSource, nameof(Users.NgayNhapNgu), true, DataSourceUpdateMode.OnPropertyChanged);
 
             txtNgayXuatNgu.DataBindings.Add("Text", bindingSource, nameof(Users.NgayXuatNgu), true, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -95,7 +95,7 @@ namespace HRMSystem.Controls
             txtHotroXangXe.DataBindings.Add("Text", bindingSource, nameof(Users.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // ToggleSwitch bindings for nullable bool (RoiCoQuan, NghiHuu, etc.)
-            rdRoiCoQuan.DataBindings.Add("IsOn", bindingSource, nameof(Users.RoiCoQuan ), true, DataSourceUpdateMode.OnPropertyChanged);
+            rdRoiCoQuan.DataBindings.Add("IsOn", bindingSource, nameof(Users.RoiCoQuan), true, DataSourceUpdateMode.OnPropertyChanged);
             rdNghiHuu.DataBindings.Add("IsOn", bindingSource, nameof(Users.NghiHuu), true, DataSourceUpdateMode.OnPropertyChanged);
             rdNangLuong.DataBindings.Add("IsOn", bindingSource, nameof(Users.KhongChoPhepNangLuong), true, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -145,9 +145,7 @@ namespace HRMSystem.Controls
                     object[] lstValue = new object[3] { "NhanVien", "MaNV", $"{MaNV}" };
                     DataTable dt = SQLHelper.GetDataTableFromSP("GetRecordByKey", lstParam, lstValue);
                     Users newModel = dt.ToList<Users>()[0];
-                    //newModel.ConvertDate();
                     InitializeDataBindings(newModel);
-                    //PopulateControlsFromNhanVien(newModel);
                 }
 
             }
@@ -160,28 +158,193 @@ namespace HRMSystem.Controls
             BackButtonClick?.Invoke(sender, e);
         }
 
+        public bool ValidateUser(Users user)
+        {
+            if (user == null)
+            {
+                return false;
+            }
+
+            // Kiểm tra MaNV
+            if (user.MaNV <= 0)
+            {
+                return false;
+            }
+
+            // Kiểm tra TenNV
+            if (string.IsNullOrEmpty(user.TenNV))
+            {
+                return false;
+            }
+
+            // Kiểm tra BiDanh
+            if (string.IsNullOrEmpty(user.BiDanh))
+            {
+                return false;
+            }
+
+            // Kiểm tra GioiTinh
+            if (string.IsNullOrEmpty(user.GioiTinh))
+            {
+                return false;
+            }
+
+            // Kiểm tra NgaySinh
+            if (user.NgaySinh == DateTime.MinValue)
+            {
+                return false;
+            }
+
+            // Kiểm tra QueQuan
+            if (string.IsNullOrEmpty(user.QueQuan))
+            {
+                return false;
+            }
+
+            // Kiểm tra NoiSinh
+            if (string.IsNullOrEmpty(user.NoiSinh))
+            {
+                return false;
+            }
+
+            // Kiểm tra SoCCCD
+            if (string.IsNullOrEmpty(user.SoCCCD))
+            {
+                return false;
+            }
+
+            // Kiểm tra NgayCap
+            if (user.NgayCap == DateTime.MinValue)
+            {
+                return false;
+            }
+
+            // Kiểm tra NoiCap
+            if (string.IsNullOrEmpty(user.NoiCap))
+            {
+                return false;
+            }
+
+            // Kiểm tra Email
+            if (string.IsNullOrEmpty(user.Email))
+            {
+                return false;
+            }
+
+            // Kiểm tra SoDienThoai
+            if (string.IsNullOrEmpty(user.SoDienThoai))
+            {
+                return false;
+            }
+
+            // Kiểm tra NgayVaoDoan
+            if (user.NgayVaoDoan == DateTime.MinValue)
+            {
+                return false;
+            }
+
+            // Kiểm tra NgayVaoDang
+            if (user.NgayVaoDang == DateTime.MinValue)
+            {
+                return false;
+            }
+
+            // Kiểm tra NgayVaoLam
+            if (user.NgayVaoLam == DateTime.MinValue)
+            {
+                return false;
+            }
+
+            // Kiểm tra SoSocBH
+            if (user.SoSocBH <= 0)
+            {
+                return false;
+            }
+
+            // Kiểm tra NgayCapSo
+            if (user.NgayCapSo == DateTime.MinValue)
+            {
+                return false;
+            }
+
+            // Kiểm tra NoiCapSo
+            if (string.IsNullOrEmpty(user.NoiCapSo))
+            {
+                return false;
+            }
+
+            // Kiểm tra SoThe
+            if (string.IsNullOrEmpty(user.SoThe))
+            {
+                return false;
+            }
+
+            // Kiểm tra SoTaiKhoan
+            if (string.IsNullOrEmpty(user.SoTaiKhoan))
+            {
+                return false;
+            }
+
+            // Kiểm tra NganHang
+            if (string.IsNullOrEmpty(user.NganHang))
+            {
+                return false;
+            }
+
+            // Kiểm tra TinhTrangHonNhan
+            if (user.TinhTrangHonNhan == null)
+            {
+                return false;
+            }
+
+            // Kiểm tra TinhTrangSuckhoe
+            if (string.IsNullOrEmpty(user.TinhTrangSuckhoe))
+            {
+                return false;
+            }
+
+            // Kiểm tra NhomMau
+            if (string.IsNullOrEmpty(user.NhomMau))
+            {
+                return false;
+            }
+
+            // Kiểm tra LuongCoSo
+            if (user.LuongCoSo == null)
+            {
+                return false;
+            }
+
+            // Nếu tất cả đều hợp lệ
+            return true;
+        }
+
+
         private async void btnSave_ItemClickAsync(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
                 this.groupControl1.Focus();
                 Users nhanVien = (Users)bindingSource.Current;
-                if (nhanVien == null)
+                if (!ValidateUser(nhanVien))
                 {
+                    MessageBox.Show("Nhập đầy đủ.");
                     return;
                 }
+
 
                 using (var context = new AppDbContext())
                 {
                     context.NhanViens.AddOrUpdate(nhanVien);
 
-                    await context.SaveChangesAsync();  
+                    await context.SaveChangesAsync();
                 }
 
                 MessageBox.Show("Thông tin đã được lưu thành công.");
 
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
                 SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeDetail", ex.ToString());
             }
         }

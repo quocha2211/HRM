@@ -9,13 +9,12 @@ namespace HRMSystem.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int MaXLCB { get; set; }
+        public int? MaXLCB { get; set; }
         [Required]
-        public int MaNV { get; set; } 
-        public string XepLoai { get; set; } 
+        public int? MaNV { get; set; }
+        public string XepLoai { get; set; }
         public string DanhHieu { get; set; } 
-        [Required]
-        public int MaPB { get; set; } 
+        public int? MaPB { get; set; } 
         public string GhiChu { get; set; } 
 
     }

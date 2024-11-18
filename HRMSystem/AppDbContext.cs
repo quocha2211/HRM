@@ -29,6 +29,10 @@ public class AppDbContext : DbContext
     public DbSet<TimeKeeping> ChamCongTLs { get; set; }
 
     public DbSet<SalaryAdvance> BangTamUngs { get; set; }
+    public DbSet<TonGiao> TonGiaos { get; set; }
+    public DbSet<TrangThaiLamViec> TrangThaiLamViecs { get; set; }
+    public DbSet<TinhThanh> TinhThanhs { get; set; }
+    public DbSet<DanToc> DanTocs { get; set; }
 
 
 

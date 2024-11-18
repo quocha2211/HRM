@@ -409,6 +409,9 @@
     <Compile Include="Models\LevelLanguage.cs" />
     <Compile Include="Models\LevelEducational.cs" />
     <Compile Include="Models\TimeKeeping.cs" />
+    <Compile Include="Models\TinhThanh.cs" />
+    <Compile Include="Models\TonGiao.cs" />
+    <Compile Include="Models\TrangThaiLamViec.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

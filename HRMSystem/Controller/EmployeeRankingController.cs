@@ -127,18 +127,17 @@ namespace HRMSystem.Controller
         {
             using (var context = new AppDbContext())
             {
-                var query = (from xl in context.XepLoaiNhanViens
-                             join nv in context.NhanViens
-                             on xl.MaNV equals nv.MaNV
-                             join pb in context.PhongBans
-                             on xl.MaPB equals pb.MaPB
+
+                var query = (from nv in context.NhanViens
+                             join xl in context.XepLoaiNhanViens
+                                 on nv.MaNV equals xl.MaNV into xlGroup
+                             from xl in xlGroup.DefaultIfEmpty()
                              select new
                              {
                                  xl.MaXLCB,
-                                 nv.TenNV,
-                                 pb.TenPB,
-                                 xl.XepLoai,
                                  xl.DanhHieu,
+                                 nv.TenNV,
+                                 XepLoai = xl.XepLoai ?? "Giỏi",
                                  xl.GhiChu
                              }).ToList();
 

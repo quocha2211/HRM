@@ -142,5 +142,10 @@ namespace HRMSystem
         {
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.SalaryAdvanceController", Navigator);
         }
+
+        private void accordionControlElement22_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ContractController", Navigator);
+        }
     }
 }

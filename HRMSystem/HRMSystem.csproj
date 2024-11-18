@@ -255,6 +255,7 @@
     <Compile Include="AppDbContext.cs" />
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\CertificateDetailController.cs" />
+    <Compile Include="Controller\ContractController.cs" />
     <Compile Include="Controller\EmployeeTranferController.cs" />
     <Compile Include="Controller\LevelEducationalController.cs" />
     <Compile Include="Controller\EmployeeRankingController.cs" />
@@ -303,6 +304,12 @@
     </Compile>
     <Compile Include="Controls\ucEmployeeMaster.Designer.cs">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmContract.Designer.cs">
+      <DependentUpon>frmContract.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSalaryAdvance.cs">
       <SubType>Form</SubType>
@@ -437,6 +444,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucEmployeeMaster.resx">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmContract.resx">
+      <DependentUpon>frmContract.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSalaryAdvance.resx">
       <DependentUpon>frmSalaryAdvance.cs</DependentUpon>

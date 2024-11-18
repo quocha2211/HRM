@@ -14,32 +14,31 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Forms
 {
-    public partial class frmEmployeeRanking : DevExpress.XtraEditors.XtraForm
+    public partial class frmContract : DevExpress.XtraEditors.XtraForm
     {
         public event EventHandler BackButtonClick;
         public string MaXLCB;
         public int MaNV;
         private BindingSource bindingSource = new BindingSource();
 
-        public frmEmployeeRanking()
+        public frmContract()
         {
             InitializeComponent();
         }
 
 
-        private void InitializeDataBindings(EmployeeRanking model)
+        private void InitializeDataBindings(Contract model)
         {
             bindingSource.DataSource = model;
             if (model.MaNV == null)
-            {   
+            {
                 model.MaNV = MaNV;
-                model.XepLoai = "Giỏi";
             }
-            txtRank.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.XepLoai));
-            txtTitleRank.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.DanhHieu));
-            txtNote.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.GhiChu));
-            //txtDepartment.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeRanking.MaPB), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboEmployee.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeRanking.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNote.DataBindings.Add("Text", bindingSource, nameof(Contract.GhiChu), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboEmployee.DataBindings.Add("EditValue", bindingSource, nameof(Contract.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtMaLoaiHD.DataBindings.Add("EditValue", bindingSource, nameof(Contract.MaLoaiHD), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayky.DataBindings.Add("Text", bindingSource, nameof(Contract.NgayKy), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtThoiHan.DataBindings.Add("EditValue", bindingSource, nameof(Contract.ThoiHan), true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
 
@@ -48,7 +47,7 @@ namespace HRMSystem.Forms
             try
             {
                 this.groupControl1.Focus();
-                EmployeeRanking model = (EmployeeRanking)bindingSource.Current;
+                Contract model = (Contract)bindingSource.Current;
                 if (model == null)
                 {
                     MessageBox.Show("Lưu thất bại.");
@@ -57,7 +56,7 @@ namespace HRMSystem.Forms
 
                 using (var context = new AppDbContext())
                 {
-                    context.XepLoaiNhanViens.AddOrUpdate(model);
+                    context.HopDongs.AddOrUpdate(model);
 
                     context.SaveChanges();
                 }
@@ -79,18 +78,17 @@ namespace HRMSystem.Forms
             try
             {
                 clsCommon.initialValue("NhanVien", "MaNV", "TenNV", cboEmployeeView, cboEmployee, clsInitialGridColumn.InitialComboEmployee());
-                clsCommon.initialValue("PhongBan", "MaPB", "TenPB", txtDepartmentView, txtDepartment, clsInitialGridColumn.InitialComboDepartment());
+                clsCommon.initialValue("LoaiHopDong", "MaLoaiHD", "TenLoaiHD", txtMaLoaiHDView, txtMaLoaiHD, clsInitialGridColumn.InitialComboLoaiHopDong());
                 if (string.IsNullOrEmpty(MaXLCB))
                 {
-                    InitializeDataBindings(new EmployeeRanking());
+                    InitializeDataBindings(new Contract());
                 }
                 else
                 {
                     using (var context = new AppDbContext())
                     {
-                        var model = context.XepLoaiNhanViens.Find(Convert.ToInt32(MaXLCB));
-                        if (string.IsNullOrEmpty(model.XepLoai))
-                            model.XepLoai = "giỏi";
+                        var model = context.HopDongs.Find(Convert.ToInt32(MaXLCB));
+                       
                         InitializeDataBindings(model);
 
                     }

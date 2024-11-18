@@ -416,6 +416,7 @@
             this.accordionControlElement22.Name = "accordionControlElement22";
             this.accordionControlElement22.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement22.Text = "Quản lý hợp đồng";
+            this.accordionControlElement22.Click += new System.EventHandler(this.accordionControlElement22_Click);
             // 
             // accordionControlElement23
             // 

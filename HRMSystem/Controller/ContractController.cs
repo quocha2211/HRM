@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class EmployeeRankingController : IucControlController
+    public class ContractController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public frmEmployeeRanking detailForm;
+        public frmContract detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -102,7 +102,7 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new frmEmployeeRanking() { Dock = DockStyle.Fill };
+                detailForm = new frmContract() { Dock = DockStyle.Fill };
                 detailForm.MaNV = Convert.ToInt32( masterForm.GetPrimaryKey("MaNV"));
                 detailForm.MaXLCB = pKey;
                 var rs = detailForm.ShowDialog();
@@ -127,29 +127,36 @@ namespace HRMSystem.Controller
 
         private void LoadData()
         {
-            using (var context = new AppDbContext())
+            try
             {
+                using (var context = new AppDbContext())
+                {
 
-                var query = (from nv in context.NhanViens
-                             join xl in context.XepLoaiNhanViens
-                                 on nv.MaNV equals xl.MaNV into xlGroup
-                             from xl in xlGroup.DefaultIfEmpty()
-                             select new
-                             {
-                                 xl.MaXLCB,
-                                 xl.DanhHieu,
-                                 nv.TenNV,
-                                 nv.MaNV,
-                                 XepLoai = xl.XepLoai ?? "Giỏi",
-                                 xl.GhiChu
-                             }).ToList();
+                    var query = (from nv in context.NhanViens
+                                 join xl in context.HopDongs
+                                     on nv.MaNV equals xl.MaNV into xlGroup
+                                 from xl in xlGroup.DefaultIfEmpty()
+                                 select new
+                                 {
+                                     xl.MaHD,
+                                     xl.MaLoaiHD,
+                                     xl.NgayKy,
+                                     xl.ThoiHan,
+                                     nv.TenNV,
+                                     nv.MaNV,
+                                     xl.GhiChu
+                                 }).ToList();
 
-                clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Quản lý Xếp Loại Cán Bộ");
-                masterForm.SetDataSource(query, clsInitialGridColumn.InitialEmployeeRanking());
-                masterForm.SetSpecialGridProperties();
+                    clsCommon.OpenWaitingForm(View);
+                    masterForm.SetTitle("Quản lý Hợp Đồng");
+                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialContract());
+                    masterForm.SetSpecialGridProperties();
 
+                }
             }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }
+            finally { clsCommon.CloseWaitingForm(); }
+
 
         }
 

@@ -78,7 +78,10 @@ namespace HRMSystem.Controller
             {
                 if (masterForm == null)
                     return;
-                InitialDetailPage(masterForm.GetPrimaryKey("MaXLCB"));
+
+                
+                
+                InitialDetailPage(masterForm.GetPrimaryKey("MaNV"));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -102,6 +105,7 @@ namespace HRMSystem.Controller
                 if (detailForm != null)
                     detailForm.Dispose();
                 detailForm = new frmEmployeeRanking() { Dock = DockStyle.Fill };
+                detailForm.MaNV = Convert.ToInt32( masterForm.GetPrimaryKey("MaNV"));
                 detailForm.MaXLCB = pKey;
                 var rs = detailForm.ShowDialog();
                 if (rs == DialogResult.OK)
@@ -137,6 +141,7 @@ namespace HRMSystem.Controller
                                  xl.MaXLCB,
                                  xl.DanhHieu,
                                  nv.TenNV,
+                                 nv.MaNV,
                                  XepLoai = xl.XepLoai ?? "Giỏi",
                                  xl.GhiChu
                              }).ToList();

@@ -18,6 +18,7 @@ namespace HRMSystem.Utilities
             {
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaXLCB", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MaNV", FieldName = "MaNV", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Xếp loại", FieldName = "XepLoai", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Danh hiệu", FieldName = "DanhHieu", Visible = true });
                 //lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên phòng ban", FieldName = "TenPB", Visible = true });

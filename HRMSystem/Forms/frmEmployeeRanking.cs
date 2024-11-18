@@ -18,6 +18,7 @@ namespace HRMSystem.Forms
     {
         public event EventHandler BackButtonClick;
         public string MaXLCB;
+        public int MaNV;
         private BindingSource bindingSource = new BindingSource();
 
         public frmEmployeeRanking()
@@ -29,6 +30,7 @@ namespace HRMSystem.Forms
         private void InitializeDataBindings(EmployeeRanking model)
         {
             bindingSource.DataSource = model;
+            if (model.MaNV == null) model.MaNV = MaNV;
             txtRank.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.XepLoai));
             txtTitleRank.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.DanhHieu));
             txtNote.DataBindings.Add("Text", bindingSource, nameof(EmployeeRanking.GhiChu));

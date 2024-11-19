@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class ContractController : IucControlController
+    public class ThanNhanController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public frmContract detailForm;
+        public frmThanNhan detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -54,11 +54,11 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.HopDongs.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaHD")));
+                    var model = context.ThanNhans.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaTN")));
 
                     if (model != null)
                     {
-                        context.HopDongs.Remove(model);
+                        context.ThanNhans.Remove(model);
 
                         context.SaveChanges();
 
@@ -79,7 +79,7 @@ namespace HRMSystem.Controller
                 if (masterForm == null)
                     return;
                 
-                InitialDetailPage(masterForm.GetPrimaryKey("MaHD"));
+                InitialDetailPage(masterForm.GetPrimaryKey("MaTN"));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -102,9 +102,9 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new frmContract() { Dock = DockStyle.Fill };
+                detailForm = new frmThanNhan() { Dock = DockStyle.Fill };
                 detailForm.MaNV = Convert.ToInt32( masterForm.GetPrimaryKey("MaNV"));
-                detailForm.MaHD = pKey;
+                detailForm.MaTN = pKey;
                 var rs = detailForm.ShowDialog();
                 if (rs == DialogResult.OK)
                 {
@@ -133,25 +133,27 @@ namespace HRMSystem.Controller
                 {
 
                     var query = (from nv in context.NhanViens
-                                join xl in context.HopDongs on nv.MaNV equals xl.MaNV into hopDongGroup
-                                from xl in hopDongGroup.DefaultIfEmpty() 
-                                join l in context.LoaiHopDongs on xl.MaLoaiHD equals l.MaLoaiHD into loaiHopDongGroup
-                                from l in loaiHopDongGroup.DefaultIfEmpty() 
+                                join xl in context.ThanNhans on nv.MaNV equals xl.MaNV into thanNhanGroup
+                                 from xl in thanNhanGroup.DefaultIfEmpty() 
+                                join l in context.QuanHeThanNhans on xl.MaQHTN equals l.MaQHTN into qhGroup
+                                from l in qhGroup.DefaultIfEmpty() 
                                 select new
                                 {
-                                    xl.MaHD,
-                                    xl.MaLoaiHD,
-                                    l.TenLoaiHD,
-                                    xl.NgayKy,
-                                    xl.ThoiHan,
+                                    xl.MaTN,
+                                    xl.MaQHTN,
+                                    l.TenQHTN,
+                                    xl.NgaySinh,
+                                    xl.HoVaTen,
+                                    xl.NoiO,
+                                    xl.NgheNghiep,
                                     nv.TenNV,
                                     nv.MaNV,
                                     xl.GhiChu
                                 }).ToList();
 
                     clsCommon.OpenWaitingForm(View);
-                    masterForm.SetTitle("Quản lý Hợp Đồng");
-                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialContract());
+                    masterForm.SetTitle("Quản lý Thân Nhân");
+                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialThanNhan());
                     masterForm.SetSpecialGridProperties();
 
                 }

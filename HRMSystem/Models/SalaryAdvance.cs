@@ -16,7 +16,7 @@ namespace HRMSystem.Models
         public DateTime NgayTU { get; set; }  // Date of advance payment
         public int Thang { get; set; }  // Month
         public int Nam { get; set; }  // Year
-        public double SoTienTU { get; set; }  // Amount of the advance
+        public double? SoTienTU { get; set; }  // Amount of the advance
         public string DienGiai { get; set; }  // Description or reason for advance (nullable)
 
         // Foreign key to NhanVien (Employee)

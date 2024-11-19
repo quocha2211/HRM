@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Controller
 {
-    public class ContractController : IucControlController
+    public class BangLuongController : IucControlController
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
-        public ucBaseSingleList masterForm;
+        public ucBangLuong masterForm;
         public frmContract detailForm;
         public void Initialize(UserControl _view)
         {
@@ -33,7 +33,7 @@ namespace HRMSystem.Controller
                 if (masterForm != null)
                     masterForm.Dispose();
                 masterController = new BaseController();
-                masterForm = new ucBaseSingleList() { Dock = DockStyle.Fill };
+                masterForm = new ucBangLuong() { Dock = DockStyle.Fill };
 
 
                 masterController.Initialize(masterForm);
@@ -133,25 +133,37 @@ namespace HRMSystem.Controller
                 {
 
                     var query = (from nv in context.NhanViens
-                                join xl in context.HopDongs on nv.MaNV equals xl.MaNV into hopDongGroup
-                                from xl in hopDongGroup.DefaultIfEmpty() 
-                                join l in context.LoaiHopDongs on xl.MaLoaiHD equals l.MaLoaiHD into loaiHopDongGroup
-                                from l in loaiHopDongGroup.DefaultIfEmpty() 
-                                select new
+                                join cc in context.ChamCongTLs on nv.MaNV equals cc.MaNV into chamCongGroup
+                                from cc in chamCongGroup.DefaultIfEmpty()
+                                join xx in context.DinhMucXangXes on nv.MaDMXX equals xx.MaDMXX into xangXeGroup
+                                from xx in xangXeGroup.DefaultIfEmpty()
+                                join tu in context.BangTamUngs on nv.MaNV equals tu.MaNV into tuGroup
+                                from tu in tuGroup.DefaultIfEmpty()
+                                where cc.Nam == 2024 && cc.Thang == 11
+                                 select new
                                 {
-                                    xl.MaHD,
-                                    xl.MaLoaiHD,
-                                    l.TenLoaiHD,
-                                    xl.NgayKy,
-                                    xl.ThoiHan,
                                     nv.TenNV,
                                     nv.MaNV,
-                                    xl.GhiChu
-                                }).ToList();
+                                    nv.LuongCoSo,
+                                    nv.HeSoLuong,
+                                    LuongCoBan = nv.LuongCoSo * nv.HeSoLuong,
+                                    NgayCongTrongThang = (cc.NgayCongTrongThang ?? 0),
+                                    LuongThoiGian = (nv.LuongCoSo * nv.HeSoLuong)/26 * (cc.NgayCongTrongThang ?? 0),
+                                    xx.DMXX,
+                                    TienAn = (cc.NgayCongTrongThang ?? 0) * 25000,
+                                    TongLuong = (nv.LuongCoSo * nv.HeSoLuong) / 26 * (cc.NgayCongTrongThang ?? 0) + (cc.NgayCongTrongThang ?? 0) * 25000 + xx.DMXX,
+                                    BHXH = (nv.LuongCoSo * nv.HeSoLuong) * 8 / 100,
+                                    BHYT = (nv.LuongCoSo * nv.HeSoLuong) * 1.5 / 100,
+                                    BHTN = (nv.LuongCoSo * nv.HeSoLuong) * 1 / 100,
+                                     SoTienTU = (tu.SoTienTU ?? 0),
+                                    LuongGiamTru = (nv.LuongCoSo * nv.HeSoLuong) * 8 / 100 + (nv.LuongCoSo * nv.HeSoLuong) * 1.5 / 100 + (nv.LuongCoSo * nv.HeSoLuong) * 1 / 100 + (tu.SoTienTU ?? 0),
+                                    LuongThucNhan = (nv.LuongCoSo * nv.HeSoLuong) / 26 * (cc.NgayCongTrongThang ?? 0) + (cc.NgayCongTrongThang ?? 0) * 25000 + xx.DMXX - ((nv.LuongCoSo * nv.HeSoLuong) * 8 / 100 + (nv.LuongCoSo * nv.HeSoLuong) * 1.5 / 100 + (nv.LuongCoSo * nv.HeSoLuong) * 1 / 100 + (tu.SoTienTU ?? 0))
+
+                                 }).ToList();
 
                     clsCommon.OpenWaitingForm(View);
-                    masterForm.SetTitle("Quản lý Hợp Đồng");
-                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialContract());
+                    masterForm.SetTitle("Lập bảng lương");
+                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialBangLuong());
                     masterForm.SetSpecialGridProperties();
 
                 }

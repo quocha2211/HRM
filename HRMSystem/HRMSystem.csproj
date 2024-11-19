@@ -255,6 +255,8 @@
     <Compile Include="AppDbContext.cs" />
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\CertificateDetailController.cs" />
+    <Compile Include="Controller\BangLuongController.cs" />
+    <Compile Include="Controller\ThanNhanController.cs" />
     <Compile Include="Controller\ContractController.cs" />
     <Compile Include="Controller\EmployeeTranferController.cs" />
     <Compile Include="Controller\LevelEducationalController.cs" />
@@ -287,6 +289,12 @@
     <Compile Include="Controls\ucBaseMasterDetail.Designer.cs">
       <DependentUpon>ucBaseMasterDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ucBangLuong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucBangLuong.Designer.cs">
+      <DependentUpon>ucBangLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucBaseSingleList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -304,6 +312,18 @@
     </Compile>
     <Compile Include="Controls\ucEmployeeMaster.Designer.cs">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChungChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChungChi.Designer.cs">
+      <DependentUpon>frmChungChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmThanNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmThanNhan.Designer.cs">
+      <DependentUpon>frmThanNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmContract.cs">
       <SubType>Form</SubType>
@@ -399,6 +419,7 @@
     <Compile Include="Models\ChucVu.cs" />
     <Compile Include="Models\Certificate.cs" />
     <Compile Include="Models\Contract.cs" />
+    <Compile Include="Models\ContractType.cs" />
     <Compile Include="Models\DinhMucXangXe.cs" />
     <Compile Include="Models\EmployeeRanking.cs" />
     <Compile Include="Models\EmployeeTransfer.cs" />
@@ -415,6 +436,7 @@
     <Compile Include="Models\LevelExpertise.cs" />
     <Compile Include="Models\LevelLanguage.cs" />
     <Compile Include="Models\LevelEducational.cs" />
+    <Compile Include="Models\ThanNhan.cs" />
     <Compile Include="Models\TimeKeeping.cs" />
     <Compile Include="Models\TinhThanh.cs" />
     <Compile Include="Models\TonGiao.cs" />
@@ -436,6 +458,9 @@
     <EmbeddedResource Include="Controls\ucBaseMasterDetail.resx">
       <DependentUpon>ucBaseMasterDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucBangLuong.resx">
+      <DependentUpon>ucBangLuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucBaseSingleList.resx">
       <DependentUpon>ucBaseSingleList.cs</DependentUpon>
     </EmbeddedResource>
@@ -444,6 +469,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucEmployeeMaster.resx">
       <DependentUpon>ucEmployeeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChungChi.resx">
+      <DependentUpon>frmChungChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmThanNhan.resx">
+      <DependentUpon>frmThanNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmContract.resx">
       <DependentUpon>frmContract.cs</DependentUpon>

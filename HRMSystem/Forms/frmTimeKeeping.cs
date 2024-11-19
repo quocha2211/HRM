@@ -35,6 +35,7 @@ namespace HRMSystem.Forms
             //txtKhoa.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.Khoa), true, DataSourceUpdateMode.OnPropertyChanged);
             txtSoCong.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.NgayCongTrongThang), true, DataSourceUpdateMode.OnPropertyChanged);
             txtDate.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.NgayTinhCong), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboEmployee.DataBindings.Add("EditValue", bindingSource, nameof(TimeKeeping.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
 
@@ -52,6 +53,15 @@ namespace HRMSystem.Forms
 
                 using (var context = new AppDbContext())
                 {
+                    var chamCong = context.ChamCongTLs.FirstOrDefault(x=> x.Nam == model.Nam && x.Thang == model.Thang && x.MaNV == model.MaNV );
+
+                    if (chamCong != null)
+                    {
+                        model.MaCCTL = chamCong.MaCCTL;
+
+                    }
+
+
                     context.ChamCongTLs.AddOrUpdate(model);
 
                     context.SaveChanges();
@@ -73,7 +83,8 @@ namespace HRMSystem.Forms
         {
             try
             {
-            
+                clsCommon.initialValue("NhanVien", "MaNV", "TenNV", cboEmployeeView, cboEmployee, clsInitialGridColumn.InitialComboEmployee());
+
                 if (string.IsNullOrEmpty(MaCCTL))
                 {
                     InitializeDataBindings(new TimeKeeping());

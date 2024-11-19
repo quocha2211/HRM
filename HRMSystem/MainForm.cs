@@ -147,5 +147,15 @@ namespace HRMSystem
         {
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ContractController", Navigator);
         }
+
+        private void accordionControlElement24_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ThanNhanController", Navigator);
+        }
+
+        private void accordionControlElement27_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.BangLuongController", Navigator);
+        }
     }
 }

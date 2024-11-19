@@ -20,8 +20,8 @@ namespace HRMSystem.Models
         public int? ThoiHan { get; set; } // ThoiHan (Thời hạn hợp đồng)
         public string NguoiKy { get; set; } // NguoiKy (Người ký hợp đồng)
         public int? MaBL { get; set; } // MaBL (Nullable, FK to HeSoThangBacLuong)
-        public int MaTL { get; set; } // MaTL (Nullable, FK to ThangLuong)
-        public int MaChucVu { get; set; } // MaChucVu (Nullable, FK to ChucVu)
+        public int? MaTL { get; set; } // MaTL (Nullable, FK to ThangLuong)
+        public int? MaChucVu { get; set; } // MaChucVu (Nullable, FK to ChucVu)
         public string NoiCap { get; set; } // NoiCap (Nơi cấp hợp đồng)
         public string GhiChu { get; set; } // GhiChu (Ghi chú)
     }

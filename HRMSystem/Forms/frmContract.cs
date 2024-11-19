@@ -17,7 +17,7 @@ namespace HRMSystem.Forms
     public partial class frmContract : DevExpress.XtraEditors.XtraForm
     {
         public event EventHandler BackButtonClick;
-        public string MaXLCB;
+        public string MaHD;
         public int MaNV;
         private BindingSource bindingSource = new BindingSource();
 
@@ -39,6 +39,9 @@ namespace HRMSystem.Forms
             txtMaLoaiHD.DataBindings.Add("EditValue", bindingSource, nameof(Contract.MaLoaiHD), true, DataSourceUpdateMode.OnPropertyChanged);
             txtNgayky.DataBindings.Add("Text", bindingSource, nameof(Contract.NgayKy), true, DataSourceUpdateMode.OnPropertyChanged);
             txtThoiHan.DataBindings.Add("EditValue", bindingSource, nameof(Contract.ThoiHan), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNguoiKy.DataBindings.Add("Text", bindingSource, nameof(Contract.NguoiKy), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtThangLuong.DataBindings.Add("EditValue", bindingSource, nameof(Contract.MaTL), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtchucVu.DataBindings.Add("EditValue", bindingSource, nameof(Contract.MaChucVu), true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
 
@@ -48,6 +51,8 @@ namespace HRMSystem.Forms
             {
                 this.groupControl1.Focus();
                 Contract model = (Contract)bindingSource.Current;
+               
+
                 if (model == null)
                 {
                     MessageBox.Show("Lưu thất bại.");
@@ -56,7 +61,13 @@ namespace HRMSystem.Forms
 
                 using (var context = new AppDbContext())
                 {
-                    context.HopDongs.AddOrUpdate(model);
+                    DateTime ngayHetHan = (DateTime)model.NgayKy;
+                    model.NgayHetHan = ngayHetHan.AddYears((int)model.ThoiHan);
+                    model.NoiCap = "admin";
+                    if(model.MaHD == null)
+                        context.HopDongs.Add(model);
+                    else
+                        context.HopDongs.AddOrUpdate(model);
 
                     context.SaveChanges();
                 }
@@ -66,7 +77,7 @@ namespace HRMSystem.Forms
                 this.Close();
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucChungChiDetail", ex.ToString()); }
+            catch (Exception ex) { MessageBox.Show("Lưu thất bại."); SQLiteHelper.SaveToLog(ex.Message, "ucChungChiDetail", ex.ToString()); }
 
         }
 
@@ -79,7 +90,9 @@ namespace HRMSystem.Forms
             {
                 clsCommon.initialValue("NhanVien", "MaNV", "TenNV", cboEmployeeView, cboEmployee, clsInitialGridColumn.InitialComboEmployee());
                 clsCommon.initialValue("LoaiHopDong", "MaLoaiHD", "TenLoaiHD", txtMaLoaiHDView, txtMaLoaiHD, clsInitialGridColumn.InitialComboLoaiHopDong());
-                if (string.IsNullOrEmpty(MaXLCB))
+                clsCommon.initialValue("ThangLuong", "MaTL", "TenTL", txtThangLuongView, txtThangLuong, clsInitialGridColumn.InitialComboThangLuong());
+                clsCommon.initialValue("ChucVu", "MaChucVu", "TenChucVu", txtChucVuView, txtchucVu, clsInitialGridColumn.InitialComboChucVu());
+                if (string.IsNullOrEmpty(MaHD))
                 {
                     InitializeDataBindings(new Contract());
                 }
@@ -87,7 +100,7 @@ namespace HRMSystem.Forms
                 {
                     using (var context = new AppDbContext())
                     {
-                        var model = context.HopDongs.Find(Convert.ToInt32(MaXLCB));
+                        var model = context.HopDongs.Find(Convert.ToInt32(MaHD));
                        
                         InitializeDataBindings(model);
 

@@ -53,7 +53,6 @@
             this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.grpSalary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -347,7 +346,6 @@
             this.accordionControlElement19,
             this.accordionControlElement20,
             this.accordionControlElement22,
-            this.accordionControlElement23,
             this.accordionControlElement24});
             this.grpProfile.Expanded = true;
             this.grpProfile.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.employeeprofile;
@@ -418,18 +416,6 @@
             this.accordionControlElement22.Text = "Quản lý hợp đồng";
             this.accordionControlElement22.Click += new System.EventHandler(this.accordionControlElement22_Click);
             // 
-            // accordionControlElement23
-            // 
-            this.accordionControlElement23.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement23.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement23.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement23.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement23.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement23.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement23.Name = "accordionControlElement23";
-            this.accordionControlElement23.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement23.Text = "Quản lý chứng chỉ văn bằng";
-            // 
             // accordionControlElement24
             // 
             this.accordionControlElement24.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -441,6 +427,7 @@
             this.accordionControlElement24.Name = "accordionControlElement24";
             this.accordionControlElement24.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement24.Text = "Quản lý nhân thân";
+            this.accordionControlElement24.Click += new System.EventHandler(this.accordionControlElement24_Click);
             // 
             // grpSalary
             // 
@@ -497,6 +484,7 @@
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement27.Text = "Lập bảng lương";
+            this.accordionControlElement27.Click += new System.EventHandler(this.accordionControlElement27_Click);
             // 
             // accordionControlElement28
             // 
@@ -957,7 +945,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement23;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement24;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement25;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement26;

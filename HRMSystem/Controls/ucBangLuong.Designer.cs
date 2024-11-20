@@ -36,15 +36,23 @@
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.btnLoad = new DevExpress.XtraBars.BarButtonItem();
-            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.txtThang = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.txtNam = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLoad = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnExport = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lcTitle = new DevExpress.XtraLayout.LayoutControlItem();
@@ -52,27 +60,19 @@
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtNam = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.txtThang = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -161,9 +161,9 @@
             this.bar2.FloatLocation = new System.Drawing.Point(109, 224);
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.txtThang, "", false, true, true, 76),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem2),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.txtNam, "", false, true, true, 67),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem2),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.txtThang, "", false, true, true, 76),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
             this.bar2.OptionsBar.DrawBorder = false;
             this.bar2.OptionsBar.DrawDragBorder = false;
@@ -172,37 +172,53 @@
             this.bar2.StandaloneBarDockControl = this.standaloneBarDockControl1;
             this.bar2.Text = "Main menu";
             // 
-            // btnLoad
+            // barStaticItem1
             // 
-            this.btnLoad.Caption = "Tải dữ liệu";
-            this.btnLoad.Id = 1;
-            this.btnLoad.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.SyncBadge12;
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoad_ItemClick);
+            this.barStaticItem1.Caption = "Năm";
+            this.barStaticItem1.Id = 6;
+            this.barStaticItem1.Name = "barStaticItem1";
             // 
-            // btnAdd
+            // txtThang
             // 
-            this.btnAdd.Caption = "Thêm";
-            this.btnAdd.Id = 0;
-            this.btnAdd.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Add1;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
+            this.txtThang.Caption = "barEditItem2";
+            this.txtThang.Edit = this.repositoryItemSpinEdit2;
+            this.txtThang.Id = 7;
+            this.txtThang.Name = "txtThang";
             // 
-            // btnEdit
+            // repositoryItemSpinEdit2
             // 
-            this.btnEdit.Caption = "Sửa";
-            this.btnEdit.Id = 2;
-            this.btnEdit.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Edit;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEdit_ItemClick);
+            this.repositoryItemSpinEdit2.AutoHeight = false;
+            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
             // 
-            // btnDelete
+            // barStaticItem2
             // 
-            this.btnDelete.Caption = "Xóa";
-            this.btnDelete.Id = 3;
-            this.btnDelete.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Cancel;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
+            this.barStaticItem2.Caption = "Tháng";
+            this.barStaticItem2.Id = 8;
+            this.barStaticItem2.Name = "barStaticItem2";
+            // 
+            // txtNam
+            // 
+            this.txtNam.Caption = "barEditItem1";
+            this.txtNam.Edit = this.repositoryItemSpinEdit1;
+            this.txtNam.Id = 5;
+            this.txtNam.Name = "txtNam";
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Tìm kiếm";
+            this.barButtonItem2.Id = 10;
+            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -240,12 +256,50 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 549);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Caption = "Thêm";
+            this.btnAdd.Id = 0;
+            this.btnAdd.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Add1;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Caption = "Tải dữ liệu";
+            this.btnLoad.Id = 1;
+            this.btnLoad.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.SyncBadge12;
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoad_ItemClick);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Caption = "Sửa";
+            this.btnEdit.Id = 2;
+            this.btnEdit.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Edit;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEdit_ItemClick);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Id = 3;
+            this.btnDelete.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.Cancel;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
+            // 
             // btnExport
             // 
             this.btnExport.Caption = "Xuất dữ liệu";
             this.btnExport.Id = 4;
             this.btnExport.ImageOptions.Image = global::HRMSystem.Properties.Resources.excel18;
             this.btnExport.Name = "btnExport";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 9;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // lblTitle
             // 
@@ -320,60 +374,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // txtNam
-            // 
-            this.txtNam.Caption = "barEditItem1";
-            this.txtNam.Edit = this.repositoryItemSpinEdit1;
-            this.txtNam.Id = 5;
-            this.txtNam.Name = "txtNam";
-            // 
-            // repositoryItemSpinEdit1
-            // 
-            this.repositoryItemSpinEdit1.AutoHeight = false;
-            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
-            // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Caption = "Năm";
-            this.barStaticItem1.Id = 6;
-            this.barStaticItem1.Name = "barStaticItem1";
-            // 
-            // txtThang
-            // 
-            this.txtThang.Caption = "barEditItem2";
-            this.txtThang.Edit = this.repositoryItemSpinEdit2;
-            this.txtThang.Id = 7;
-            this.txtThang.Name = "txtThang";
-            // 
-            // repositoryItemSpinEdit2
-            // 
-            this.repositoryItemSpinEdit2.AutoHeight = false;
-            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
-            // 
-            // barStaticItem2
-            // 
-            this.barStaticItem2.Caption = "Tháng";
-            this.barStaticItem2.Id = 8;
-            this.barStaticItem2.Name = "barStaticItem2";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 9;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Tìm kiếm";
-            this.barButtonItem2.Id = 10;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
-            // 
             // ucBangLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,14 +391,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HRMSystem.Models
 {
     [Table("NhanVien")]
-    public class Users
+    public class Employee
     {
         [Key]
         public int MaNV { get; set; }

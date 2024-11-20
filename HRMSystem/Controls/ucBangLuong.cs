@@ -19,7 +19,16 @@ namespace HRMSystem.Controls
         public event EventHandler EditButtonClick;
         public event EventHandler DeleteButtonClick;
         public event EventHandler ReLoadButtonClick;
-        public event EventHandler SearchButtonClick;
+        public delegate void SearchButtonClick(int nam, int thang);
+        public SearchButtonClick searchDelegate;
+
+
+
+        public void load()
+        {
+
+        }
+
         public ucBangLuong()
         {
             InitializeComponent();
@@ -104,7 +113,11 @@ namespace HRMSystem.Controls
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SearchButtonClick?.Invoke(sender, e);
+            int nam = int.Parse(txtNam.EditValue.ToString());
+            int thang = int.Parse(txtThang.EditValue.ToString());
+
+            searchDelegate(nam, thang);
+
         }
     }
 }

@@ -25,84 +25,84 @@ namespace HRMSystem.Controls
         {
             InitializeComponent();
         }
-        private void InitializeDataBindings(Users nhanVien)
+        private void InitializeDataBindings(Employee nhanVien)
         {
             bindingSource.DataSource = nhanVien;
 
             // TextEdit bindings
-            txtCode.DataBindings.Add("Text", bindingSource, nameof(Users.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtTenNV.DataBindings.Add("Text", bindingSource, nameof(Users.TenNV), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtBiDanh.DataBindings.Add("Text", bindingSource, nameof(Users.BiDanh), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNoiOHienTai.DataBindings.Add("Text", bindingSource, nameof(Users.NoiOHienTai), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNoiSinh.DataBindings.Add("Text", bindingSource, nameof(Users.NoiSinh), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtQueQuan.DataBindings.Add("Text", bindingSource, nameof(Users.QueQuan), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtCCCDNoiCap.DataBindings.Add("Text", bindingSource, nameof(Users.NoiCap), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtCCCD.DataBindings.Add("Text", bindingSource, nameof(Users.SoCCCD), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtEmail.DataBindings.Add("Text", bindingSource, nameof(Users.Email), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtSDT.DataBindings.Add("Text", bindingSource, nameof(Users.SoDienThoai), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNoiVaoDoan.DataBindings.Add("Text", bindingSource, nameof(Users.NoiVaoDoan), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNoiVaoDang.DataBindings.Add("Text", bindingSource, nameof(Users.NoiVaoDang), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtSoTheNganHang.DataBindings.Add("Text", bindingSource, nameof(Users.SoThe), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNganHangSTK.DataBindings.Add("Text", bindingSource, nameof(Users.SoTaiKhoan), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtBaoHiemNoiCap.DataBindings.Add("Text", bindingSource, nameof(Users.NoiCapSo), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtLiDo.DataBindings.Add("Text", bindingSource, nameof(Users.LyDo), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtTinhTrangSucKhoe.DataBindings.Add("Text", bindingSource, nameof(Users.TinhTrangSuckhoe), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboNganHang.DataBindings.Add("Text", bindingSource, nameof(Users.NganHang), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtChieuCao.DataBindings.Add("Text", bindingSource, nameof(Users.ChieuCao), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtCanNang.DataBindings.Add("Text", bindingSource, nameof(Users.CanNang), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtCode.DataBindings.Add("Text", bindingSource, nameof(Employee.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtTenNV.DataBindings.Add("Text", bindingSource, nameof(Employee.TenNV), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtBiDanh.DataBindings.Add("Text", bindingSource, nameof(Employee.BiDanh), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNoiOHienTai.DataBindings.Add("Text", bindingSource, nameof(Employee.NoiOHienTai), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNoiSinh.DataBindings.Add("Text", bindingSource, nameof(Employee.NoiSinh), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtQueQuan.DataBindings.Add("Text", bindingSource, nameof(Employee.QueQuan), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtCCCDNoiCap.DataBindings.Add("Text", bindingSource, nameof(Employee.NoiCap), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtCCCD.DataBindings.Add("Text", bindingSource, nameof(Employee.SoCCCD), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtEmail.DataBindings.Add("Text", bindingSource, nameof(Employee.Email), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtSDT.DataBindings.Add("Text", bindingSource, nameof(Employee.SoDienThoai), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNoiVaoDoan.DataBindings.Add("Text", bindingSource, nameof(Employee.NoiVaoDoan), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNoiVaoDang.DataBindings.Add("Text", bindingSource, nameof(Employee.NoiVaoDang), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtSoTheNganHang.DataBindings.Add("Text", bindingSource, nameof(Employee.SoThe), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNganHangSTK.DataBindings.Add("Text", bindingSource, nameof(Employee.SoTaiKhoan), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtBaoHiemNoiCap.DataBindings.Add("Text", bindingSource, nameof(Employee.NoiCapSo), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtLiDo.DataBindings.Add("Text", bindingSource, nameof(Employee.LyDo), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtTinhTrangSucKhoe.DataBindings.Add("Text", bindingSource, nameof(Employee.TinhTrangSuckhoe), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboNganHang.DataBindings.Add("Text", bindingSource, nameof(Employee.NganHang), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtChieuCao.DataBindings.Add("Text", bindingSource, nameof(Employee.ChieuCao), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtCanNang.DataBindings.Add("Text", bindingSource, nameof(Employee.CanNang), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // TextEdit binding with nullable int (SoSocBH)
-            txtSoSoBH.DataBindings.Add("Text", bindingSource, nameof(Users.SoSocBH), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtSoSoBH.DataBindings.Add("Text", bindingSource, nameof(Employee.SoSocBH), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // ComboBoxEdit bindings
-            cboGioiTinh.DataBindings.Add("Text", bindingSource, nameof(Users.GioiTinh), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboTTHonNhan.DataBindings.Add("SelectedIndex", bindingSource, nameof(Users.TinhTrangHonNhan), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboNhomMau.DataBindings.Add("Text", bindingSource, nameof(Users.NhomMau), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboQuanHamCaoNhat.DataBindings.Add("Text", bindingSource, nameof(Users.QuanHamCaoNhat), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboChuyenMon.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaCM), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboXepLoaiNhanVien.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaXL), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboChucvu.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaChucVu), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboTrinhDoVanHoa.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaTDVH), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboNgoaiNgu.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaNN), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboTrangThaiLamViec.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaTTLV), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboGioiTinh.DataBindings.Add("Text", bindingSource, nameof(Employee.GioiTinh), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboTTHonNhan.DataBindings.Add("SelectedIndex", bindingSource, nameof(Employee.TinhTrangHonNhan), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboNhomMau.DataBindings.Add("Text", bindingSource, nameof(Employee.NhomMau), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboQuanHamCaoNhat.DataBindings.Add("Text", bindingSource, nameof(Employee.QuanHamCaoNhat), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboChuyenMon.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaCM), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboXepLoaiNhanVien.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaXL), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboChucvu.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaChucVu), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboTrinhDoVanHoa.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaTDVH), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboNgoaiNgu.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaNN), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboTrangThaiLamViec.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaTTLV), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // DateEdit bindings with nullable DateTime
-            txtNgaySinh.DataBindings.Add("Text", bindingSource, nameof(Users.NgaySinh), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtCCCDNgayCap.DataBindings.Add("Text", bindingSource, nameof(Users.NgayCap), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNgayVaoDoan.DataBindings.Add("Text", bindingSource, nameof(Users.NgayVaoDoan), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNgayVaoLam.DataBindings.Add("Text", bindingSource, nameof(Users.NgayVaoLam), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNgayVaoDang.DataBindings.Add("Text", bindingSource, nameof(Users.NgayVaoDang), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtBaoHiemNgayCap.DataBindings.Add("Text", bindingSource, nameof(Users.NgayCapSo), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgaySinh.DataBindings.Add("Text", bindingSource, nameof(Employee.NgaySinh), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtCCCDNgayCap.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayCap), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayVaoDoan.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayVaoDoan), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayVaoLam.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayVaoLam), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayVaoDang.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayVaoDang), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtBaoHiemNgayCap.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayCapSo), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // Nullable DateTime for exit dates
-            txtNgayRoiCoQuan.DataBindings.Add("Text", bindingSource, nameof(Users.NgayRoiCoQuan), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayRoiCoQuan.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayRoiCoQuan), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtNgayNhapNgu.DataBindings.Add("Text", bindingSource, nameof(Users.NgayNhapNgu), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayNhapNgu.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayNhapNgu), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtNgayXuatNgu.DataBindings.Add("Text", bindingSource, nameof(Users.NgayXuatNgu), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayXuatNgu.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayXuatNgu), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // SpinEdit bindings for nullable float (HeSoLuong, HeSoPhuCap, etc.)
-            txtHeSoLuong.DataBindings.Add("Text", bindingSource, nameof(Users.HeSoLuong), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtHeSoLuong.DataBindings.Add("Text", bindingSource, nameof(Employee.HeSoLuong), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtHeSoPhuCap.DataBindings.Add("Text", bindingSource, nameof(Users.HeSoPhuCap), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtHeSoPhuCap.DataBindings.Add("Text", bindingSource, nameof(Employee.HeSoPhuCap), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtTNVK.DataBindings.Add("Text", bindingSource, nameof(Users.HeSoTNVK), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtTNVK.DataBindings.Add("Text", bindingSource, nameof(Employee.HeSoTNVK), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtHSL.DataBindings.Add("Text", bindingSource, nameof(Users.ThoiGianNangBacHSL), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtHSL.DataBindings.Add("Text", bindingSource, nameof(Employee.ThoiGianNangBacHSL), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtLuongCoSo.DataBindings.Add("Text", bindingSource, nameof(Users.LuongCoSo), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtLuongCoSo.DataBindings.Add("Text", bindingSource, nameof(Employee.LuongCoSo), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtHotroXangXe.DataBindings.Add("Text", bindingSource, nameof(Users.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtHotroXangXe.DataBindings.Add("Text", bindingSource, nameof(Employee.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // ToggleSwitch bindings for nullable bool (RoiCoQuan, NghiHuu, etc.)
-            rdRoiCoQuan.DataBindings.Add("IsOn", bindingSource, nameof(Users.RoiCoQuan), true, DataSourceUpdateMode.OnPropertyChanged);
-            rdNghiHuu.DataBindings.Add("IsOn", bindingSource, nameof(Users.NghiHuu), true, DataSourceUpdateMode.OnPropertyChanged);
-            rdNangLuong.DataBindings.Add("IsOn", bindingSource, nameof(Users.KhongChoPhepNangLuong), true, DataSourceUpdateMode.OnPropertyChanged);
+            rdRoiCoQuan.DataBindings.Add("IsOn", bindingSource, nameof(Employee.RoiCoQuan), true, DataSourceUpdateMode.OnPropertyChanged);
+            rdNghiHuu.DataBindings.Add("IsOn", bindingSource, nameof(Employee.NghiHuu), true, DataSourceUpdateMode.OnPropertyChanged);
+            rdNangLuong.DataBindings.Add("IsOn", bindingSource, nameof(Employee.KhongChoPhepNangLuong), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // SearchLookUpEdit bindings for nullable foreign keys
-            cboTinhThanh.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaTT), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboDanToc.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaDT), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboNganHang.DataBindings.Add("EditValue", bindingSource, nameof(Users.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboTinhThanh.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaTT), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboDanToc.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaDT), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboNganHang.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
 
@@ -137,14 +137,14 @@ namespace HRMSystem.Controls
 
                 if (string.IsNullOrEmpty(MaNV))
                 {
-                    InitializeDataBindings(new Users());
+                    InitializeDataBindings(new Employee());
                 }
                 else
                 {
                     string[] lstParam = new string[3] { "@TableName", "@PrimaryKeyColumn", "@PrimaryKeyValue" };
                     object[] lstValue = new object[3] { "NhanVien", "MaNV", $"{MaNV}" };
                     DataTable dt = SQLHelper.GetDataTableFromSP("GetRecordByKey", lstParam, lstValue);
-                    Users newModel = dt.ToList<Users>()[0];
+                    Employee newModel = dt.ToList<Employee>()[0];
                     InitializeDataBindings(newModel);
                 }
 
@@ -158,7 +158,7 @@ namespace HRMSystem.Controls
             BackButtonClick?.Invoke(sender, e);
         }
 
-        public bool ValidateUser(Users user)
+        public bool ValidateUser(Employee user)
         {
             if (user == null)
             {
@@ -325,7 +325,7 @@ namespace HRMSystem.Controls
             try
             {
                 this.groupControl1.Focus();
-                Users nhanVien = (Users)bindingSource.Current;
+                Employee nhanVien = (Employee)bindingSource.Current;
                 if (!ValidateUser(nhanVien))
                 {
                     MessageBox.Show("Nhập đầy đủ.");

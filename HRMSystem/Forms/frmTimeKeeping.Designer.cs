@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cboEmployee = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.cboEmployeeView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtDate = new DevExpress.XtraEditors.DateEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtNam = new DevExpress.XtraEditors.SpinEdit();
@@ -42,6 +44,7 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
@@ -50,13 +53,12 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.cboEmployee = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.cboEmployeeView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboEmployee.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboEmployeeView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
@@ -69,10 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboEmployee.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboEmployeeView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -104,6 +104,30 @@
             this.layoutControl1.Size = new System.Drawing.Size(418, 303);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // cboEmployee
+            // 
+            this.cboEmployee.Location = new System.Drawing.Point(12, 202);
+            this.cboEmployee.Margin = new System.Windows.Forms.Padding(2);
+            this.cboEmployee.Name = "cboEmployee";
+            this.cboEmployee.Properties.AdvancedModeOptions.Label = "Chọn Nhân viên";
+            this.cboEmployee.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboEmployee.Properties.NullText = "";
+            this.cboEmployee.Properties.PopupView = this.cboEmployeeView;
+            this.cboEmployee.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.cboEmployee.Size = new System.Drawing.Size(394, 34);
+            this.cboEmployee.StyleController = this.layoutControl1;
+            this.cboEmployee.TabIndex = 17;
+            // 
+            // cboEmployeeView
+            // 
+            this.cboEmployeeView.DetailHeight = 227;
+            this.cboEmployeeView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.cboEmployeeView.Name = "cboEmployeeView";
+            this.cboEmployeeView.OptionsEditForm.PopupEditFormWidth = 533;
+            this.cboEmployeeView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.cboEmployeeView.OptionsView.ShowGroupPanel = false;
             // 
             // txtDate
             // 
@@ -140,7 +164,7 @@
             // txtNam
             // 
             this.txtNam.EditValue = new decimal(new int[] {
-            0,
+            2024,
             0,
             0,
             0});
@@ -159,7 +183,7 @@
             // txtThang
             // 
             this.txtThang.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -170,6 +194,16 @@
             this.txtThang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtThang.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtThang.Properties.MaxValue = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.txtThang.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtThang.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
             this.txtThang.Size = new System.Drawing.Size(394, 34);
             this.txtThang.StyleController = this.layoutControl1;
@@ -254,6 +288,15 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.cboEmployee;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 190);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(398, 93);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
@@ -336,39 +379,6 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 328);
             // 
-            // cboEmployee
-            // 
-            this.cboEmployee.Location = new System.Drawing.Point(12, 202);
-            this.cboEmployee.Margin = new System.Windows.Forms.Padding(2);
-            this.cboEmployee.Name = "cboEmployee";
-            this.cboEmployee.Properties.AdvancedModeOptions.Label = "Chọn Nhân viên";
-            this.cboEmployee.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboEmployee.Properties.NullText = "";
-            this.cboEmployee.Properties.PopupView = this.cboEmployeeView;
-            this.cboEmployee.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.cboEmployee.Size = new System.Drawing.Size(394, 34);
-            this.cboEmployee.StyleController = this.layoutControl1;
-            this.cboEmployee.TabIndex = 17;
-            // 
-            // cboEmployeeView
-            // 
-            this.cboEmployeeView.DetailHeight = 227;
-            this.cboEmployeeView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.cboEmployeeView.Name = "cboEmployeeView";
-            this.cboEmployeeView.OptionsEditForm.PopupEditFormWidth = 533;
-            this.cboEmployeeView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.cboEmployeeView.OptionsView.ShowGroupPanel = false;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.cboEmployee;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 190);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(398, 93);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
             // frmTimeKeeping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,6 +402,8 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cboEmployee.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboEmployeeView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
@@ -404,10 +416,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboEmployee.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboEmployeeView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

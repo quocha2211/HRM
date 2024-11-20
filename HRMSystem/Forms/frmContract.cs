@@ -20,7 +20,8 @@ namespace HRMSystem.Forms
         public string MaHD;
         public int MaNV;
         private BindingSource bindingSource = new BindingSource();
-
+        public int nam;
+        public int thang;
         public frmContract()
         {
             InitializeComponent();

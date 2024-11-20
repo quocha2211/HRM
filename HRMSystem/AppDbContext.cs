@@ -3,7 +3,8 @@ using System.Data.Entity;
 
 public class AppDbContext : DbContext
 {
-    public DbSet<Users> NhanViens { get; set; }
+    public DbSet<Employee> NhanViens { get; set; }
+    public DbSet<User> NguoiDungs { get; set; }
     public DbSet<Expertise> ChuyenMons { get; set; }
     public DbSet<Language> NgoaiNgus { get; set; }
     public DbSet<LevelExpertise> TrinhDoChuyenMons { get; set; }

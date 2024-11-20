@@ -30,6 +30,6 @@ namespace HRMSystem.Models
 
         // Navigation Property for the NhanVien relationship
         [ForeignKey("MaNV")]
-        public virtual Users NhanVien { get; set; }
+        public virtual Employee NhanVien { get; set; }
     }
 }

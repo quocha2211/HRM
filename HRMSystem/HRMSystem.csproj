@@ -256,6 +256,7 @@
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\CertificateDetailController.cs" />
     <Compile Include="Controller\BangLuongController.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controller\ThanNhanController.cs" />
     <Compile Include="Controller\ContractController.cs" />
     <Compile Include="Controller\EmployeeTranferController.cs" />
@@ -318,6 +319,12 @@
     </Compile>
     <Compile Include="Forms\frmChungChi.Designer.cs">
       <DependentUpon>frmChungChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
@@ -449,6 +456,7 @@
     <Compile Include="Models\TrangThaiLamViec.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="PasswordHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\clsCommon.cs" />
@@ -479,6 +487,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmChungChi.resx">
       <DependentUpon>frmChungChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

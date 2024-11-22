@@ -140,6 +140,7 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
+            this.grpSystem.Expanded = true;
             this.grpSystem.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.pivottableoptions;
             this.grpSystem.Name = "grpSystem";
             this.grpSystem.Text = "Quản lý hệ thống";
@@ -156,6 +157,7 @@
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement2.Text = "Quản lý người dùng";
+            this.accordionControlElement2.Click += new System.EventHandler(this.accordionControlElement2_Click);
             // 
             // accordionControlElement3
             // 

@@ -13,11 +13,25 @@ using System.Windows.Forms;
 
 namespace HRMSystem
 {
+
+
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
+        
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        public bool CheckUserRole(UserRole requiredRole)
+        {
+            if (UserSession.CurrentUserRole != requiredRole)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập !", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false; 
+            }
+
+            return true;
         }
 
         private void grpSystem_Click(object sender, EventArgs e)
@@ -42,10 +56,6 @@ namespace HRMSystem
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, this.Name, ex.ToString()); }
         }
 
-        private void accordionControlElement18_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
@@ -79,6 +89,10 @@ namespace HRMSystem
 
         private void accordionControlElement13_Click(object sender, EventArgs e)
         {
+            if (!CheckUserRole(UserRole.Admin))
+            {
+                return;
+            }
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.DepartmentController", Navigator);
         }
 
@@ -155,7 +169,22 @@ namespace HRMSystem
 
         private void accordionControlElement27_Click(object sender, EventArgs e)
         {
+
+            if (!CheckUserRole(UserRole.Admin))
+            {
+                return;
+            }
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.BangLuongController", Navigator);
+        }
+
+        private void accordionControlElement2_Click(object sender, EventArgs e)
+        {
+            if (!CheckUserRole(UserRole.Admin))
+            {
+                return;
+            }
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.UserController", Navigator);
         }
     }
 }
+

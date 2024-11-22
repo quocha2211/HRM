@@ -20,8 +20,8 @@ namespace HRMSystem.Models
         // MatKhau is the password (nvarchar)
         public string MatKhau { get; set; }
 
-        // MaChucVu is a foreign key referencing the ChucVu table (int)
-        public int? MaChucVu { get; set; }
+        //// MaChucVu is a foreign key referencing the ChucVu table (int)
+        //public int? MaChucVu { get; set; }
 
         // Quyen represents the user role (nvarchar)
         public string Quyen { get; set; }

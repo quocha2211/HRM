@@ -58,6 +58,7 @@ namespace HRMSystem.Forms
                     }
 
                     UserSession.CurrentUserRole = (UserRole)Enum.Parse(typeof(UserRole), user.Quyen);
+                    UserSession.LoginId = (int) user.MaND;
 
                     return true; 
                 }
@@ -72,6 +73,11 @@ namespace HRMSystem.Forms
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

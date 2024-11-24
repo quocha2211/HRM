@@ -46,6 +46,7 @@ namespace HRMSystem
     public static class UserSession
     {
         public static UserRole CurrentUserRole { get; set; }
+        public static int LoginId { get; set; }
     }
 
  

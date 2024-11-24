@@ -12,7 +12,7 @@ namespace HRMSystem.Models
     public class User
     {
         [Key]
-        public int MaND { get; set; }
+        public int? MaND { get; set; }
 
         // TenDangNhap is the username (nvarchar)
         public string TenDangNhap { get; set; }

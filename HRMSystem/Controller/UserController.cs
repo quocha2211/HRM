@@ -18,7 +18,7 @@ namespace HRMSystem.Controller
         private ucBaseMasterDetail View;
         public BaseController masterController;
         public ucBaseSingleList masterForm;
-        public frmContract detailForm;
+        public frmRegister detailForm;
         public void Initialize(UserControl _view)
         {
             View = _view as ucBaseMasterDetail;
@@ -40,7 +40,6 @@ namespace HRMSystem.Controller
                 masterController.Load += MasterController_Load;
                 masterForm.AddButtonClick += MasterForm_AddButtonClick;
                 masterForm.EditButtonClick += MasterForm_EditButtonClick;
-                masterForm.DeleteButtonClick += MasterForm_DeleteButtonClick;
 
                 View.PageMaster.Controls.Add(masterForm);
                 View.NavigatorFrame.SelectedPage = View.PageMaster;
@@ -48,28 +47,7 @@ namespace HRMSystem.Controller
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ex", ex.ToString()); }
         }
 
-        private void MasterForm_DeleteButtonClick(object sender, EventArgs e)
-        {
-            try
-            {
-                using (var context = new AppDbContext())
-                {
-                    var model = context.HopDongs.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaHD")));
 
-                    if (model != null)
-                    {
-                        context.HopDongs.Remove(model);
-
-                        context.SaveChanges();
-
-                        LoadData();
-                    }
-
-                }
-            }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
-            finally { clsCommon.CloseWaitingForm(); }
-        }
 
 
         private void MasterForm_EditButtonClick(object sender, EventArgs e)
@@ -78,8 +56,8 @@ namespace HRMSystem.Controller
             {
                 if (masterForm == null)
                     return;
-                
-                InitialDetailPage(masterForm.GetPrimaryKey("MaHD"));
+
+                InitialDetailPage(masterForm.GetPrimaryKey("MaND"));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -102,9 +80,9 @@ namespace HRMSystem.Controller
                 View.PageDetail.Controls.Clear();
                 if (detailForm != null)
                     detailForm.Dispose();
-                detailForm = new frmContract() { Dock = DockStyle.Fill };
-                detailForm.MaNV = Convert.ToInt32( masterForm.GetPrimaryKey("MaNV"));
-                detailForm.MaHD = pKey;
+                detailForm = new frmRegister() { Dock = DockStyle.Fill };
+                detailForm.MaNV = Convert.ToInt32(masterForm.GetPrimaryKey("MaNV"));
+                detailForm.MaND = Convert.ToInt32(pKey == "" ? "0" : pKey);
                 var rs = detailForm.ShowDialog();
                 if (rs == DialogResult.OK)
                 {
@@ -133,17 +111,18 @@ namespace HRMSystem.Controller
                 {
 
                     var query = (from nv in context.NhanViens
-                                join xl in context.NguoiDungs on nv.MaNV equals xl.MaNV into agroup
-                                from xl in agroup.DefaultIfEmpty() 
-                                
-                                select new
-                                {
-                                    nv.TenNV,
-                                    nv.MaNV,
-                                    xl.TenDangNhap,
-                                    xl.MatKhau,
-                                    xl.Quyen
-                                }).ToList();
+                                 join xl in context.NguoiDungs on nv.MaNV equals xl.MaNV into agroup
+                                 from xl in agroup.DefaultIfEmpty()
+
+                                 select new
+                                 {
+                                     nv.TenNV,
+                                     nv.MaNV,
+                                     xl.TenDangNhap,
+                                     xl.MatKhau,
+                                     xl.Quyen,
+                                     xl.MaND
+                                 }).ToList();
 
                     clsCommon.OpenWaitingForm(View);
                     masterForm.SetTitle("Quản lý Người Dùng");

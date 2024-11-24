@@ -46,7 +46,7 @@ namespace HRMSystem.Utilities
             List<GridColumnModel> lst = new List<GridColumnModel>();
             try
             {
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaHD", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaND", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên đăng nhập", FieldName = "TenDangNhap", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Mật khẩu", FieldName = "MatKhau", Visible = true });

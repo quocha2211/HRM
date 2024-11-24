@@ -170,6 +170,7 @@
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement3.Text = "Thay đổi mật khẩu";
+            this.accordionControlElement3.Click += new System.EventHandler(this.accordionControlElement3_Click);
             // 
             // accordionControlElement4
             // 
@@ -518,6 +519,7 @@
             this.accordionControlElement43,
             this.accordionControlElement44,
             this.accordionControlElement45});
+            this.grpReport.Expanded = true;
             this.grpReport.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.charttype_doughnut;
             this.grpReport.Name = "grpReport";
             this.grpReport.Text = "Báo cáo & thống kê";
@@ -536,6 +538,7 @@
             this.accordionControlElement38.Name = "accordionControlElement38";
             this.accordionControlElement38.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement38.Text = "Báo cáo danh sách CB, CNV";
+            this.accordionControlElement38.Click += new System.EventHandler(this.accordionControlElement38_Click);
             // 
             // accordionControlElement39
             // 

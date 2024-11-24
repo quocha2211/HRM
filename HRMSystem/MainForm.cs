@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using HRMSystem.Forms;
 using HRMSystem.Utilities;
 using System;
 using System.Collections.Generic;
@@ -184,6 +186,19 @@ namespace HRMSystem
                 return;
             }
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.UserController", Navigator);
+        }
+
+        private void accordionControlElement3_Click(object sender, EventArgs e)
+        {
+            frmRegister frm = new frmRegister();
+            frm.MaND = UserSession.LoginId;
+            frm.ShowDialog();
+
+        }
+
+        private void accordionControlElement38_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

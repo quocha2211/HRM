@@ -66,25 +66,29 @@ namespace HRMSystem.Controller
                                 from xx in xangXeGroup.DefaultIfEmpty()
                                 join tu in context.BangTamUngs on nv.MaNV equals tu.MaNV into tuGroup
                                 from tu in tuGroup.DefaultIfEmpty()
-                                where cc.Nam == nam && cc.Thang == thang
+                                 join ml in context.MucLuongToiThieus on nv.MaMLTT equals ml.MaMLTT into MLTT
+                                 from ml in MLTT.DefaultIfEmpty()
+                                 join tl in context.ThangLuongs on nv.MaTL equals tl.MaTL into TLG
+                                 from tl in TLG.DefaultIfEmpty()
+                                 where cc.Nam == nam && cc.Thang == thang
                                  select new
                                 {
                                     nv.TenNV,
                                     nv.MaNV,
-                                    nv.LuongCoSo,
-                                    nv.HeSoLuong,
-                                    LuongCoBan = nv.LuongCoSo * nv.HeSoLuong,
+                                    ml.MLTTC,
+                                    tl.HeSo,
+                                    LuongCoBan = ml.MLTTC * tl.HeSo,
                                     NgayCongTrongThang = (cc.NgayCongTrongThang ?? 0),
-                                    LuongThoiGian = (nv.LuongCoSo * nv.HeSoLuong)/26 * (cc.NgayCongTrongThang ?? 0),
+                                    LuongThoiGian = (ml.MLTTC * tl.HeSo)/26 * (cc.NgayCongTrongThang ?? 0),
                                     xx.DMXX,
                                     TienAn = (cc.NgayCongTrongThang ?? 0) * 25000,
-                                    TongLuong = (nv.LuongCoSo * nv.HeSoLuong) / 26 * (cc.NgayCongTrongThang ?? 0) + (cc.NgayCongTrongThang ?? 0) * 25000 + xx.DMXX,
-                                    BHXH = (nv.LuongCoSo * nv.HeSoLuong) * 8 / 100,
-                                    BHYT = (nv.LuongCoSo * nv.HeSoLuong) * 1.5 / 100,
-                                    BHTN = (nv.LuongCoSo * nv.HeSoLuong) * 1 / 100,
+                                    TongLuong = (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 0) + (cc.NgayCongTrongThang ?? 0) * 25000 + xx.DMXX,
+                                    BHXH = (ml.MLTTC * tl.HeSo) * 8 / 100,
+                                    BHYT = (ml.MLTTC * tl.HeSo) * 1.5 / 100,
+                                    BHTN = (ml.MLTTC * tl.HeSo) * 1 / 100,
                                     SoTienTU = (tu.SoTienTU ?? 0),
-                                    LuongGiamTru = (nv.LuongCoSo * nv.HeSoLuong) * 8 / 100 + (nv.LuongCoSo * nv.HeSoLuong) * 1.5 / 100 + (nv.LuongCoSo * nv.HeSoLuong) * 1 / 100 + (tu.SoTienTU ?? 0),
-                                    LuongThucNhan = (nv.LuongCoSo * nv.HeSoLuong) / 26 * (cc.NgayCongTrongThang ?? 0) + (cc.NgayCongTrongThang ?? 0) * 25000 + xx.DMXX - ((nv.LuongCoSo * nv.HeSoLuong) * 8 / 100 + (nv.LuongCoSo * nv.HeSoLuong) * 1.5 / 100 + (nv.LuongCoSo * nv.HeSoLuong) * 1 / 100 + (tu.SoTienTU ?? 0))
+                                    LuongGiamTru = (ml.MLTTC * tl.HeSo) * 8 / 100 + (ml.MLTTC * tl.HeSo) * 1.5 / 100 + (ml.MLTTC * tl.HeSo) * 1 / 100 + (tu.SoTienTU ?? 0),
+                                    LuongThucNhan = (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 0) + (cc.NgayCongTrongThang ?? 0) * 25000 + xx.DMXX - ((ml.MLTTC * tl.HeSo) * 8 / 100 + (ml.MLTTC * tl.HeSo) * 1.5 / 100 + (ml.MLTTC * tl.HeSo) * 1 / 100 + (tu.SoTienTU ?? 0))
 
                                  }).ToList();
 

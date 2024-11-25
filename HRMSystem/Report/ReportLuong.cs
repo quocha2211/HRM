@@ -6,9 +6,9 @@ using System.Drawing;
 
 namespace HRMSystem.Report
 {
-    public partial class EmployeeReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class ReportLuong : DevExpress.XtraReports.UI.XtraReport
     {
-        public EmployeeReport()
+        public ReportLuong()
         {
             InitializeComponent();
         }

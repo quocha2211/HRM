@@ -82,7 +82,7 @@ namespace HRMSystem.Controls
             txtNgayXuatNgu.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayXuatNgu), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // SpinEdit bindings for nullable float (HeSoLuong, HeSoPhuCap, etc.)
-            txtHeSoLuong.DataBindings.Add("Text", bindingSource, nameof(Employee.HeSoLuong), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtHeSoLuong.DataBindings.Add("Text", bindingSource, nameof(Employee.MaTL), true, DataSourceUpdateMode.OnPropertyChanged);
 
             txtHeSoPhuCap.DataBindings.Add("Text", bindingSource, nameof(Employee.HeSoPhuCap), true, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -90,13 +90,13 @@ namespace HRMSystem.Controls
 
             txtHSL.DataBindings.Add("Text", bindingSource, nameof(Employee.ThoiGianNangBacHSL), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtLuongCoSo.DataBindings.Add("Text", bindingSource, nameof(Employee.LuongCoSo), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtLuongCoSo.DataBindings.Add("Text", bindingSource, nameof(Employee.MaMLTT), true, DataSourceUpdateMode.OnPropertyChanged);
 
             txtHotroXangXe.DataBindings.Add("Text", bindingSource, nameof(Employee.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // ToggleSwitch bindings for nullable bool (RoiCoQuan, NghiHuu, etc.)
             rdRoiCoQuan.DataBindings.Add("IsOn", bindingSource, nameof(Employee.RoiCoQuan), true, DataSourceUpdateMode.OnPropertyChanged);
-            rdNghiHuu.DataBindings.Add("IsOn", bindingSource, nameof(Employee.NghiHuu), true, DataSourceUpdateMode.OnPropertyChanged);
+            //rdNghiHuu.DataBindings.Add("IsOn", bindingSource, nameof(Employee.NghiHuu), true, DataSourceUpdateMode.OnPropertyChanged);
             rdNangLuong.DataBindings.Add("IsOn", bindingSource, nameof(Employee.KhongChoPhepNangLuong), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // SearchLookUpEdit bindings for nullable foreign keys
@@ -134,6 +134,8 @@ namespace HRMSystem.Controls
                 initialValue("TrinhDoVanHoa", "MaTDVH", "TenTDVH", grvTrinhDoVanHoa, cboTrinhDoVanHoa, clsInitialGridColumn.InitialLevelEducational());
                 initialValue("NgoaiNgu", "MaNN", "TenNN", grvNgoaiNgu, cboNgoaiNgu, clsInitialGridColumn.InitialLanguage());
                 initialValue("TrangThaiLamViec", "MaTTLV", "TenTTLV", grvTrangThaiLamViec, cboTrangThaiLamViec, clsInitialGridColumn.InitialWorkStatus());
+                initialValue("MucLuongToiThieu", "MaMLTT", "MLTTC",txtLuongView , txtLuongCoSo, clsInitialGridColumn.InitialMinSalary());
+                initialValue("ThangLuong", "MaTL", "HeSo", txtHeSoLuongView, txtHeSoLuong, clsInitialGridColumn.InitialSalaryScale());
 
                 if (string.IsNullOrEmpty(MaNV))
                 {
@@ -309,11 +311,7 @@ namespace HRMSystem.Controls
                 return false;
             }
 
-            // Kiểm tra LuongCoSo
-            if (user.LuongCoSo == null)
-            {
-                return false;
-            }
+           
 
             // Nếu tất cả đều hợp lệ
             return true;

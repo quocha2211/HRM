@@ -16,5 +16,8 @@ namespace HRMSystem.Models
 
         [StringLength(100)]
         public string DienGiai { get; set; }  
+
+        public double HeSo { get; set; }
+
     }
 }

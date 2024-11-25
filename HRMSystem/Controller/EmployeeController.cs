@@ -71,6 +71,8 @@ namespace HRMSystem.Controller
                                  join lv in context.TrangThaiLamViecs on nv.MaTTLV equals lv.MaTTLV
                                  join tt in context.TinhThanhs on nv.MaTT equals tt.MaTT
                                  join dt in context.DanTocs on nv.MaTT equals dt.MaDT
+                                 join tl in context.ThangLuongs on nv.MaTL equals tl.MaTL
+                                 join ml in context.MucLuongToiThieus on nv.MaMLTT equals ml.MaMLTT
                                  select new
                                  {
                                      nv.MaNV,
@@ -94,7 +96,7 @@ namespace HRMSystem.Controller
                                      nv.NgayVaoLam,
                                      nv.NgayRoiCoQuan,
                                      nv.LyDo,
-                                     nv.HeSoLuong,
+                                     tl.HeSo,
                                      nv.HeSoPhuCap,
                                      nv.HeSoTNVK,
                                      nv.SoSocBH,
@@ -114,8 +116,7 @@ namespace HRMSystem.Controller
                                      nv.ThoiGianNangBacHSL,
                                      nv.KhongChoPhepNangLuong,
                                      nv.RoiCoQuan,
-                                     nv.NghiHuu,
-                                     nv.LuongCoSo,
+                                     ml.MLTTC,
                                      xx.DMXX,
                                      xx.TenPTien,
                                      tg.TenTG,

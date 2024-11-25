@@ -15,6 +15,7 @@ namespace HRMSystem.Controller
 
         private ucBaseSingleList View;
         private ucBangLuong BangLuong;
+        private ucReportTemp ReportTemp;
         public event EventHandler Load;
         public void Initialize(UserControl _view)
         {
@@ -26,6 +27,12 @@ namespace HRMSystem.Controller
         {
             BangLuong = _view ;
             BangLuong.Load += View_Load;
+        }
+
+        public void Initialize(ucReportTemp _view)
+        {
+            ReportTemp = _view;
+            ReportTemp.Load += View_Load;
         }
 
         private void View_Load(object sender, EventArgs e)

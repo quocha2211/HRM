@@ -1,7 +1,9 @@
 ﻿using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
+using HRMSystem.Controls;
 using HRMSystem.Forms;
+using HRMSystem.Report;
 using HRMSystem.Utilities;
 using System;
 using System.Collections.Generic;
@@ -198,7 +200,23 @@ namespace HRMSystem
 
         private void accordionControlElement38_Click(object sender, EventArgs e)
         {
-           
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportController", Navigator);
+        }
+
+        private void accordionControlElement41_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportNghiHuuController", Navigator);
+        }
+
+        private void accordionControlElement43_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportLuongController", Navigator);
+        }
+
+        private void accordionControlElement42_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportHopDongController", Navigator);
+
         }
     }
 }

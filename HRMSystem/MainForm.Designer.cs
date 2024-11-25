@@ -581,6 +581,7 @@
             this.accordionControlElement41.Name = "accordionControlElement41";
             this.accordionControlElement41.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement41.Text = "Báo cáo nghỉ hưu";
+            this.accordionControlElement41.Click += new System.EventHandler(this.accordionControlElement41_Click);
             // 
             // accordionControlElement42
             // 
@@ -595,6 +596,7 @@
             this.accordionControlElement42.Name = "accordionControlElement42";
             this.accordionControlElement42.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement42.Text = "Báo cáo hêt hạn hợp đồng";
+            this.accordionControlElement42.Click += new System.EventHandler(this.accordionControlElement42_Click);
             // 
             // accordionControlElement43
             // 
@@ -609,6 +611,7 @@
             this.accordionControlElement43.Name = "accordionControlElement43";
             this.accordionControlElement43.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement43.Text = "Báo cáo lương";
+            this.accordionControlElement43.Click += new System.EventHandler(this.accordionControlElement43_Click);
             // 
             // accordionControlElement44
             // 

@@ -80,8 +80,6 @@ namespace HRMSystem.Models
         [StringLength(150)]
         public string LyDo { get; set; }
 
-        public double? HeSoLuong { get; set; }
-
         public double? HeSoPhuCap { get; set; }
 
         public double? HeSoTNVK { get; set; }
@@ -136,10 +134,6 @@ namespace HRMSystem.Models
 
         public bool? RoiCoQuan { get; set; }
 
-        public bool? NghiHuu { get; set; }
-
-        public double? LuongCoSo { get; set; }
-
         public int? MaDMXX { get; set; }
         public int? MaTG { get; set; }
         public int? MaChucVu { get; set; }
@@ -151,6 +145,8 @@ namespace HRMSystem.Models
         public int? MaNN { get; set; }
         public int? MaTDLLCT { get; set; }
         public int? MaTTLV { get; set; }
+        public int? MaMLTT { get; set; }
+        public int? MaTL { get; set; }
 
         //// Navigation Properties (Foreign Key Relationships)
         //public virtual ChucVu ChucVu { get; set; }

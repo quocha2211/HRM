@@ -32,9 +32,10 @@ namespace HRMSystem.Forms
 
             if (isAuthenticated)
             {
+                this.Hide();
                 MainForm frm = new MainForm();
                 frm.ShowDialog();
-                this.Close();
+                
             }
             else
             {

@@ -48,9 +48,13 @@
     <Reference Include="DevExpress.Data.Desktop.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v24.1.UI, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Diagram.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Drawing.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v24.1.Drawing, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.PivotGrid.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -61,19 +65,26 @@
     <Reference Include="DevExpress.Xpo.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v24.1.Extensions, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v24.1.Wizard, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDiagram.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPivotGrid.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v24.1.CodeCompletion, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v24.1.Extensions, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v24.1.Core.Desktop, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v24.1.Reporting, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DocumentFormat.OpenXml, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.3.0.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
@@ -275,6 +286,10 @@
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\CertificateDetailController.cs" />
     <Compile Include="Controller\BangLuongController.cs" />
+    <Compile Include="Controller\ReportHopDongController.cs" />
+    <Compile Include="Controller\ReportNghiHuuController.cs" />
+    <Compile Include="Controller\ReportLuongController.cs" />
+    <Compile Include="Controller\ReportController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controller\ThanNhanController.cs" />
     <Compile Include="Controller\ContractController.cs" />
@@ -297,6 +312,12 @@
     <Compile Include="Controller\ProvinceController.cs" />
     <Compile Include="Controller\ExpertiseController.cs" />
     <Compile Include="Controller\LevelSalaryController.cs" />
+    <Compile Include="Controls\ucReportTemp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucReportTemp.Designer.cs">
+      <DependentUpon>ucReportTemp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucBaseDoubleList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -490,6 +511,24 @@
     <Compile Include="Report\EmployeeReport.Designer.cs">
       <DependentUpon>EmployeeReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\NghiHuu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NghiHuu.Designer.cs">
+      <DependentUpon>NghiHuu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportHopDong.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportHopDong.Designer.cs">
+      <DependentUpon>ReportHopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportLuong.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportLuong.Designer.cs">
+      <DependentUpon>ReportLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\clsCommon.cs" />
     <Compile Include="Utilities\clsControlExtensions.cs" />
     <Compile Include="Utilities\clsHandleQuerySqlite.cs" />
@@ -498,6 +537,9 @@
     <Compile Include="Utilities\clsSystemSettings.cs" />
     <Compile Include="Utilities\SQLHelper.cs" />
     <Compile Include="Utilities\SQLiteHelper.cs" />
+    <EmbeddedResource Include="Controls\ucReportTemp.resx">
+      <DependentUpon>ucReportTemp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucBaseDoubleList.resx">
       <DependentUpon>ucBaseDoubleList.cs</DependentUpon>
     </EmbeddedResource>
@@ -592,6 +634,15 @@
     </Content>
     <EmbeddedResource Include="Report\EmployeeReport.resx">
       <DependentUpon>EmployeeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NghiHuu.resx">
+      <DependentUpon>NghiHuu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportHopDong.resx">
+      <DependentUpon>ReportHopDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportLuong.resx">
+      <DependentUpon>ReportLuong.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

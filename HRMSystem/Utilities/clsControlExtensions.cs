@@ -158,7 +158,15 @@ namespace HRMSystem.Utilities
                         Visible = col.Visible,
                         Caption = col.Caption,
                         Fixed = col.Frozen,
+
                     };
+                    if(col.DisplayFormat != null)
+                    {
+                        gc.DisplayFormat.FormatString = "N0";
+                        gc.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                    }    
+                    
+
                     grv.Columns.Add(gc);
                 }
             }

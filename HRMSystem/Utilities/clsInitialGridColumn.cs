@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Columns;
+﻿using DevExpress.Utils.Filtering.Internal;
+using DevExpress.XtraGrid.Columns;
 using HRMSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -20,22 +21,21 @@ namespace HRMSystem.Utilities
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "ma", FieldName = "MaLoaiHD", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MaNV", FieldName = "MaNV", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Hệ số lương", FieldName = "HeSo", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương tối thiểu vùng", FieldName = "MLTTC", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương cơ bản", FieldName = "LuongCoBan", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Hệ số lương", FieldName = "HeSo", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương tối thiểu vùng", FieldName = "MLTTC", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương cơ bản", FieldName = "LuongCoBan", DisplayFormat = "N0", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số công", FieldName = "NgayCongTrongThang", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương thời gian", FieldName = "LuongThoiGian", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương thời gian", FieldName = "LuongThoiGian", DisplayFormat = "N0", Visible = true });
                 //lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương trách nhiệm", FieldName = "LuongThoiGian", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trợ cấp xăng xe", FieldName = "DMXX", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tiền ăn", FieldName = "TienAn", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tổng lương", FieldName = "TongLuong", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Bảo hiểm xã hội", FieldName = "BHXH", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tiền ăn", FieldName = "TienAn", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tổng lương", FieldName = "TongLuong", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Bảo hiểm xã hội", FieldName = "BHXH", DisplayFormat = "N0", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Bảo hiểm y tế", FieldName = "BHYT", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Bảo hiểm thất nghiệp", FieldName = "BHTN", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số tiền ứng", FieldName = "SoTienTU", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương giảm trừ", FieldName = "LuongGiamTru", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương thực nhận", FieldName = "LuongThucNhan", Visible = true });
-
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Bảo hiểm thất nghiệp", FieldName = "BHTN", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số tiền ứng", FieldName = "SoTienTU", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương giảm trừ", FieldName = "LuongGiamTru", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương thực nhận", FieldName = "LuongThucNhan", DisplayFormat = "n0", Visible = true });
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;
@@ -51,6 +51,24 @@ namespace HRMSystem.Utilities
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên đăng nhập", FieldName = "TenDangNhap", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Mật khẩu", FieldName = "MatKhau", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Quyền hạn", FieldName = "Quyen", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
+        public static List<GridColumnModel> InitialDieuChuyenCongTac()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaHD", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "ma", FieldName = "MaCCT", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MaNV", FieldName = "MaNV", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày chuyển", FieldName = "NgayChuyen", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên chức vụ", FieldName = "TenChucVu", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Thang bậc lương", FieldName = "TenTL", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ghi chú", FieldName = "GhiChu", Visible = true });
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;
@@ -216,7 +234,7 @@ namespace HRMSystem.Utilities
             {
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaCC", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên phương tiện", FieldName = "TenPTien", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Định mức xăng xe", FieldName = "DMXX", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Định mức xăng xe", FieldName = "DMXX", DisplayFormat = "N0", Visible = true });
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;
@@ -230,7 +248,7 @@ namespace HRMSystem.Utilities
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaBTU", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tháng", FieldName = "Thang", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Năm", FieldName = "Nam", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số tiền tạm ứng", FieldName = "SoTienTU", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số tiền tạm ứng", FieldName = "SoTienTU", DisplayFormat = "N0", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Diễn giải", FieldName = "DienGiai", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Nhân viên", FieldName = "TenNV", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày tạm ứng", FieldName = "NgayTU", Visible = true });
@@ -264,13 +282,28 @@ namespace HRMSystem.Utilities
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaCC", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày áp dụng", FieldName = "NgayAD", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Vùng áp dụng", FieldName = "MLTTVung", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Mức lương tối thiểu", FieldName = "MLTTC", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Mức lương tối thiểu", FieldName = "MLTTC", DisplayFormat = "N0", Visible = true });
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;
         }
 
-     
+        public static List<GridColumnModel> InitialKTKL()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Mã ", FieldName = "MaKTKL", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên ", FieldName = "TenNV", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên khen thưởng kỷ luật", FieldName = "TenKTKL", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số quyết định", FieldName = "SoQD", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày quyết định", FieldName = "NgayQD", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Hình thức", FieldName = "HinhThuc", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Đơn vị khen thưởng kỷ luật", FieldName = "DonviKTKL", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
 
 
         public static List<GridColumnModel> InitialDegree()
@@ -522,9 +555,9 @@ namespace HRMSystem.Utilities
                 //lst.Add(new GridColumnModel() { Name = "colKhongChoPhepNangLuong", Caption = "Không cho phép nâng lương", FieldName = "KhongChoPhepNangLuong", Visible = true });
                 //lst.Add(new GridColumnModel() { Name = "colRoiCoQuan", Caption = "Rời cơ quan", FieldName = "RoiCoQuan", Visible = true });
                 //lst.Add(new GridColumnModel() { Name = "colNghiHuu", Caption = "Nghỉ hưu", FieldName = "NghiHuu", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colLuongCoSo", Caption = "Lương cơ sở", FieldName = "MLTTC", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colLuongCoSo", Caption = "Lương cơ sở", FieldName = "MLTTC", DisplayFormat = "N0", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colMaDMXX", Caption = "Tên phương tiện", FieldName = "TenPTien", Visible = true });
-                lst.Add(new GridColumnModel() { Name = "colMaDMXX", Caption = "Định mức xăng xe", FieldName = "DMXX", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colMaDMXX", Caption = "Định mức xăng xe", FieldName = "DMXX", DisplayFormat = "N0", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colMaTG", Caption = "Tôn giáo", FieldName = "TenTG", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colMaChucVu", Caption = "Chức vụ", FieldName = "TenChucVu", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colMaXL", Caption = "Xếp loại", FieldName = "XepLoai", Visible = true });

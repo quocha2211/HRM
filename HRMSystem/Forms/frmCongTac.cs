@@ -14,13 +14,15 @@ using System.Windows.Forms;
 
 namespace HRMSystem.Forms
 {
-    public partial class frmEmployeeTranfer : DevExpress.XtraEditors.XtraForm
+    public partial class frmCongTac : DevExpress.XtraEditors.XtraForm
     {
         public event EventHandler BackButtonClick;
         public string MaCCT;
+        public int MaNV;
         private BindingSource bindingSource = new BindingSource();
-
-        public frmEmployeeTranfer()
+        public int nam;
+        public int thang;
+        public frmCongTac()
         {
             InitializeComponent();
         }
@@ -29,13 +31,16 @@ namespace HRMSystem.Forms
         private void InitializeDataBindings(EmployeeTransfer model)
         {
             bindingSource.DataSource = model;
-            txtSoQD.DataBindings.Add("Text", bindingSource, nameof(EmployeeTransfer.SoQD));
-            txtStartDate.DataBindings.Add("Text", bindingSource, nameof(EmployeeTransfer.NgayChuyen));
-            txtDepartment.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeTransfer.MaPB), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtChucVu.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeTransfer.MaChucVu), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtHopDong.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeTransfer.MaHD), true, DataSourceUpdateMode.OnPropertyChanged);
-            //txtBacLuong.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeTransfer.MaBL), true, DataSourceUpdateMode.OnPropertyChanged);
+            if (model.MaNV == null)
+            {
+                model.MaNV = MaNV;
+            }
+            txtNote.DataBindings.Add("Text", bindingSource, nameof(EmployeeTransfer.GhiChu), true, DataSourceUpdateMode.OnPropertyChanged);
             cboEmployee.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeTransfer.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNgayChuyen.DataBindings.Add("Text", bindingSource, nameof(EmployeeTransfer.NgayChuyen), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtSoQD.DataBindings.Add("Text", bindingSource, nameof(EmployeeTransfer.SoQD), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtThangLuong.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeTransfer.MaTL), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtchucVu.DataBindings.Add("EditValue", bindingSource, nameof(EmployeeTransfer.MaChucVu), true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
 
@@ -45,6 +50,8 @@ namespace HRMSystem.Forms
             {
                 this.groupControl1.Focus();
                 EmployeeTransfer model = (EmployeeTransfer)bindingSource.Current;
+               
+
                 if (model == null)
                 {
                     MessageBox.Show("Lưu thất bại.");
@@ -53,7 +60,10 @@ namespace HRMSystem.Forms
 
                 using (var context = new AppDbContext())
                 {
-                    context.DieuChuyenCongTacs.AddOrUpdate(model);
+                    if(model.MaCCT == null)
+                        context.DieuChuyenCongTacs.Add(model);
+                    else
+                        context.DieuChuyenCongTacs.AddOrUpdate(model);
 
                     context.SaveChanges();
                 }
@@ -63,22 +73,20 @@ namespace HRMSystem.Forms
                 this.Close();
 
             }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucChungChiDetail", ex.ToString()); }
+            catch (Exception ex) { MessageBox.Show("Lưu thất bại."); SQLiteHelper.SaveToLog(ex.Message, "ucChungChiDetail", ex.ToString()); }
 
         }
 
 
     
 
-        private void frmEmployeeTransferDetail_Load(object sender, EventArgs e)
+        private void frmEmployeeRankingDetail_Load(object sender, EventArgs e)
         {
             try
             {
                 clsCommon.initialValue("NhanVien", "MaNV", "TenNV", cboEmployeeView, cboEmployee, clsInitialGridColumn.InitialComboEmployee());
-                clsCommon.initialValue("PhongBan", "MaPB", "TenPB", txtDepartmentView, txtDepartment, clsInitialGridColumn.InitialComboDepartment());
-                clsCommon.initialValue("ChucVu", "MaChucVu", "TenChucVu", txtDepartmentView, txtDepartment, clsInitialGridColumn.InitialComboDuty());
-                //clsCommon.initialValue("PhongBan", "MaPB", "TenPB", txtDepartmentView, txtDepartment, clsInitialGridColumn.InitialComboHopDong());
-                //clsCommon.initialValue("BangLuong", "MaPB", "TenPB", txtDepartmentView, txtDepartment, clsInitialGridColumn.InitialComboSalary());
+                clsCommon.initialValue("ThangLuong", "MaTL", "TenTL", txtThangLuongView, txtThangLuong, clsInitialGridColumn.InitialComboThangLuong());
+                clsCommon.initialValue("ChucVu", "MaChucVu", "TenChucVu", txtChucVuView, txtchucVu, clsInitialGridColumn.InitialComboChucVu());
                 if (string.IsNullOrEmpty(MaCCT))
                 {
                     InitializeDataBindings(new EmployeeTransfer());
@@ -88,6 +96,7 @@ namespace HRMSystem.Forms
                     using (var context = new AppDbContext())
                     {
                         var model = context.DieuChuyenCongTacs.Find(Convert.ToInt32(MaCCT));
+                       
                         InitializeDataBindings(model);
 
                     }

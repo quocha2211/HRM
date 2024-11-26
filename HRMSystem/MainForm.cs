@@ -218,6 +218,26 @@ namespace HRMSystem
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportHopDongController", Navigator);
 
         }
+
+        private void accordionControlElement19_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.CongTacController", Navigator);
+        }
+
+        private void accordionControlElement20_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.KhenThuongKyLuatController", Navigator);
+        }
+
+        private void accordionControlElement39_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportSinhNhatController", Navigator);
+        }
+
+        private void accordionControlElement40_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportKTKLController", Navigator);
+        }
     }
 }
 

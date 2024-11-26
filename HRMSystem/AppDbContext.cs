@@ -37,6 +37,7 @@ public class AppDbContext : DbContext
 
     public DbSet<ContractType> LoaiHopDongs { get; set; }
     public DbSet<ThanNhan> ThanNhans { get; set; }
+    public DbSet<KhenThuongKyLuat> khenThuongKyLuats { get; set; }
 
 
     public AppDbContext() : base("name=MyConnectionString")

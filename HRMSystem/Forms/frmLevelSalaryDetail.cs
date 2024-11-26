@@ -30,6 +30,7 @@ namespace HRMSystem.Forms
             bindingSource.DataSource = thangLuong;
             txtName.DataBindings.Add("Text", bindingSource, nameof(SalaryScale.TenTL));
             txtAddress.DataBindings.Add("Text", bindingSource, nameof(SalaryScale.DienGiai));
+            txtHeSo.DataBindings.Add("Text", bindingSource, nameof(SalaryScale.HeSo));
 
         }
 

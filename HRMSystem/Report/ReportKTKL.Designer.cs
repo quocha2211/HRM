@@ -1,6 +1,6 @@
 ﻿namespace HRMSystem.Report
 {
-    partial class EmployeeReport
+    partial class ReportKTKL
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,7 @@
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression2 = new DevExpress.DataAccess.Sql.ColumnExpression();
             DevExpress.DataAccess.Sql.Column column3 = new DevExpress.DataAccess.Sql.Column();
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression3 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Table table4 = new DevExpress.DataAccess.Sql.Table();
             DevExpress.DataAccess.Sql.Column column4 = new DevExpress.DataAccess.Sql.Column();
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression4 = new DevExpress.DataAccess.Sql.ColumnExpression();
             DevExpress.DataAccess.Sql.Column column5 = new DevExpress.DataAccess.Sql.Column();
@@ -47,23 +48,18 @@
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression7 = new DevExpress.DataAccess.Sql.ColumnExpression();
             DevExpress.DataAccess.Sql.Column column8 = new DevExpress.DataAccess.Sql.Column();
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression8 = new DevExpress.DataAccess.Sql.ColumnExpression();
-            DevExpress.DataAccess.Sql.Column column9 = new DevExpress.DataAccess.Sql.Column();
-            DevExpress.DataAccess.Sql.ColumnExpression columnExpression9 = new DevExpress.DataAccess.Sql.ColumnExpression();
-            DevExpress.DataAccess.Sql.Column column10 = new DevExpress.DataAccess.Sql.Column();
-            DevExpress.DataAccess.Sql.ColumnExpression columnExpression10 = new DevExpress.DataAccess.Sql.ColumnExpression();
-            DevExpress.DataAccess.Sql.Table table4 = new DevExpress.DataAccess.Sql.Table();
             DevExpress.DataAccess.Sql.Join join1 = new DevExpress.DataAccess.Sql.Join();
             DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo1 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeReport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportKTKL));
             DevExpress.XtraReports.UI.XRWatermark xrWatermark1 = new DevExpress.XtraReports.UI.XRWatermark();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table1 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -74,21 +70,17 @@
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.table2 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.tableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.tableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell19 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailCaption1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailData1 = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -98,79 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "MyConnectionString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            column1.Alias = "Họ tên";
-            columnExpression1.ColumnName = "TenNV";
-            table3.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"1143\" />";
-            table3.Name = "NhanVien";
-            columnExpression1.Table = table3;
-            column1.Expression = columnExpression1;
-            column2.Alias = "Giới tính";
-            columnExpression2.ColumnName = "GioiTinh";
-            columnExpression2.Table = table3;
-            column2.Expression = columnExpression2;
-            column3.Alias = "Ngày sinh";
-            columnExpression3.ColumnName = "NgaySinh";
-            columnExpression3.Table = table3;
-            column3.Expression = columnExpression3;
-            column4.Alias = "Quê quán";
-            columnExpression4.ColumnName = "QueQuan";
-            columnExpression4.Table = table3;
-            column4.Expression = columnExpression4;
-            column5.Alias = "Nơi ở hiện tại";
-            columnExpression5.ColumnName = "NoiOHienTai";
-            columnExpression5.Table = table3;
-            column5.Expression = columnExpression5;
-            column6.Alias = "Căn cước";
-            columnExpression6.ColumnName = "SoCCCD";
-            columnExpression6.Table = table3;
-            column6.Expression = columnExpression6;
-            column7.Alias = "Ngày cấp";
-            columnExpression7.ColumnName = "NgayCap";
-            columnExpression7.Table = table3;
-            column7.Expression = columnExpression7;
-            columnExpression8.ColumnName = "Email";
-            columnExpression8.Table = table3;
-            column8.Expression = columnExpression8;
-            column9.Alias = "Số điện thoại";
-            columnExpression9.ColumnName = "SoDienThoai";
-            columnExpression9.Table = table3;
-            column9.Expression = columnExpression9;
-            column10.Alias = "Chức vụ";
-            columnExpression10.ColumnName = "TenChucVu";
-            table4.MetaSerializable = "<Meta X=\"185\" Y=\"30\" Width=\"125\" Height=\"143\" />";
-            table4.Name = "ChucVu";
-            columnExpression10.Table = table4;
-            column10.Expression = columnExpression10;
-            selectQuery1.Columns.Add(column1);
-            selectQuery1.Columns.Add(column2);
-            selectQuery1.Columns.Add(column3);
-            selectQuery1.Columns.Add(column4);
-            selectQuery1.Columns.Add(column5);
-            selectQuery1.Columns.Add(column6);
-            selectQuery1.Columns.Add(column7);
-            selectQuery1.Columns.Add(column8);
-            selectQuery1.Columns.Add(column9);
-            selectQuery1.Columns.Add(column10);
-            selectQuery1.Name = "NhanVien_1";
-            relationColumnInfo1.NestedKeyColumn = "MaChucVu";
-            relationColumnInfo1.ParentKeyColumn = "MaChucVu";
-            join1.KeyColumns.Add(relationColumnInfo1);
-            join1.Nested = table4;
-            join1.Parent = table3;
-            selectQuery1.Relations.Add(join1);
-            selectQuery1.Tables.Add(table3);
-            selectQuery1.Tables.Add(table4);
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            selectQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
-            // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 50F;
             this.TopMargin.Name = "TopMargin";
             // 
             // BottomMargin
@@ -178,42 +99,14 @@
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.pageInfo1,
             this.pageInfo2});
-            this.BottomMargin.HeightF = 50.54166F;
             this.BottomMargin.Name = "BottomMargin";
-            // 
-            // pageInfo1
-            // 
-            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.pageInfo1.Name = "pageInfo1";
-            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.None;
-            this.pageInfo1.SizeF = new System.Drawing.SizeF(534.5F, 23F);
-            this.pageInfo1.StyleName = "PageInfo";
-            // 
-            // pageInfo2
-            // 
-            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(534.5F, 0F);
-            this.pageInfo2.Name = "pageInfo2";
-            this.pageInfo2.PageInfo = DevExpress.XtraPrinting.PageInfo.Number;
-            this.pageInfo2.SizeF = new System.Drawing.SizeF(534.5F, 23F);
-            this.pageInfo2.StyleName = "PageInfo";
-            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.pageInfo2.TextFormatString = "Page {0}";
             // 
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.label1});
-            this.ReportHeader.HeightF = 85.00001F;
+            this.ReportHeader.HeightF = 60F;
             this.ReportHeader.Name = "ReportHeader";
-            // 
-            // label1
-            // 
-            this.label1.AutoWidth = true;
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(413.5417F, 0F);
-            this.label1.Name = "label1";
-            this.label1.SizeF = new System.Drawing.SizeF(197.9531F, 24.19433F);
-            this.label1.StyleName = "Title";
-            this.label1.Text = "Danh sách nhân viên";
             // 
             // GroupHeader1
             // 
@@ -223,13 +116,47 @@
             this.GroupHeader1.HeightF = 28F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
+            // Detail
+            // 
+            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table2});
+            this.Detail.HeightF = 25F;
+            this.Detail.Name = "Detail";
+            // 
+            // pageInfo1
+            // 
+            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.pageInfo1.Name = "pageInfo1";
+            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.pageInfo1.SizeF = new System.Drawing.SizeF(450F, 23F);
+            this.pageInfo1.StyleName = "PageInfo";
+            // 
+            // pageInfo2
+            // 
+            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(450F, 0F);
+            this.pageInfo2.Name = "pageInfo2";
+            this.pageInfo2.SizeF = new System.Drawing.SizeF(450F, 23F);
+            this.pageInfo2.StyleName = "PageInfo";
+            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.pageInfo2.TextFormatString = "Page {0} of {1}";
+            // 
+            // label1
+            // 
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.label1.Name = "label1";
+            this.label1.SizeF = new System.Drawing.SizeF(900F, 24.19433F);
+            this.label1.StyleName = "Title";
+            this.label1.StylePriority.UseTextAlignment = false;
+            this.label1.Text = "Danh sách khen thưởng kỷ luật";
+            this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // table1
             // 
             this.table1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.table1.Name = "table1";
             this.table1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.tableRow1});
-            this.table1.SizeF = new System.Drawing.SizeF(1069F, 28F);
+            this.table1.SizeF = new System.Drawing.SizeF(900F, 28F);
             // 
             // tableRow1
             // 
@@ -241,9 +168,7 @@
             this.tableCell5,
             this.tableCell6,
             this.tableCell7,
-            this.tableCell8,
-            this.tableCell9,
-            this.tableCell10});
+            this.tableCell8});
             this.tableRow1.Name = "tableRow1";
             this.tableRow1.Weight = 1D;
             // 
@@ -254,79 +179,58 @@
             this.tableCell1.StyleName = "DetailCaption1";
             this.tableCell1.StylePriority.UseBorders = false;
             this.tableCell1.Text = "Họ tên";
-            this.tableCell1.Weight = 0.098746546359662388D;
+            this.tableCell1.Weight = 0.0791938696967231D;
             // 
             // tableCell2
             // 
             this.tableCell2.Name = "tableCell2";
             this.tableCell2.StyleName = "DetailCaption1";
             this.tableCell2.Text = "Giới tính";
-            this.tableCell2.Weight = 0.070101204098015638D;
+            this.tableCell2.Weight = 0.098243374294704866D;
             // 
             // tableCell3
             // 
             this.tableCell3.Name = "tableCell3";
             this.tableCell3.StyleName = "DetailCaption1";
-            this.tableCell3.Text = "Ngày sinh";
-            this.tableCell3.TextFormatString = "{0:dd/MM/yyyy}";
-            this.tableCell3.Weight = 0.085809135298143782D;
+            this.tableCell3.StylePriority.UseTextAlignment = false;
+            this.tableCell3.Text = "Số quyết định";
+            this.tableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell3.Weight = 0.14306050618489582D;
             // 
             // tableCell4
             // 
             this.tableCell4.Name = "tableCell4";
             this.tableCell4.StyleName = "DetailCaption1";
-            this.tableCell4.Text = "Quê quán";
-            this.tableCell4.Weight = 0.097517329443088829D;
+            this.tableCell4.Text = "Ngày quyết định";
+            this.tableCell4.Weight = 0.16436423407660591D;
             // 
             // tableCell5
             // 
             this.tableCell5.Name = "tableCell5";
             this.tableCell5.StyleName = "DetailCaption1";
-            this.tableCell5.Text = "Nơi ở hiện tại";
-            this.tableCell5.Weight = 0.12408467269935156D;
+            this.tableCell5.Text = "Khen thưởng kỷ luật";
+            this.tableCell5.Weight = 0.20169696384006075D;
             // 
             // tableCell6
             // 
             this.tableCell6.Name = "tableCell6";
             this.tableCell6.StyleName = "DetailCaption1";
-            this.tableCell6.Text = "Căn cước";
-            this.tableCell6.Weight = 0.11294841121011287D;
+            this.tableCell6.Text = "Lý do";
+            this.tableCell6.Weight = 0.071085806952582459D;
             // 
             // tableCell7
             // 
             this.tableCell7.Name = "tableCell7";
             this.tableCell7.StyleName = "DetailCaption1";
-            this.tableCell7.Text = "Ngày cấp";
-            this.tableCell7.TextFormatString = "{0:dd/MM/yyyy}";
-            this.tableCell7.Weight = 0.097574881707438679D;
+            this.tableCell7.Text = "Hình thức";
+            this.tableCell7.Weight = 0.10862348768446181D;
             // 
             // tableCell8
             // 
             this.tableCell8.Name = "tableCell8";
             this.tableCell8.StyleName = "DetailCaption1";
-            this.tableCell8.Text = "Email";
-            this.tableCell8.Weight = 0.13393117193621146D;
-            // 
-            // tableCell9
-            // 
-            this.tableCell9.Name = "tableCell9";
-            this.tableCell9.StyleName = "DetailCaption1";
-            this.tableCell9.Text = "Số điện thoại";
-            this.tableCell9.Weight = 0.084554632184350262D;
-            // 
-            // tableCell10
-            // 
-            this.tableCell10.Name = "tableCell10";
-            this.tableCell10.StyleName = "DetailCaption1";
-            this.tableCell10.Text = "Chức vụ";
-            this.tableCell10.Weight = 0.094731993652788615D;
-            // 
-            // Detail
-            // 
-            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table2});
-            this.Detail.HeightF = 25F;
-            this.Detail.Name = "Detail";
+            this.tableCell8.Text = "Đơn vị KTKL";
+            this.tableCell8.Weight = 0.13373170640733506D;
             // 
             // table2
             // 
@@ -335,107 +239,151 @@
             this.table2.OddStyleName = "DetailData3_Odd";
             this.table2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.tableRow2});
-            this.table2.SizeF = new System.Drawing.SizeF(1069F, 25F);
+            this.table2.SizeF = new System.Drawing.SizeF(900F, 25F);
             // 
             // tableRow2
             // 
             this.tableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.tableCell9,
+            this.tableCell10,
             this.tableCell11,
             this.tableCell12,
             this.tableCell13,
             this.tableCell14,
             this.tableCell15,
-            this.tableCell16,
-            this.tableCell17,
-            this.tableCell18,
-            this.tableCell19,
-            this.tableCell20});
+            this.tableCell16});
             this.tableRow2.Name = "tableRow2";
             this.tableRow2.Weight = 11.5D;
             // 
+            // tableCell9
+            // 
+            this.tableCell9.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.tableCell9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Họ tên]")});
+            this.tableCell9.Name = "tableCell9";
+            this.tableCell9.StyleName = "DetailData1";
+            this.tableCell9.StylePriority.UseBorders = false;
+            this.tableCell9.Weight = 0.0791938696967231D;
+            // 
+            // tableCell10
+            // 
+            this.tableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Giới tính]")});
+            this.tableCell10.Name = "tableCell10";
+            this.tableCell10.StyleName = "DetailData1";
+            this.tableCell10.Weight = 0.0982433827718099D;
+            // 
             // tableCell11
             // 
-            this.tableCell11.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.tableCell11.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Họ tên]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Số quyết định]")});
             this.tableCell11.Name = "tableCell11";
             this.tableCell11.StyleName = "DetailData1";
-            this.tableCell11.StylePriority.UseBorders = false;
-            this.tableCell11.Weight = 0.098746560132831257D;
+            this.tableCell11.StylePriority.UseTextAlignment = false;
+            this.tableCell11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell11.Weight = 0.14306050618489582D;
             // 
             // tableCell12
             // 
             this.tableCell12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Giới tính]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Ngày quyết định]")});
             this.tableCell12.Name = "tableCell12";
             this.tableCell12.StyleName = "DetailData1";
-            this.tableCell12.Weight = 0.070101190324846768D;
+            this.tableCell12.TextFormatString = "{0:dd/MM/yyyy}";
+            this.tableCell12.Weight = 0.16436423407660591D;
             // 
             // tableCell13
             // 
             this.tableCell13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Ngày sinh]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Khen thưởng kỷ luật]")});
             this.tableCell13.Name = "tableCell13";
             this.tableCell13.StyleName = "DetailData1";
-            this.tableCell13.TextFormatString = "{0:dd/MM/yyyy}";
-            this.tableCell13.Weight = 0.085809100009821754D;
+            this.tableCell13.Weight = 0.20169698079427084D;
             // 
             // tableCell14
             // 
             this.tableCell14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Quê quán]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Lý do]")});
             this.tableCell14.Name = "tableCell14";
             this.tableCell14.StyleName = "DetailData1";
-            this.tableCell14.Weight = 0.097517336663488219D;
+            this.tableCell14.Weight = 0.071085811191134982D;
             // 
             // tableCell15
             // 
             this.tableCell15.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Nơi ở hiện tại]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Hình thức]")});
             this.tableCell15.Name = "tableCell15";
             this.tableCell15.StyleName = "DetailData1";
-            this.tableCell15.Weight = 0.12408467290798454D;
+            this.tableCell15.Weight = 0.10862349616156684D;
             // 
             // tableCell16
             // 
             this.tableCell16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Căn cước]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Đơn vị KTKL]")});
             this.tableCell16.Name = "tableCell16";
             this.tableCell16.StyleName = "DetailData1";
-            this.tableCell16.Weight = 0.11294841100147866D;
+            this.tableCell16.Weight = 0.133731689453125D;
             // 
-            // tableCell17
+            // sqlDataSource1
             // 
-            this.tableCell17.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Ngày cấp]")});
-            this.tableCell17.Name = "tableCell17";
-            this.tableCell17.StyleName = "DetailData1";
-            this.tableCell17.TextFormatString = "{0:dd/MM/yyyy}";
-            this.tableCell17.Weight = 0.097574824632741863D;
-            // 
-            // tableCell18
-            // 
-            this.tableCell18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Email]")});
-            this.tableCell18.Name = "tableCell18";
-            this.tableCell18.StyleName = "DetailData1";
-            this.tableCell18.Weight = 0.13393122761306595D;
-            // 
-            // tableCell19
-            // 
-            this.tableCell19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Số điện thoại]")});
-            this.tableCell19.Name = "tableCell19";
-            this.tableCell19.StyleName = "DetailData1";
-            this.tableCell19.Weight = 0.084554583206310083D;
-            // 
-            // tableCell20
-            // 
-            this.tableCell20.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Chức vụ]")});
-            this.tableCell20.Name = "tableCell20";
-            this.tableCell20.StyleName = "DetailData1";
-            this.tableCell20.Weight = 0.0947320506857591D;
+            this.sqlDataSource1.ConnectionName = "MyConnectionString";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            column1.Alias = "Họ tên";
+            columnExpression1.ColumnName = "TenNV";
+            table3.MetaSerializable = "<Meta X=\"185\" Y=\"30\" Width=\"125\" Height=\"1123\" />";
+            table3.Name = "NhanVien";
+            columnExpression1.Table = table3;
+            column1.Expression = columnExpression1;
+            column2.Alias = "Giới tính";
+            columnExpression2.ColumnName = "GioiTinh";
+            columnExpression2.Table = table3;
+            column2.Expression = columnExpression2;
+            column3.Alias = "Số quyết định";
+            columnExpression3.ColumnName = "SoQD";
+            table4.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"223\" />";
+            table4.Name = "KhenThuongKyLuat";
+            columnExpression3.Table = table4;
+            column3.Expression = columnExpression3;
+            column4.Alias = "Ngày quyết định";
+            columnExpression4.ColumnName = "NgayQD";
+            columnExpression4.Table = table4;
+            column4.Expression = columnExpression4;
+            column5.Alias = "Khen thưởng kỷ luật";
+            columnExpression5.ColumnName = "TenKTKL";
+            columnExpression5.Table = table4;
+            column5.Expression = columnExpression5;
+            column6.Alias = "Lý do";
+            columnExpression6.ColumnName = "LyDo";
+            columnExpression6.Table = table4;
+            column6.Expression = columnExpression6;
+            column7.Alias = "Hình thức";
+            columnExpression7.ColumnName = "HinhThuc";
+            columnExpression7.Table = table4;
+            column7.Expression = columnExpression7;
+            column8.Alias = "Đơn vị KTKL";
+            columnExpression8.ColumnName = "DonviKTKL";
+            columnExpression8.Table = table4;
+            column8.Expression = columnExpression8;
+            selectQuery1.Columns.Add(column1);
+            selectQuery1.Columns.Add(column2);
+            selectQuery1.Columns.Add(column3);
+            selectQuery1.Columns.Add(column4);
+            selectQuery1.Columns.Add(column5);
+            selectQuery1.Columns.Add(column6);
+            selectQuery1.Columns.Add(column7);
+            selectQuery1.Columns.Add(column8);
+            selectQuery1.Name = "KhenThuongKyLuat_1";
+            relationColumnInfo1.NestedKeyColumn = "MaNV";
+            relationColumnInfo1.ParentKeyColumn = "MaNV";
+            join1.KeyColumns.Add(relationColumnInfo1);
+            join1.Nested = table3;
+            join1.Parent = table4;
+            selectQuery1.Relations.Add(join1);
+            selectQuery1.Tables.Add(table4);
+            selectQuery1.Tables.Add(table3);
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // Title
             // 
@@ -490,7 +438,7 @@
             this.PageInfo.Name = "PageInfo";
             this.PageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
             // 
-            // EmployeeReport
+            // ReportKTKL
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.TopMargin,
@@ -500,15 +448,12 @@
             this.Detail});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.sqlDataSource1});
-            this.DataMember = "NhanVien_1";
+            this.DataMember = "KhenThuongKyLuat_1";
             this.DataSource = this.sqlDataSource1;
-            this.FilterString = "[Ngày sinh] < ?parameter1";
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Landscape = true;
-            this.Margins = new DevExpress.Drawing.DXMargins(50F, 50F, 50F, 50.54166F);
-            this.PageHeight = 827;
-            this.PageWidth = 1169;
-            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
+            this.PageHeight = 850;
+            this.PageWidth = 1100;
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.DetailCaption1,
@@ -526,7 +471,7 @@
         }
 
         #endregion
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.XRPageInfo pageInfo1;
@@ -544,21 +489,18 @@
         private DevExpress.XtraReports.UI.XRTableCell tableCell6;
         private DevExpress.XtraReports.UI.XRTableCell tableCell7;
         private DevExpress.XtraReports.UI.XRTableCell tableCell8;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell9;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell10;
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.XRTable table2;
         private DevExpress.XtraReports.UI.XRTableRow tableRow2;
+        private DevExpress.XtraReports.UI.XRTableCell tableCell9;
+        private DevExpress.XtraReports.UI.XRTableCell tableCell10;
         private DevExpress.XtraReports.UI.XRTableCell tableCell11;
         private DevExpress.XtraReports.UI.XRTableCell tableCell12;
         private DevExpress.XtraReports.UI.XRTableCell tableCell13;
         private DevExpress.XtraReports.UI.XRTableCell tableCell14;
         private DevExpress.XtraReports.UI.XRTableCell tableCell15;
         private DevExpress.XtraReports.UI.XRTableCell tableCell16;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell17;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell18;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell19;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell20;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle DetailCaption1;
         private DevExpress.XtraReports.UI.XRControlStyle DetailData1;

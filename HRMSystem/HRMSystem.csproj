@@ -286,7 +286,11 @@
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\CertificateDetailController.cs" />
     <Compile Include="Controller\BangLuongController.cs" />
+    <Compile Include="Controller\CongTacController.cs" />
+    <Compile Include="Controller\KhenThuongKyLuatController.cs" />
     <Compile Include="Controller\ReportHopDongController.cs" />
+    <Compile Include="Controller\ReportKTKLController.cs" />
+    <Compile Include="Controller\ReportSinhNhat.cs" />
     <Compile Include="Controller\ReportNghiHuuController.cs" />
     <Compile Include="Controller\ReportLuongController.cs" />
     <Compile Include="Controller\ReportController.cs" />
@@ -360,11 +364,23 @@
     <Compile Include="Forms\frmChungChi.Designer.cs">
       <DependentUpon>frmChungChi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmCongTac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCongTac.Designer.cs">
+      <DependentUpon>frmCongTac.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmKhenThuongKyLuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmKhenThuongKyLuat.Designer.cs">
+      <DependentUpon>frmKhenThuongKyLuat.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmUser.cs">
       <SubType>Form</SubType>
@@ -475,6 +491,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\KhenThuongKyLuat.cs" />
     <Compile Include="Models\ChucVu.cs" />
     <Compile Include="Models\Certificate.cs" />
     <Compile Include="Models\Contract.cs" />
@@ -523,11 +540,23 @@
     <Compile Include="Report\ReportHopDong.Designer.cs">
       <DependentUpon>ReportHopDong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\ReportKTKL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportKTKL.Designer.cs">
+      <DependentUpon>ReportKTKL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\ReportLuong.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\ReportLuong.Designer.cs">
       <DependentUpon>ReportLuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportSinhNhat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportSinhNhat.Designer.cs">
+      <DependentUpon>ReportSinhNhat.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\clsCommon.cs" />
     <Compile Include="Utilities\clsControlExtensions.cs" />
@@ -561,8 +590,14 @@
     <EmbeddedResource Include="Forms\frmChungChi.resx">
       <DependentUpon>frmChungChi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCongTac.resx">
+      <DependentUpon>frmCongTac.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmKhenThuongKyLuat.resx">
+      <DependentUpon>frmKhenThuongKyLuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
@@ -641,8 +676,14 @@
     <EmbeddedResource Include="Report\ReportHopDong.resx">
       <DependentUpon>ReportHopDong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportKTKL.resx">
+      <DependentUpon>ReportKTKL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\ReportLuong.resx">
       <DependentUpon>ReportLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportSinhNhat.resx">
+      <DependentUpon>ReportSinhNhat.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

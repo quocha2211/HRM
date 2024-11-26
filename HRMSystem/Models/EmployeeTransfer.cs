@@ -13,19 +13,14 @@ namespace HRMSystem.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int MaCCT { get; set; } // MaCCT (Primary Key, Identity)
-        public DateTime NgayChuyen { get; set; } // NgayChuyen
+        public int? MaCCT { get; set; } // MaCCT (Primary Key, Identity)
+        public DateTime? NgayChuyen { get; set; } // NgayChuyen
         public string SoQD { get; set; } // SoQD
-        [Required]
-        public int MaPB { get; set; } // MaPB (Nullable, FK to PhongBan)
-        [Required]
-        public int MaChucVu { get; set; } // MaChucVu (Nullable, FK to ChucVu)
-        [Required]
-        public int MaHD { get; set; } // MaHD (Nullable, FK to HopDong)
-        [Required]
-        public int MaNV { get; set; } // MaNV (Nullable, FK to NhanVien)
-        [Required]
-        public int MaBL { get; set; } // MaBL (Nullable, FK to HeSoThangBacLuong)
+        public int? MaPB { get; set; } // MaPB (Nullable, FK to PhongBan)
+        public int? MaChucVu { get; set; } // MaChucVu (Nullable, FK to ChucVu)
+        public int? MaHD { get; set; } // MaHD (Nullable, FK to HopDong)
+        public int? MaNV { get; set; } // MaNV (Nullable, FK to NhanVien)
+        public int? MaTL { get; set; } // MaBL (Nullable, FK to HeSoThangBacLuong)
         public string GhiChu { get; set; } // GhiChu (Nullable)
 
     }

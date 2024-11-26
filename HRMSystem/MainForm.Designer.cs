@@ -66,7 +66,6 @@
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement42 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement43 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement44 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement45 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnLogout = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement37 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -393,6 +392,7 @@
             this.accordionControlElement19.Name = "accordionControlElement19";
             this.accordionControlElement19.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement19.Text = "Điều chuyển công tác";
+            this.accordionControlElement19.Click += new System.EventHandler(this.accordionControlElement19_Click);
             // 
             // accordionControlElement20
             // 
@@ -405,6 +405,7 @@
             this.accordionControlElement20.Name = "accordionControlElement20";
             this.accordionControlElement20.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement20.Text = "Khen thưởng kỹ thuật";
+            this.accordionControlElement20.Click += new System.EventHandler(this.accordionControlElement20_Click);
             // 
             // accordionControlElement22
             // 
@@ -517,7 +518,6 @@
             this.accordionControlElement41,
             this.accordionControlElement42,
             this.accordionControlElement43,
-            this.accordionControlElement44,
             this.accordionControlElement45});
             this.grpReport.Expanded = true;
             this.grpReport.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.charttype_doughnut;
@@ -553,6 +553,7 @@
             this.accordionControlElement39.Name = "accordionControlElement39";
             this.accordionControlElement39.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement39.Text = "Theo dõi sinh nhật";
+            this.accordionControlElement39.Click += new System.EventHandler(this.accordionControlElement39_Click);
             // 
             // accordionControlElement40
             // 
@@ -567,6 +568,7 @@
             this.accordionControlElement40.Name = "accordionControlElement40";
             this.accordionControlElement40.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement40.Text = "Báo cáo danh sách khen thưởng, kỷ luật";
+            this.accordionControlElement40.Click += new System.EventHandler(this.accordionControlElement40_Click);
             // 
             // accordionControlElement41
             // 
@@ -612,20 +614,6 @@
             this.accordionControlElement43.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement43.Text = "Báo cáo lương";
             this.accordionControlElement43.Click += new System.EventHandler(this.accordionControlElement43_Click);
-            // 
-            // accordionControlElement44
-            // 
-            this.accordionControlElement44.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement44.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElement44.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement44.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement44.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement44.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement44.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement44.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement44.Name = "accordionControlElement44";
-            this.accordionControlElement44.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement44.Text = "Báo cáo thâm niên, đóng bảo hiểm";
             // 
             // accordionControlElement45
             // 
@@ -972,7 +960,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement41;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement42;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement43;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement44;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement45;
         private DevExpress.XtraBars.Navigation.NavigationFrame Navigator;
         private DevExpress.XtraBars.Navigation.NavigationPage npWelcome;

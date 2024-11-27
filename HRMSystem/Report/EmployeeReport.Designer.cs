@@ -502,7 +502,6 @@
             this.sqlDataSource1});
             this.DataMember = "NhanVien_1";
             this.DataSource = this.sqlDataSource1;
-            this.FilterString = "[Ngày sinh] < ?parameter1";
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Landscape = true;
             this.Margins = new DevExpress.Drawing.DXMargins(50F, 50F, 50F, 50.54166F);

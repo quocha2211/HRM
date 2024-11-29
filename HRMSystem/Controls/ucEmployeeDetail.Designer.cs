@@ -95,7 +95,6 @@
             this.txtTNVK = new DevExpress.XtraEditors.SpinEdit();
             this.txtHSL = new DevExpress.XtraEditors.SpinEdit();
             this.txtTinhTrangSucKhoe = new DevExpress.XtraEditors.MemoEdit();
-            this.txtHotroXangXe = new DevExpress.XtraEditors.SpinEdit();
             this.cboTinhThanh = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.grvProvince = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cboDanToc = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -196,6 +195,8 @@
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
+            this.txtHotroXangXe = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.txtHotroXangXeView = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -252,7 +253,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTNVK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHSL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTinhTrangSucKhoe.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHotroXangXe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTinhThanh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvProvince)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDanToc.Properties)).BeginInit();
@@ -352,6 +352,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHotroXangXe.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHotroXangXeView)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -423,7 +425,6 @@
             this.layoutControl2.Controls.Add(this.txtTNVK);
             this.layoutControl2.Controls.Add(this.txtHSL);
             this.layoutControl2.Controls.Add(this.txtTinhTrangSucKhoe);
-            this.layoutControl2.Controls.Add(this.txtHotroXangXe);
             this.layoutControl2.Controls.Add(this.cboTinhThanh);
             this.layoutControl2.Controls.Add(this.cboDanToc);
             this.layoutControl2.Controls.Add(this.cboNganHang);
@@ -436,6 +437,7 @@
             this.layoutControl2.Controls.Add(this.cboTrangThaiLamViec);
             this.layoutControl2.Controls.Add(this.txtLuongCoSo);
             this.layoutControl2.Controls.Add(this.txtHeSoLuong);
+            this.layoutControl2.Controls.Add(this.txtHotroXangXe);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(2, 23);
             this.layoutControl2.Margin = new System.Windows.Forms.Padding(2);
@@ -1617,37 +1619,6 @@
             this.txtTinhTrangSucKhoe.Size = new System.Drawing.Size(362, 118);
             this.txtTinhTrangSucKhoe.StyleController = this.layoutControl2;
             this.txtTinhTrangSucKhoe.TabIndex = 8;
-            // 
-            // txtHotroXangXe
-            // 
-            this.txtHotroXangXe.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtHotroXangXe.Location = new System.Drawing.Point(1230, 604);
-            this.txtHotroXangXe.Margin = new System.Windows.Forms.Padding(2);
-            this.txtHotroXangXe.Name = "txtHotroXangXe";
-            this.txtHotroXangXe.Properties.AdvancedModeOptions.Label = "Hỗ trợ xăng xe";
-            this.txtHotroXangXe.Properties.AdvancedModeOptions.LabelAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtHotroXangXe.Properties.AdvancedModeOptions.LabelAppearance.Options.UseBorderColor = true;
-            this.txtHotroXangXe.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtHotroXangXe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHotroXangXe.Properties.Appearance.Options.UseBackColor = true;
-            this.txtHotroXangXe.Properties.Appearance.Options.UseFont = true;
-            this.txtHotroXangXe.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtHotroXangXe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtHotroXangXe.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtHotroXangXe.Properties.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.txtHotroXangXe.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtHotroXangXe.Size = new System.Drawing.Size(286, 34);
-            this.txtHotroXangXe.StyleController = this.layoutControl2;
-            this.txtHotroXangXe.TabIndex = 8;
             // 
             // cboTinhThanh
             // 
@@ -3555,6 +3526,40 @@
             this.bar3.StandaloneBarDockControl = this.standaloneBarDockControl1;
             this.bar3.Text = "Main menu";
             // 
+            // txtHotroXangXe
+            // 
+            this.txtHotroXangXe.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtHotroXangXe.Location = new System.Drawing.Point(1230, 604);
+            this.txtHotroXangXe.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHotroXangXe.Name = "txtHotroXangXe";
+            this.txtHotroXangXe.Properties.AdvancedModeOptions.Label = "Hỗ trợ xăng xe";
+            this.txtHotroXangXe.Properties.AdvancedModeOptions.LabelAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtHotroXangXe.Properties.AdvancedModeOptions.LabelAppearance.Options.UseBorderColor = true;
+            this.txtHotroXangXe.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtHotroXangXe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHotroXangXe.Properties.Appearance.Options.UseBackColor = true;
+            this.txtHotroXangXe.Properties.Appearance.Options.UseFont = true;
+            this.txtHotroXangXe.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtHotroXangXe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtHotroXangXe.Properties.NullText = "";
+            this.txtHotroXangXe.Properties.PopupView = this.txtHotroXangXeView;
+            this.txtHotroXangXe.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtHotroXangXe.Size = new System.Drawing.Size(286, 18);
+            this.txtHotroXangXe.StyleController = this.layoutControl2;
+            this.txtHotroXangXe.TabIndex = 8;
+            // 
+            // txtHotroXangXeView
+            // 
+            this.txtHotroXangXeView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.txtHotroXangXeView.Name = "txtHotroXangXeView";
+            this.txtHotroXangXeView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.txtHotroXangXeView.OptionsView.ShowGroupPanel = false;
+            // 
             // ucEmployeeDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3624,7 +3629,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTNVK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHSL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTinhTrangSucKhoe.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHotroXangXe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTinhThanh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvProvince)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDanToc.Properties)).EndInit();
@@ -3724,6 +3728,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHotroXangXe.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHotroXangXeView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3847,7 +3853,6 @@
         private DevExpress.XtraEditors.MemoEdit txtTinhTrangSucKhoe;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem46;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
-        private DevExpress.XtraEditors.SpinEdit txtHotroXangXe;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem49;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem51;
@@ -3898,5 +3903,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView txtLuongView;
         private DevExpress.XtraEditors.SearchLookUpEdit txtHeSoLuong;
         private DevExpress.XtraGrid.Views.Grid.GridView txtHeSoLuongView;
+        private DevExpress.XtraEditors.SearchLookUpEdit txtHotroXangXe;
+        private DevExpress.XtraGrid.Views.Grid.GridView txtHotroXangXeView;
     }
 }

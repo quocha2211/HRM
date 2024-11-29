@@ -82,7 +82,7 @@ namespace HRMSystem.Controls
             txtNgayXuatNgu.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayXuatNgu), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // SpinEdit bindings for nullable float (HeSoLuong, HeSoPhuCap, etc.)
-            txtHeSoLuong.DataBindings.Add("Text", bindingSource, nameof(Employee.MaTL), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtHeSoLuong.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaTL), true, DataSourceUpdateMode.OnPropertyChanged);
 
             txtHeSoPhuCap.DataBindings.Add("Text", bindingSource, nameof(Employee.HeSoPhuCap), true, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -90,9 +90,9 @@ namespace HRMSystem.Controls
 
             txtHSL.DataBindings.Add("Text", bindingSource, nameof(Employee.ThoiGianNangBacHSL), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtLuongCoSo.DataBindings.Add("Text", bindingSource, nameof(Employee.MaMLTT), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtLuongCoSo.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaMLTT), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtHotroXangXe.DataBindings.Add("Text", bindingSource, nameof(Employee.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtHotroXangXe.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // ToggleSwitch bindings for nullable bool (RoiCoQuan, NghiHuu, etc.)
             rdRoiCoQuan.DataBindings.Add("IsOn", bindingSource, nameof(Employee.RoiCoQuan), true, DataSourceUpdateMode.OnPropertyChanged);
@@ -102,7 +102,7 @@ namespace HRMSystem.Controls
             // SearchLookUpEdit bindings for nullable foreign keys
             cboTinhThanh.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaTT), true, DataSourceUpdateMode.OnPropertyChanged);
             cboDanToc.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaDT), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboNganHang.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaDMXX), true, DataSourceUpdateMode.OnPropertyChanged);
+            pictureEdit1.DataBindings.Add("EditValue", bindingSource, nameof(Employee.Anh), true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
 
@@ -136,6 +136,7 @@ namespace HRMSystem.Controls
                 initialValue("TrangThaiLamViec", "MaTTLV", "TenTTLV", grvTrangThaiLamViec, cboTrangThaiLamViec, clsInitialGridColumn.InitialWorkStatus());
                 initialValue("MucLuongToiThieu", "MaMLTT", "MLTTC",txtLuongView , txtLuongCoSo, clsInitialGridColumn.InitialMinSalary());
                 initialValue("ThangLuong", "MaTL", "HeSo", txtHeSoLuongView, txtHeSoLuong, clsInitialGridColumn.InitialSalaryScale());
+                initialValue("DinhMucXangXe", "MaDMXX", "DMXX", txtHotroXangXeView, txtHotroXangXe, clsInitialGridColumn.InitialDinhMucXangXe());
 
                 if (string.IsNullOrEmpty(MaNV))
                 {
@@ -167,11 +168,7 @@ namespace HRMSystem.Controls
                 return false;
             }
 
-            // Kiểm tra MaNV
-            if (user.MaNV <= 0)
-            {
-                return false;
-            }
+          
 
             // Kiểm tra TenNV
             if (string.IsNullOrEmpty(user.TenNV))

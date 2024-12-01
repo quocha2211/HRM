@@ -18,6 +18,9 @@ namespace HRMSystem.Forms
     {
         public event EventHandler BackButtonClick;
         public string MaCCTL;
+        public int MaNV;
+        public int Nam;
+        public int Thang;
         private BindingSource bindingSource = new BindingSource();
 
         public frmTimeKeeping()
@@ -29,6 +32,12 @@ namespace HRMSystem.Forms
         private void InitializeDataBindings(TimeKeeping model)
         {
             bindingSource.DataSource = model;
+            if(model.MaNV == null)
+            {
+                model.MaNV = MaNV;
+                model.Nam = Nam;
+                model.Thang = Thang;
+            }    
             txtName.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.TenCCTL), true, DataSourceUpdateMode.OnPropertyChanged);
             txtNam.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.Nam), true, DataSourceUpdateMode.OnPropertyChanged);
             txtThang.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.Thang), true, DataSourceUpdateMode.OnPropertyChanged);

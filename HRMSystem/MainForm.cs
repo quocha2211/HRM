@@ -200,6 +200,10 @@ namespace HRMSystem
 
         private void accordionControlElement38_Click(object sender, EventArgs e)
         {
+            if (!CheckUserRole(UserRole.Admin))
+            {
+                return;
+            }
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportController", Navigator);
         }
 

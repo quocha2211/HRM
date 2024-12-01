@@ -514,6 +514,7 @@ namespace HRMSystem.Utilities
             try
             {
                 lst.Add(new GridColumnModel() { Name = "colMaNV", Caption = "Mã nhân viên", FieldName = "MaNV", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colMaNV", Caption = "", FieldName = "MaPB", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colTenNV", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true, Frozen = FixedStyle.Left });
                 lst.Add(new GridColumnModel() { Name = "colBiDanh", Caption = "Bí danh", FieldName = "BiDanh", Visible = false });
                 lst.Add(new GridColumnModel() { Name = "colGioiTinh", Caption = "Giới tính", FieldName = "GioiTinh", Visible = true, Frozen = FixedStyle.Left });

@@ -40,11 +40,44 @@ namespace HRMSystem.Controller
                 masterController.Initialize(masterForm);
                 masterController.Load += MasterController_Load;
                 masterForm.searchDelegate = new SearchButtonClick(MasterForm_SearchButtonClick);
+                masterForm.EditClick = new SearchButtonClick(MasterForm_EditButtonClick);
 
                 View.PageMaster.Controls.Add(masterForm);
                 View.NavigatorFrame.SelectedPage = View.PageMaster;
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ex", ex.ToString()); }
+        }
+
+        private void MasterForm_EditButtonClick(int nam, int thang)
+        {
+            try
+            {
+                frmTimeKeeping frm = new frmTimeKeeping() { Dock = DockStyle.Fill };
+                frm.MaNV = Convert.ToInt32(masterForm.GetPrimaryKey("MaNV"));
+                frm.Nam = nam;
+                frm.Thang = thang;
+                var rs = frm.ShowDialog();
+                if (rs == DialogResult.OK)
+                {
+                    LoadData(nam, thang);
+                }
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+        }
+
+        private void MasterForm_EditButtonClick(object sender, EventArgs e)
+        {
+            try
+            {
+                frmTimeKeeping frm = new frmTimeKeeping() { Dock = DockStyle.Fill };
+                frm.MaNV = Convert.ToInt32(masterForm.GetPrimaryKey("MaNV"));
+                var rs = frm.ShowDialog();
+                if (rs == DialogResult.OK)
+                {
+
+                }
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
         }
 
         private void MasterForm_SearchButtonClick(int nam, int thang)
@@ -78,17 +111,17 @@ namespace HRMSystem.Controller
                                      ml.MLTTC,
                                      tl.HeSo,
                                      LuongCoBan = ml.MLTTC * tl.HeSo,
-                                     NgayCongTrongThang = (cc.NgayCongTrongThang ?? 0),
-                                     LuongThoiGian = (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 0),
+                                     NgayCongTrongThang = (cc.NgayCongTrongThang ?? 26),
+                                     LuongThoiGian = (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 26),
                                      xx.DMXX,
-                                     TienAn = (cc.NgayCongTrongThang ?? 0) * 25000,
-                                     TongLuong = (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 0) + (cc.NgayCongTrongThang ?? 0) * 25000 + xx.DMXX,
+                                     TienAn = (cc.NgayCongTrongThang ?? 26) * 25000,
+                                     TongLuong = (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 26) + (cc.NgayCongTrongThang ?? 26) * 25000 + xx.DMXX,
                                      BHXH = (ml.MLTTC * tl.HeSo) * 8 / 100,
                                      BHYT = (ml.MLTTC * tl.HeSo) * 1.5 / 100,
                                      BHTN = (ml.MLTTC * tl.HeSo) * 1 / 100,
                                      SoTienTU = (tu.SoTienTU ?? 0),
                                      LuongGiamTru = (ml.MLTTC * tl.HeSo) * 8 / 100 + (ml.MLTTC * tl.HeSo) * 1.5 / 100 + (ml.MLTTC * tl.HeSo) * 1 / 100 + (tu.SoTienTU ?? 0),
-                                     LuongThucNhan = cc.NgayCongTrongThang == null ? 0 : (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 0) + (cc.NgayCongTrongThang ?? 0) * 25000 + xx.DMXX - ((ml.MLTTC * tl.HeSo) * 8 / 100 + (ml.MLTTC * tl.HeSo) * 1.5 / 100 + (ml.MLTTC * tl.HeSo) * 1 / 100 + (tu.SoTienTU ?? 0))
+                                     LuongThucNhan =  (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 26) + (cc.NgayCongTrongThang ?? 26) * 25000 + xx.DMXX - ((ml.MLTTC * tl.HeSo) * 8 / 100 + (ml.MLTTC * tl.HeSo) * 1.5 / 100 + (ml.MLTTC * tl.HeSo) * 1 / 100 + (tu.SoTienTU ?? 0))
 
                                  }).ToList();
 

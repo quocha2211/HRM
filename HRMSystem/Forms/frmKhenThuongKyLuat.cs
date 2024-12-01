@@ -18,6 +18,7 @@ namespace HRMSystem.Forms
     {
         public event EventHandler BackButtonClick;
         public string MaKTKL;
+        public int MaNV;
         private BindingSource bindingSource = new BindingSource();
 
         public frmKhenThuongKyLuat()
@@ -29,6 +30,11 @@ namespace HRMSystem.Forms
         private void InitializeDataBindings(KhenThuongKyLuat model)
         {
             bindingSource.DataSource = model;
+            if (model.MaNV == null)
+            {
+                model.MaNV = MaNV;
+                
+            }
             txtDonVi.DataBindings.Add("Text", bindingSource, nameof(KhenThuongKyLuat.DonviKTKL), true, DataSourceUpdateMode.OnPropertyChanged);
             txtTenKTKL.DataBindings.Add("Text", bindingSource, nameof(KhenThuongKyLuat.TenKTKL), true, DataSourceUpdateMode.OnPropertyChanged);
             txtHinhThuc.DataBindings.Add("Text", bindingSource, nameof(KhenThuongKyLuat.HinhThuc), true, DataSourceUpdateMode.OnPropertyChanged);

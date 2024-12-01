@@ -39,7 +39,7 @@ public class AppDbContext : DbContext
     public DbSet<ThanNhan> ThanNhans { get; set; }
     public DbSet<KhenThuongKyLuat> khenThuongKyLuats { get; set; }
 
-
+    public DbSet<QuaTrinhDaoTao> QuaTrinhDaoTaos { get; set; }
     public AppDbContext() : base("name=MyConnectionString")
     {
     }

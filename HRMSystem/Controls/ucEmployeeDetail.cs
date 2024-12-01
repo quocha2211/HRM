@@ -308,9 +308,6 @@ namespace HRMSystem.Controls
                 return false;
             }
 
-           
-
-            // Nếu tất cả đều hợp lệ
             return true;
         }
 
@@ -319,6 +316,7 @@ namespace HRMSystem.Controls
         {
             try
             {
+
                 this.groupControl1.Focus();
                 Employee nhanVien = (Employee)bindingSource.Current;
                 if (!ValidateUser(nhanVien))
@@ -326,7 +324,6 @@ namespace HRMSystem.Controls
                     MessageBox.Show("Nhập đầy đủ.");
                     return;
                 }
-
 
                 using (var context = new AppDbContext())
                 {

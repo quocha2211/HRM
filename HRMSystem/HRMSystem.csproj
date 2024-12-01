@@ -316,6 +316,12 @@
     <Compile Include="Controller\ProvinceController.cs" />
     <Compile Include="Controller\ExpertiseController.cs" />
     <Compile Include="Controller\LevelSalaryController.cs" />
+    <Compile Include="Controls\ucEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucEmployee.Designer.cs">
+      <DependentUpon>ucEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucReportTemp.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -363,6 +369,12 @@
     </Compile>
     <Compile Include="Forms\frmChungChi.Designer.cs">
       <DependentUpon>frmChungChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDaoTao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDaoTao.Designer.cs">
+      <DependentUpon>frmDaoTao.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmCongTac.cs">
       <SubType>Form</SubType>
@@ -506,6 +518,7 @@
     <Compile Include="Models\Payroll.cs" />
     <Compile Include="Models\PhongBan.cs" />
     <Compile Include="Models\QuanHeNhanThan.cs" />
+    <Compile Include="Models\QuaTrinhDaoTao.cs" />
     <Compile Include="Models\SalaryAdvance.cs" />
     <Compile Include="Models\SalaryGradeCoefficient.cs" />
     <Compile Include="Models\SalaryScale.cs" />
@@ -566,6 +579,9 @@
     <Compile Include="Utilities\clsSystemSettings.cs" />
     <Compile Include="Utilities\SQLHelper.cs" />
     <Compile Include="Utilities\SQLiteHelper.cs" />
+    <EmbeddedResource Include="Controls\ucEmployee.resx">
+      <DependentUpon>ucEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucReportTemp.resx">
       <DependentUpon>ucReportTemp.cs</DependentUpon>
     </EmbeddedResource>
@@ -589,6 +605,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmChungChi.resx">
       <DependentUpon>frmChungChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDaoTao.resx">
+      <DependentUpon>frmDaoTao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCongTac.resx">
       <DependentUpon>frmCongTac.cs</DependentUpon>

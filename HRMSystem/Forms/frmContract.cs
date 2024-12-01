@@ -19,6 +19,7 @@ namespace HRMSystem.Forms
         public event EventHandler BackButtonClick;
         public string MaHD;
         public int MaNV;
+        public int MaCV;
         private BindingSource bindingSource = new BindingSource();
         public int nam;
         public int thang;
@@ -34,6 +35,7 @@ namespace HRMSystem.Forms
             if (model.MaNV == null)
             {
                 model.MaNV = MaNV;
+                model.MaChucVu = MaCV;
             }
             txtNote.DataBindings.Add("Text", bindingSource, nameof(Contract.GhiChu), true, DataSourceUpdateMode.OnPropertyChanged);
             cboEmployee.DataBindings.Add("EditValue", bindingSource, nameof(Contract.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);

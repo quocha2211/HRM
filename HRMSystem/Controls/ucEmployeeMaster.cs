@@ -18,7 +18,7 @@ namespace HRMSystem.Controls
     {
         public ucEmployeeDetail detailForm;
         public EmployeeController masterController;
-        public ucBaseSingleList masterForm;
+        public ucEmployee masterForm;
         public ucEmployeeMaster()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace HRMSystem.Controls
                 if (masterForm != null)
                     masterForm.Dispose();
                 masterController = new EmployeeController();
-                masterForm = new ucBaseSingleList() { Dock = DockStyle.Fill };
+                masterForm = new ucEmployee() { Dock = DockStyle.Fill };
 
                 masterForm.AddButtonClick -= MasterForm_AddButtonClick;
                 masterForm.AddButtonClick += MasterForm_AddButtonClick;

@@ -242,6 +242,11 @@ namespace HRMSystem
         {
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ReportKTKLController", Navigator);
         }
+
+        private void accordionControlElement12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

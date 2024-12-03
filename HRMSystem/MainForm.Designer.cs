@@ -86,6 +86,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
+            this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.Sidebar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Navigator)).BeginInit();
             this.Navigator.SuspendLayout();
@@ -442,7 +443,8 @@
             this.grpSalary.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement26,
             this.accordionControlElement27,
-            this.accordionControlElement28});
+            this.accordionControlElement28,
+            this.accordionControlElement12});
             this.grpSalary.Expanded = true;
             this.grpSalary.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.financial;
             this.grpSalary.Name = "grpSalary";
@@ -857,6 +859,13 @@
             this.skinBarSubItem1.Id = 0;
             this.skinBarSubItem1.Name = "skinBarSubItem1";
             // 
+            // accordionControlElement12
+            // 
+            this.accordionControlElement12.Name = "accordionControlElement12";
+            this.accordionControlElement12.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement12.Text = "Quá trình lương";
+            this.accordionControlElement12.Click += new System.EventHandler(this.accordionControlElement12_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -944,5 +953,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
     }
 }

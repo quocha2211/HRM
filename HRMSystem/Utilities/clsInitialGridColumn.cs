@@ -56,6 +56,24 @@ namespace HRMSystem.Utilities
             return lst;
         }
 
+        public static List<GridColumnModel> InitialQuaTrinhLuong()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MA", FieldName = "MaQTL", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "ma", FieldName = "MaNV", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày quyết định", FieldName = "NgayQD", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày hưởng", FieldName = "NgayHuong", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày nâng cấp lương", FieldName = "NgayNangCapLuong", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Mức lương tối thiểu", FieldName = "MLTTC", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Hệ số lương", FieldName = "HeSo", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
         public static List<GridColumnModel> InitialDieuChuyenCongTac()
         {
             List<GridColumnModel> lst = new List<GridColumnModel>();

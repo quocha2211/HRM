@@ -286,6 +286,7 @@
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\CertificateDetailController.cs" />
     <Compile Include="Controller\BangLuongController.cs" />
+    <Compile Include="Controller\QuaTrinhLuongController.cs" />
     <Compile Include="Controller\CongTacController.cs" />
     <Compile Include="Controller\KhenThuongKyLuatController.cs" />
     <Compile Include="Controller\ReportHopDongController.cs" />
@@ -369,6 +370,12 @@
     </Compile>
     <Compile Include="Forms\frmChungChi.Designer.cs">
       <DependentUpon>frmChungChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmQuaTrinhLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQuaTrinhLuong.Designer.cs">
+      <DependentUpon>frmQuaTrinhLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmDaoTao.cs">
       <SubType>Form</SubType>
@@ -519,6 +526,7 @@
     <Compile Include="Models\PhongBan.cs" />
     <Compile Include="Models\QuanHeNhanThan.cs" />
     <Compile Include="Models\QuaTrinhDaoTao.cs" />
+    <Compile Include="Models\QuaTrinhLuong.cs" />
     <Compile Include="Models\SalaryAdvance.cs" />
     <Compile Include="Models\SalaryGradeCoefficient.cs" />
     <Compile Include="Models\SalaryScale.cs" />
@@ -605,6 +613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmChungChi.resx">
       <DependentUpon>frmChungChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQuaTrinhLuong.resx">
+      <DependentUpon>frmQuaTrinhLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDaoTao.resx">
       <DependentUpon>frmDaoTao.cs</DependentUpon>

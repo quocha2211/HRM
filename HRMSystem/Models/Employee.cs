@@ -8,7 +8,8 @@ namespace HRMSystem.Models
     public class Employee
     {
         [Key]
-        public int MaNV { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int? MaNV { get; set; }
 
         [Required]
         [StringLength(150)]

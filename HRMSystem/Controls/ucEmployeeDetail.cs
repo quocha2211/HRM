@@ -47,7 +47,7 @@ namespace HRMSystem.Controls
             txtBaoHiemNoiCap.DataBindings.Add("Text", bindingSource, nameof(Employee.NoiCapSo), true, DataSourceUpdateMode.OnPropertyChanged);
             txtLiDo.DataBindings.Add("Text", bindingSource, nameof(Employee.LyDo), true, DataSourceUpdateMode.OnPropertyChanged);
             txtTinhTrangSucKhoe.DataBindings.Add("Text", bindingSource, nameof(Employee.TinhTrangSuckhoe), true, DataSourceUpdateMode.OnPropertyChanged);
-            cboNganHang.DataBindings.Add("Text", bindingSource, nameof(Employee.NganHang), true, DataSourceUpdateMode.OnPropertyChanged);
+            cboNganHang.DataBindings.Add("EditValue", bindingSource, nameof(Employee.NganHang), true, DataSourceUpdateMode.OnPropertyChanged);
             txtChieuCao.DataBindings.Add("Text", bindingSource, nameof(Employee.ChieuCao), true, DataSourceUpdateMode.OnPropertyChanged);
             txtCanNang.DataBindings.Add("Text", bindingSource, nameof(Employee.CanNang), true, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -127,7 +127,7 @@ namespace HRMSystem.Controls
                 //Master Data
                 initialValue("TinhThanh", "MaTT", "TenTT", grvProvince, cboTinhThanh, clsInitialGridColumn.InitialProvince());
                 initialValue("DanToc", "MaDT", "TenDT", grvEthnic, cboDanToc, clsInitialGridColumn.InitialEthnic());
-                initialValue("NganHang", "MaNH", "VietTat", grvBank, cboNganHang, clsInitialGridColumn.InitialBank());
+                initialValue("NganHang", "VietTat", "VietTat", grvBank, cboNganHang, clsInitialGridColumn.InitialBank());
                 initialValue("ChucVu", "MaChucVu", "TenChucVu", grvChucVu, cboChucvu, clsInitialGridColumn.InitialChucVu());
                 initialValue("XepLoai", "MaXL", "TenXL", grvXepLoai, cboXepLoaiNhanVien, clsInitialGridColumn.InitialXepLoai());
                 initialValue("ChuyenMon", "MaCM", "TenCM", grvChuyenMon, cboChuyenMon, clsInitialGridColumn.InitialExpertise());

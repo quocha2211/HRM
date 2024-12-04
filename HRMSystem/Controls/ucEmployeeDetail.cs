@@ -321,7 +321,7 @@ namespace HRMSystem.Controls
                 Employee nhanVien = (Employee)bindingSource.Current;
                 if (!ValidateUser(nhanVien))
                 {
-                    MessageBox.Show("Nhập đầy đủ.");
+                    MessageBox.Show("Nhập đầy đủ thông tin.");
                     return;
                 }
 

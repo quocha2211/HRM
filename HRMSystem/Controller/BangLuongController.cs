@@ -89,48 +89,12 @@ namespace HRMSystem.Controller
         {
             try
             {
-                using (var context = new AppDbContext())
-                {
+               var query = SQLHelper.GetDataTableFromSP("GetLuongNhanVien", new string[] {"@nam", "@thang"}, new object[] {nam, thang});
 
-                    var query = (from nv in context.NhanViens
-                                 join cc in context.ChamCongTLs on nv.MaNV equals cc.MaNV into chamCongGroup
-                                 from cc in chamCongGroup.DefaultIfEmpty()
-                                 join xx in context.DinhMucXangXes on nv.MaDMXX equals xx.MaDMXX into xangXeGroup
-                                 from xx in xangXeGroup.DefaultIfEmpty()
-                                 join tu in context.BangTamUngs on nv.MaNV equals tu.MaNV into tuGroup
-                                 from tu in tuGroup.DefaultIfEmpty()
-                                 join ml in context.MucLuongToiThieus on nv.MaMLTT equals ml.MaMLTT into MLTT
-                                 from ml in MLTT.DefaultIfEmpty()
-                                 join tl in context.ThangLuongs on nv.MaTL equals tl.MaTL into TLG
-                                 from tl in TLG.DefaultIfEmpty()
-                                 where (cc.Nam == nam && cc.Thang == thang) || (cc.Nam == null && cc.Thang == null)
-                                 select new
-                                 {
-                                     nv.TenNV,
-                                     nv.MaNV,
-                                     ml.MLTTC,
-                                     tl.HeSo,
-                                     LuongCoBan = ml.MLTTC * tl.HeSo,
-                                     NgayCongTrongThang = (cc.NgayCongTrongThang ?? 26),
-                                     LuongThoiGian = (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 26),
-                                     xx.DMXX,
-                                     TienAn = (cc.NgayCongTrongThang ?? 26) * 25000,
-                                     TongLuong = (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 26) + (cc.NgayCongTrongThang ?? 26) * 25000 + xx.DMXX,
-                                     BHXH = (ml.MLTTC * tl.HeSo) * 8 / 100,
-                                     BHYT = (ml.MLTTC * tl.HeSo) * 1.5 / 100,
-                                     BHTN = (ml.MLTTC * tl.HeSo) * 1 / 100,
-                                     SoTienTU = (tu.SoTienTU ?? 0),
-                                     LuongGiamTru = (ml.MLTTC * tl.HeSo) * 8 / 100 + (ml.MLTTC * tl.HeSo) * 1.5 / 100 + (ml.MLTTC * tl.HeSo) * 1 / 100 + (tu.SoTienTU ?? 0),
-                                     LuongThucNhan =  (ml.MLTTC * tl.HeSo) / 26 * (cc.NgayCongTrongThang ?? 26) + (cc.NgayCongTrongThang ?? 26) * 25000 + xx.DMXX - ((ml.MLTTC * tl.HeSo) * 8 / 100 + (ml.MLTTC * tl.HeSo) * 1.5 / 100 + (ml.MLTTC * tl.HeSo) * 1 / 100 + (tu.SoTienTU ?? 0))
-
-                                 }).ToList();
-
-                    clsCommon.OpenWaitingForm(View);
-                    masterForm.SetTitle("Lập bảng lương");
-                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialBangLuong());
-                    masterForm.SetSpecialGridProperties();
-
-                }
+                clsCommon.OpenWaitingForm(View);
+                masterForm.SetTitle("Lập bảng lương");
+                masterForm.SetDataSource(query, clsInitialGridColumn.InitialBangLuong());
+                masterForm.SetSpecialGridProperties();
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }

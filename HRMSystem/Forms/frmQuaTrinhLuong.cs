@@ -17,7 +17,7 @@ namespace HRMSystem.Forms
     public partial class frmQuaTrinhLuong : DevExpress.XtraEditors.XtraForm
     {
         public event EventHandler BackButtonClick;
-        public string MaCCT;
+        public string MaQTL;
         public int MaNV;
         public int MaCV;
         private BindingSource bindingSource = new BindingSource();
@@ -85,7 +85,7 @@ namespace HRMSystem.Forms
                 clsCommon.initialValue("NhanVien", "MaNV", "TenNV", cboEmployeeView, cboEmployee, clsInitialGridColumn.InitialComboEmployee());
                 clsCommon.initialValue("ThangLuong", "MaTL", "TenTL", txtThangLuongView, txtThangLuong, clsInitialGridColumn.InitialComboThangLuong());
                 clsCommon.initialValue("MucLuongToiThieu", "MaMLTT", "MLTTC", txtMucLuongView, txtMucLuong, clsInitialGridColumn.InitialMinSalary());
-                if (string.IsNullOrEmpty(MaCCT))
+                if (string.IsNullOrEmpty(MaQTL))
                 {
                     InitializeDataBindings(new QuaTrinhLuong());
                 }
@@ -93,7 +93,7 @@ namespace HRMSystem.Forms
                 {
                     using (var context = new AppDbContext())
                     {
-                        var model = context.QuaTrinhLuongs.Find(Convert.ToInt32(MaCCT));
+                        var model = context.QuaTrinhLuongs.Find(Convert.ToInt32(MaQTL));
 
                         InitializeDataBindings(model);
 

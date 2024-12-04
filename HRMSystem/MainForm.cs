@@ -245,7 +245,12 @@ namespace HRMSystem
 
         private void accordionControlElement12_Click(object sender, EventArgs e)
         {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.QuaTrinhLuongController", Navigator);
+        }
 
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

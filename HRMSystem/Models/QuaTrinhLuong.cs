@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HRMSystem.Models
 {
-    [Table("QuaTringLuong")]
+    [Table("QuaTrinhLuong")]
     public class QuaTrinhLuong
     {
         [Key]

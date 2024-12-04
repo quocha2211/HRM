@@ -54,7 +54,7 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-                    var model = context.HopDongs.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaCCT")));
+                    var model = context.HopDongs.Find(Convert.ToInt32(masterForm.GetPrimaryKey("MaQTL")));
 
                     if (model != null)
                     {
@@ -79,7 +79,7 @@ namespace HRMSystem.Controller
                 if (masterForm == null)
                     return;
                 
-                InitialDetailPage(masterForm.GetPrimaryKey("MaCCT"));
+                InitialDetailPage(masterForm.GetPrimaryKey("MaQTL"));
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
             finally { clsCommon.CloseWaitingForm(); }
@@ -103,8 +103,7 @@ namespace HRMSystem.Controller
                 if (detailForm != null)
                     detailForm.Dispose();
                 detailForm = new frmQuaTrinhLuong() { Dock = DockStyle.Fill };
-                detailForm.MaNV = Convert.ToInt32( masterForm.GetPrimaryKey("MaNV"));
-                detailForm.MaCCT = pKey;
+                detailForm.MaQTL = pKey;
                 var rs = detailForm.ShowDialog();
                 if (rs == DialogResult.OK)
                 {

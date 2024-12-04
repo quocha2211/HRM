@@ -252,6 +252,11 @@ namespace HRMSystem
         {
             Application.Exit();
         }
+
+        private void accordionControlElement4_Click(object sender, EventArgs e)
+        {
+            SQLHelper.ExecuteSelect($"EXECUTE [dbo].[BackupDatabase] '{Application.StartupPath}'");
+        }
     }
 }
 

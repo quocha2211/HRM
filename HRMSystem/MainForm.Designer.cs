@@ -181,6 +181,7 @@
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement4.Text = "Sao lưu dữ liệu";
+            this.accordionControlElement4.Click += new System.EventHandler(this.accordionControlElement4_Click);
             // 
             // grpCategory
             // 

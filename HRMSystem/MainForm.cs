@@ -18,8 +18,6 @@ using System.Windows.Forms;
 
 namespace HRMSystem
 {
-
-
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
         
@@ -261,6 +259,16 @@ namespace HRMSystem
             {
                 Process.Start(Application.StartupPath);
             }    
+        }
+
+        private void Q_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.DaoTaoController", Navigator);
+        }
+
+        private void accordionControlElement15_Click_1(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.QuaTrinhCongTacController", Navigator);
         }
     }
 }

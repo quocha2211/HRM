@@ -74,6 +74,44 @@ namespace HRMSystem.Utilities
             return lst;
         }
 
+        public static List<GridColumnModel> InitialQuaTrinhDaoTao()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "ma", FieldName = "MaQTDT", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MaNV", FieldName = "MaNV", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày bắt đầu", FieldName = "NgayBatDau", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày hết hạn", FieldName = "NgayHetHan", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trường đào tạo", FieldName = "TruongDaoTao", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Nước đào tạo", FieldName = "NuocDaoTao", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngành đào tạo", FieldName = "NganhDaoTao", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Hình thức đào tạo", FieldName = "HinhThucDaoTao", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trình độ đào tạo", FieldName = "TrinhDoDaoTao", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên chức vụ", FieldName = "TenChucVu", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
+        public static List<GridColumnModel> InitialQuaTrinhCongTac()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "ma", FieldName = "MaQTDT", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MaNV", FieldName = "MaNV", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày bắt đầu", FieldName = "NgayBatDau", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày kết thúc", FieldName = "NgayKetThuc", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày", FieldName = "Ngay", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên chức vụ", FieldName = "TenChucVu", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
         public static List<GridColumnModel> InitialDieuChuyenCongTac()
         {
             List<GridColumnModel> lst = new List<GridColumnModel>();
@@ -287,6 +325,7 @@ namespace HRMSystem.Utilities
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tháng", FieldName = "Thang", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Ngày tính công", FieldName = "NgayTinhCong", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số ngày công", FieldName = "NgayCongTrongThang", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số giờ tăng ca", FieldName = "OT", Visible = true });
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
             return lst;

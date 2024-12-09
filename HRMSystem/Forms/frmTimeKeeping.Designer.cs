@@ -53,6 +53,8 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.txtOT = new DevExpress.XtraEditors.SpinEdit();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -73,6 +75,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -90,6 +94,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.txtOT);
             this.layoutControl1.Controls.Add(this.cboEmployee);
             this.layoutControl1.Controls.Add(this.txtDate);
             this.layoutControl1.Controls.Add(this.txtName);
@@ -107,7 +112,7 @@
             // 
             // cboEmployee
             // 
-            this.cboEmployee.Location = new System.Drawing.Point(12, 202);
+            this.cboEmployee.Location = new System.Drawing.Point(12, 240);
             this.cboEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.cboEmployee.Name = "cboEmployee";
             this.cboEmployee.Properties.AdvancedModeOptions.Label = "Chọn Nhân viên";
@@ -132,7 +137,7 @@
             // txtDate
             // 
             this.txtDate.EditValue = new System.DateOnly(2024, 11, 13);
-            this.txtDate.Location = new System.Drawing.Point(12, 164);
+            this.txtDate.Location = new System.Drawing.Point(12, 202);
             this.txtDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtDate.Name = "txtDate";
             this.txtDate.Properties.AdvancedModeOptions.Label = "Ngày chấm công";
@@ -238,7 +243,8 @@
             this.layoutControlItem3,
             this.layoutControlItem5,
             this.layoutControlItem7,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem4});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(418, 303);
             this.Root.TextVisible = false;
@@ -282,7 +288,7 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.txtDate;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 152);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 190);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(398, 38);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
@@ -291,9 +297,9 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.cboEmployee;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 190);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 228);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(398, 93);
+            this.layoutControlItem6.Size = new System.Drawing.Size(398, 55);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -379,6 +385,34 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 328);
             // 
+            // txtOT
+            // 
+            this.txtOT.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtOT.Location = new System.Drawing.Point(12, 164);
+            this.txtOT.Margin = new System.Windows.Forms.Padding(2);
+            this.txtOT.Name = "txtOT";
+            this.txtOT.Properties.AdvancedModeOptions.Label = "Giờ OT";
+            this.txtOT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtOT.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtOT.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtOT.Size = new System.Drawing.Size(394, 34);
+            this.txtOT.StyleController = this.layoutControl1;
+            this.txtOT.TabIndex = 18;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtOT;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 152);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(398, 38);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
             // frmTimeKeeping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +452,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,5 +485,7 @@
         private DevExpress.XtraEditors.SearchLookUpEdit cboEmployee;
         private DevExpress.XtraGrid.Views.Grid.GridView cboEmployeeView;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.SpinEdit txtOT;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

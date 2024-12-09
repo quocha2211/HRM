@@ -187,5 +187,20 @@ namespace HRMSystem.Controls
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
         }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                frmQuaTrinhCongTac frm = new frmQuaTrinhCongTac() { Dock = DockStyle.Fill };
+                frm.MaNV = Convert.ToInt32(this.GetPrimaryKey("MaNV"));
+                var rs = frm.ShowDialog();
+                if (rs == DialogResult.OK)
+                {
+
+                }
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+        }
     }
 }

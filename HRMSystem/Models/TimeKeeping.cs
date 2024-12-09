@@ -22,6 +22,7 @@ namespace HRMSystem.Models
         public bool? Khoa { get; set; }  // Lock/Unlock status (nullable)
         public DateTime? NgayTinhCong { get; set; }  // Date of time calculation (nullable)
         public double? NgayCongTrongThang { get; set; }  // Days worked in the month (nullable)
+        public double? OT { get; set; }  // Days worked in the month (nullable)
         public bool? TrangThai { get; set; }  // Status (nullable)
         [Key, Column(Order = 1)]
         public int? MaNV { get; set; }  // Status (nullable)

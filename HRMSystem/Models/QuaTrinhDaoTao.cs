@@ -12,10 +12,10 @@ namespace HRMSystem.Models
     public class QuaTrinhDaoTao
     {
         [Key]
-        public int MaQTDT { get; set; }  // Primary key, auto-incremented
+        public int? MaQTDT { get; set; }  // Primary key, auto-incremented
         public int? MaNV { get; set; }    // Nullable foreign key to the NhanViens table (if applicable)
-        public DateTime NgayBatDau { get; set; }
-        public DateTime NgayHetHan { get; set; }
+        public DateTime? NgayBatDau { get; set; }
+        public DateTime? NgayHetHan { get; set; }
         public string TruongDaoTao { get; set; }
         public string NuocDaoTao { get; set; }
         public string NganhDaoTao { get; set; }

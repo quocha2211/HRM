@@ -43,6 +43,7 @@ namespace HRMSystem.Forms
             txtThang.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.Thang), true, DataSourceUpdateMode.OnPropertyChanged);
             //txtKhoa.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.Khoa), true, DataSourceUpdateMode.OnPropertyChanged);
             txtSoCong.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.NgayCongTrongThang), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtOT.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.OT), true, DataSourceUpdateMode.OnPropertyChanged);
             txtDate.DataBindings.Add("Text", bindingSource, nameof(TimeKeeping.NgayTinhCong), true, DataSourceUpdateMode.OnPropertyChanged);
             cboEmployee.DataBindings.Add("EditValue", bindingSource, nameof(TimeKeeping.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
         }

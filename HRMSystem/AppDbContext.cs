@@ -42,6 +42,7 @@ public class AppDbContext : DbContext
     public DbSet<QuaTrinhDaoTao> QuaTrinhDaoTaos { get; set; }
 
     public DbSet<QuaTrinhLuong> QuaTrinhLuongs { get; set; }
+    public DbSet<QuaTrinhCongTac> QuaTrinhCongTacs { get; set; }
 
     public AppDbContext() : base("name=MyConnectionString")
     {

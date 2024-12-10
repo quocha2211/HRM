@@ -17,6 +17,7 @@ namespace HRMSystem.Models
         public DateTime NgayHuong { get; set; }
         public DateTime NgayNangCapLuong { get; set; }
         public int? MaBL { get; set; }
+        public int? MaTL { get; set; }
         public float? HSL { get; set; }
         public float? HSPC { get; set; }
         public int? MaMLTT { get; set; }

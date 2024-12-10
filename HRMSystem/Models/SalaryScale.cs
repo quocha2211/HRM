@@ -17,7 +17,18 @@ namespace HRMSystem.Models
         [StringLength(100)]
         public string DienGiai { get; set; }  
 
-        public double HeSo { get; set; }
+        public double Bac1 { get; set; }
+        public double Bac2 { get; set; }
+        public double Bac3 { get; set; }
+        public double Bac4 { get; set; }
+        public double Bac5 { get; set; }
+        public double Bac6 { get; set; }
+        public double Bac7 { get; set; }
+        public double Bac8 { get; set; }
+        public double Bac9 { get; set; }
+        public double Bac10 { get; set; }
+        public double Bac11 { get; set; }
+        public double Bac12 { get; set; }
 
     }
 }

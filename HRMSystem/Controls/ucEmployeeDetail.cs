@@ -82,7 +82,8 @@ namespace HRMSystem.Controls
             txtNgayXuatNgu.DataBindings.Add("Text", bindingSource, nameof(Employee.NgayXuatNgu), true, DataSourceUpdateMode.OnPropertyChanged);
 
             // SpinEdit bindings for nullable float (HeSoLuong, HeSoPhuCap, etc.)
-            txtHeSoLuong.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaTL), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtThangLuong.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaTL), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtBacLuong.DataBindings.Add("EditValue", bindingSource, nameof(Employee.MaBL), true, DataSourceUpdateMode.OnPropertyChanged);
 
             txtHeSoPhuCap.DataBindings.Add("Text", bindingSource, nameof(Employee.HeSoPhuCap), true, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -135,7 +136,7 @@ namespace HRMSystem.Controls
                 initialValue("NgoaiNgu", "MaNN", "TenNN", grvNgoaiNgu, cboNgoaiNgu, clsInitialGridColumn.InitialLanguage());
                 initialValue("TrangThaiLamViec", "MaTTLV", "TenTTLV", grvTrangThaiLamViec, cboTrangThaiLamViec, clsInitialGridColumn.InitialWorkStatus());
                 initialValue("MucLuongToiThieu", "MaMLTT", "MLTTC",txtLuongView , txtLuongCoSo, clsInitialGridColumn.InitialMinSalary());
-                initialValue("ThangLuong", "MaTL", "HeSo", txtHeSoLuongView, txtHeSoLuong, clsInitialGridColumn.InitialSalaryScale());
+                initialValue("ThangLuong", "MaTL", "TenTL", txtHeSoLuongView, txtThangLuong, clsInitialGridColumn.InitialComboSalaryScale());
                 initialValue("DinhMucXangXe", "MaDMXX", "DMXX", txtHotroXangXeView, txtHotroXangXe, clsInitialGridColumn.InitialDinhMucXangXe());
 
                 if (string.IsNullOrEmpty(MaNV))

@@ -29,6 +29,8 @@ namespace HRMSystem.Models
         // MaNV is a foreign key referencing the NhanVien table (int)
         public int? MaNV { get; set; }
 
+        
+
 
     }
 }

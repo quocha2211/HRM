@@ -31,16 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtMucLuong = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.txtMucLuongView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtNgayNangCapLuong = new DevExpress.XtraEditors.DateEdit();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.txtThangLuong = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.txtThangLuongView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtNgayHuong = new DevExpress.XtraEditors.DateEdit();
             this.cboEmployee = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.cboEmployeeView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtBacLuong = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
@@ -49,36 +57,32 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtThangLuongView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txtThangLuong = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.txtMucLuong = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.txtMucLuongView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMucLuong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMucLuongView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayNangCapLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayNangCapLuong.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThangLuong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThangLuongView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayHuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayHuong.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboEmployee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboEmployeeView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBacLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThangLuongView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThangLuong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMucLuong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMucLuongView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -90,7 +94,7 @@
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(555, 277);
+            this.groupControl1.Size = new System.Drawing.Size(555, 332);
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "Thông tin chi tiết";
             // 
@@ -102,14 +106,39 @@
             this.layoutControl1.Controls.Add(this.txtThangLuong);
             this.layoutControl1.Controls.Add(this.txtNgayHuong);
             this.layoutControl1.Controls.Add(this.cboEmployee);
+            this.layoutControl1.Controls.Add(this.txtBacLuong);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(2, 23);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(551, 252);
+            this.layoutControl1.Size = new System.Drawing.Size(551, 307);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // txtMucLuong
+            // 
+            this.txtMucLuong.Location = new System.Drawing.Point(12, 202);
+            this.txtMucLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMucLuong.Name = "txtMucLuong";
+            this.txtMucLuong.Properties.AdvancedModeOptions.Label = "Mức lương tối thiểu";
+            this.txtMucLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtMucLuong.Properties.NullText = "";
+            this.txtMucLuong.Properties.PopupView = this.txtMucLuongView;
+            this.txtMucLuong.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtMucLuong.Size = new System.Drawing.Size(527, 34);
+            this.txtMucLuong.StyleController = this.layoutControl1;
+            this.txtMucLuong.TabIndex = 22;
+            // 
+            // txtMucLuongView
+            // 
+            this.txtMucLuongView.DetailHeight = 227;
+            this.txtMucLuongView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.txtMucLuongView.Name = "txtMucLuongView";
+            this.txtMucLuongView.OptionsEditForm.PopupEditFormWidth = 533;
+            this.txtMucLuongView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.txtMucLuongView.OptionsView.ShowGroupPanel = false;
             // 
             // txtNgayNangCapLuong
             // 
@@ -152,6 +181,30 @@
             this.dateEdit1.Size = new System.Drawing.Size(527, 34);
             this.dateEdit1.StyleController = this.layoutControl1;
             this.dateEdit1.TabIndex = 20;
+            // 
+            // txtThangLuong
+            // 
+            this.txtThangLuong.Location = new System.Drawing.Point(12, 164);
+            this.txtThangLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.txtThangLuong.Name = "txtThangLuong";
+            this.txtThangLuong.Properties.AdvancedModeOptions.Label = "Thang Lương";
+            this.txtThangLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtThangLuong.Properties.NullText = "";
+            this.txtThangLuong.Properties.PopupView = this.txtThangLuongView;
+            this.txtThangLuong.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtThangLuong.Size = new System.Drawing.Size(261, 34);
+            this.txtThangLuong.StyleController = this.layoutControl1;
+            this.txtThangLuong.TabIndex = 19;
+            // 
+            // txtThangLuongView
+            // 
+            this.txtThangLuongView.DetailHeight = 227;
+            this.txtThangLuongView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.txtThangLuongView.Name = "txtThangLuongView";
+            this.txtThangLuongView.OptionsEditForm.PopupEditFormWidth = 533;
+            this.txtThangLuongView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.txtThangLuongView.OptionsView.ShowGroupPanel = false;
             // 
             // txtNgayHuong
             // 
@@ -198,6 +251,33 @@
             this.cboEmployeeView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.cboEmployeeView.OptionsView.ShowGroupPanel = false;
             // 
+            // txtBacLuong
+            // 
+            this.txtBacLuong.Location = new System.Drawing.Point(277, 164);
+            this.txtBacLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBacLuong.Name = "txtBacLuong";
+            this.txtBacLuong.Properties.AdvancedModeOptions.Label = "Bậc Lương";
+            this.txtBacLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtBacLuong.Properties.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.txtBacLuong.Properties.PopupSizeable = true;
+            this.txtBacLuong.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtBacLuong.Size = new System.Drawing.Size(262, 34);
+            this.txtBacLuong.StyleController = this.layoutControl1;
+            this.txtBacLuong.TabIndex = 23;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -208,9 +288,10 @@
             this.layoutControlItem7,
             this.layoutControlItem3,
             this.layoutControlItem1,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem6});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(551, 252);
+            this.Root.Size = new System.Drawing.Size(551, 307);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem5
@@ -231,14 +312,14 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // layoutControlItem1
+            // layoutControlItem7
             // 
-            this.layoutControlItem1.Control = this.dateEdit1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 114);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(531, 38);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.layoutControlItem7.Control = this.txtThangLuong;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 152);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(265, 38);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlItem3
             // 
@@ -248,6 +329,33 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(531, 38);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.dateEdit1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 114);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(531, 38);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtMucLuong;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 190);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(531, 97);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.txtBacLuong;
+            this.layoutControlItem6.Location = new System.Drawing.Point(265, 152);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(266, 38);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
             // 
             // barManager1
             // 
@@ -308,7 +416,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 277);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 332);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2);
             this.barDockControlBottom.Size = new System.Drawing.Size(555, 26);
@@ -320,7 +428,7 @@
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 277);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 332);
             // 
             // barDockControlRight
             // 
@@ -329,79 +437,13 @@
             this.barDockControlRight.Location = new System.Drawing.Point(555, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 277);
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.txtThangLuong;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 152);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(531, 38);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // txtThangLuongView
-            // 
-            this.txtThangLuongView.DetailHeight = 227;
-            this.txtThangLuongView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.txtThangLuongView.Name = "txtThangLuongView";
-            this.txtThangLuongView.OptionsEditForm.PopupEditFormWidth = 533;
-            this.txtThangLuongView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.txtThangLuongView.OptionsView.ShowGroupPanel = false;
-            // 
-            // txtThangLuong
-            // 
-            this.txtThangLuong.Location = new System.Drawing.Point(12, 164);
-            this.txtThangLuong.Margin = new System.Windows.Forms.Padding(2);
-            this.txtThangLuong.Name = "txtThangLuong";
-            this.txtThangLuong.Properties.AdvancedModeOptions.Label = "Thang Lương";
-            this.txtThangLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtThangLuong.Properties.NullText = "";
-            this.txtThangLuong.Properties.PopupView = this.txtThangLuongView;
-            this.txtThangLuong.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtThangLuong.Size = new System.Drawing.Size(527, 34);
-            this.txtThangLuong.StyleController = this.layoutControl1;
-            this.txtThangLuong.TabIndex = 19;
-            // 
-            // txtMucLuong
-            // 
-            this.txtMucLuong.Location = new System.Drawing.Point(12, 202);
-            this.txtMucLuong.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMucLuong.Name = "txtMucLuong";
-            this.txtMucLuong.Properties.AdvancedModeOptions.Label = "Mức lương tối thiểu";
-            this.txtMucLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtMucLuong.Properties.NullText = "";
-            this.txtMucLuong.Properties.PopupView = this.txtMucLuongView;
-            this.txtMucLuong.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtMucLuong.Size = new System.Drawing.Size(527, 34);
-            this.txtMucLuong.StyleController = this.layoutControl1;
-            this.txtMucLuong.TabIndex = 22;
-            // 
-            // txtMucLuongView
-            // 
-            this.txtMucLuongView.DetailHeight = 227;
-            this.txtMucLuongView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.txtMucLuongView.Name = "txtMucLuongView";
-            this.txtMucLuongView.OptionsEditForm.PopupEditFormWidth = 533;
-            this.txtMucLuongView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.txtMucLuongView.OptionsView.ShowGroupPanel = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.txtMucLuong;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 190);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(531, 42);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 332);
             // 
             // frmQuaTrinhLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 303);
+            this.ClientSize = new System.Drawing.Size(555, 358);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -420,26 +462,28 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtMucLuong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMucLuongView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayNangCapLuong.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayNangCapLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThangLuong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThangLuongView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayHuong.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayHuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboEmployee.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboEmployeeView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBacLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThangLuongView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThangLuong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMucLuong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMucLuongView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,5 +517,7 @@
         private DevExpress.XtraEditors.SearchLookUpEdit txtMucLuong;
         private DevExpress.XtraGrid.Views.Grid.GridView txtMucLuongView;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraEditors.ComboBoxEdit txtBacLuong;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }
 }

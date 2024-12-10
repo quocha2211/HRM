@@ -148,6 +148,7 @@ namespace HRMSystem.Models
         public int? MaTTLV { get; set; }
         public int? MaMLTT { get; set; }
         public int? MaTL { get; set; }
+        public int? MaBL { get; set; }
 
         //// Navigation Properties (Foreign Key Relationships)
         //public virtual ChucVu ChucVu { get; set; }

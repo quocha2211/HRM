@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars.Navigation;
+using DocumentFormat.OpenXml.Wordprocessing;
 using HRMSystem.Controls;
 using HRMSystem.Forms;
 using HRMSystem.Interfaces;
@@ -130,28 +131,11 @@ namespace HRMSystem.Controller
             {
                 using (var context = new AppDbContext())
                 {
-
-                    var result =( from nv in context.NhanViens
-                                 join qtl in context.QuaTrinhLuongs on nv.MaNV equals qtl.MaNV
-                                 join ml in context.MucLuongToiThieus on qtl.MaMLTT equals ml.MaMLTT
-                                 join tl in context.ThangLuongs on qtl.MaBL equals tl.MaTL
-                                 select new
-                                 {
-                                     nv.MaNV,
-                                     nv.TenNV,
-                                     qtl.MaQTL,
-                                     qtl.NgayQD,
-                                     qtl.NgayHuong,
-                                     qtl.NgayNangCapLuong,
-                                     ml.MaMLTT,
-                                     tl.MaTL,
-                                     ml.MLTTC,
-                                     tl.HeSo
-                                 }).ToList();
+                    var query = SQLHelper.ExecuteSelect($"Exec GetEmployeeSalaryDetails");
 
                     clsCommon.OpenWaitingForm(View);
                     masterForm.SetTitle("Quản lý Quá Trình lương");
-                    masterForm.SetDataSource(result, clsInitialGridColumn.InitialQuaTrinhLuong());
+                    masterForm.SetDataSource(query, clsInitialGridColumn.InitialQuaTrinhLuong());
                     masterForm.SetSpecialGridProperties();
 
                 }

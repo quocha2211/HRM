@@ -39,7 +39,8 @@ namespace HRMSystem.Forms
             cboEmployee.DataBindings.Add("EditValue", bindingSource, nameof(QuaTrinhLuong.MaNV), true, DataSourceUpdateMode.OnPropertyChanged);
             txtNgayHuong.DataBindings.Add("Text", bindingSource, nameof(QuaTrinhLuong.NgayHuong), true, DataSourceUpdateMode.OnPropertyChanged);
             txtNgayNangCapLuong.DataBindings.Add("Text", bindingSource, nameof(QuaTrinhLuong.NgayNangCapLuong), true, DataSourceUpdateMode.OnPropertyChanged);
-            txtThangLuong.DataBindings.Add("EditValue", bindingSource, nameof(QuaTrinhLuong.MaBL), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtThangLuong.DataBindings.Add("EditValue", bindingSource, nameof(QuaTrinhLuong.MaTL), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtBacLuong.DataBindings.Add("EditValue", bindingSource, nameof(QuaTrinhLuong.MaBL), true, DataSourceUpdateMode.OnPropertyChanged);
             txtMucLuong.DataBindings.Add("EditValue", bindingSource, nameof(QuaTrinhLuong.MaMLTT), true, DataSourceUpdateMode.OnPropertyChanged);
         }
 

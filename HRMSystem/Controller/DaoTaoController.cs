@@ -149,7 +149,7 @@ namespace HRMSystem.Controller
                                     xl.NganhDaoTao,
                                     xl.HinhThucDaoTao,
                                     xl.TrinhDoDaoTao,
-                                     nv.TenNV,
+                                    nv.TenNV,
                                     nv.MaNV,
                                     cv.TenChucVu,
                                     pb.TenPB,

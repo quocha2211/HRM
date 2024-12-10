@@ -26,6 +26,8 @@ namespace HRMSystem.Utilities
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương cơ bản", FieldName = "LuongCoBan", DisplayFormat = "N0", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Số công", FieldName = "NgayCongTrongThang", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương thời gian", FieldName = "LuongThoiGian", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Giờ tăng ca", FieldName = "OT", DisplayFormat = "N0", Visible = true });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tiền K3", FieldName = "TienK3", DisplayFormat = "N0", Visible = true });
                 //lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Lương trách nhiệm", FieldName = "LuongThoiGian", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Trợ cấp xăng xe", FieldName = "DMXX", Visible = true });
                 lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tiền ăn", FieldName = "TienAn", DisplayFormat = "N0", Visible = true });

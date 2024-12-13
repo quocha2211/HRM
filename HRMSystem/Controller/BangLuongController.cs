@@ -65,20 +65,20 @@ namespace HRMSystem.Controller
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
         }
 
-        private void MasterForm_EditButtonClick(object sender, EventArgs e)
-        {
-            try
-            {
-                frmTimeKeeping frm = new frmTimeKeeping() { Dock = DockStyle.Fill };
-                frm.MaNV = Convert.ToInt32(masterForm.GetPrimaryKey("MaNV"));
-                var rs = frm.ShowDialog();
-                if (rs == DialogResult.OK)
-                {
+        //private void MasterForm_EditButtonClick(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        frmTimeKeeping frm = new frmTimeKeeping() { Dock = DockStyle.Fill };
+        //        frm.MaNV = Convert.ToInt32(masterForm.GetPrimaryKey("MaNV"));
+        //        var rs = frm.ShowDialog();
+        //        if (rs == DialogResult.OK)
+        //        {
 
-                }
-            }
-            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
-        }
+        //        }
+        //    }
+        //    catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
+        //}
 
         private void MasterForm_SearchButtonClick(int nam, int thang)
         {

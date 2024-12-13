@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using HRMSystem.Models;
 using HRMSystem.Utilities;
 using System;
@@ -63,11 +64,18 @@ namespace HRMSystem.Controls
             string pKey = "";
             try
             {
+
+                object cellValue = grvData.GetRowCellValue(grvData.FocusedRowHandle, grvData.FocusedColumn);
                 pKey = clsCommon.ToString(grvData.GetFocusedRowCellValue(fieldName));
                 return pKey;
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, this.Name, ex.ToString()); }
             return pKey;
+        }
+        public object GetFocusedColumn()
+        {
+            return grvData.FocusedColumn;
+
         }
         public void SetSpecialGridProperties()
         {
@@ -83,7 +91,7 @@ namespace HRMSystem.Controls
         {
             AddButtonClick?.Invoke(sender, e);
         }
-
+         
         private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             EditButtonClick?.Invoke(sender, e);

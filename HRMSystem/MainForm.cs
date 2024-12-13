@@ -270,6 +270,11 @@ namespace HRMSystem
         {
             clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.QuaTrinhCongTacController", Navigator);
         }
+
+        private void CHam_Click(object sender, EventArgs e)
+        {
+            clsCommon.OpenChildPage("HRMSystem.Controls.ucBaseMasterDetail", "HRMSystem.Controller.ChamCongController", Navigator);
+        }
     }
 }
 

@@ -164,8 +164,8 @@ namespace HRMSystem.Utilities
                     {
                         gc.DisplayFormat.FormatString = "N0";
                         gc.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                    }    
-                    
+                        
+                    }
 
                     grv.Columns.Add(gc);
                 }

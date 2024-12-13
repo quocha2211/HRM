@@ -13,6 +13,7 @@ namespace HRMSystem.Models
         public string FieldName { get; set; }
         public string Caption { get; set; }
         public string DisplayFormat { get; set; }
+        public bool AllowEdit { get; set; }
         public bool Visible { get; set; }
         public FixedStyle Frozen = FixedStyle.None;
     }

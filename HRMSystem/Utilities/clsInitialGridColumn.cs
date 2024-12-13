@@ -43,6 +43,28 @@ namespace HRMSystem.Utilities
             return lst;
         }
 
+        public static List<GridColumnModel> InitialBangChamCong()
+        {
+            List<GridColumnModel> lst = new List<GridColumnModel>();
+            try
+            {
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "MaNV", FieldName = "MaNV1", Visible = false });
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tên nhân viên", FieldName = "TenNV", Visible = true });
+                string[] daysInVietnamese = { "Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy" };
+                DateTime currentDate = DateTime.Now;
+                int daysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                for (int day = 1; day <= daysInMonth; day++)
+                {
+                    DateTime currentDay = new DateTime(currentDate.Year, currentDate.Month, day);
+                    string dayOfWeekInVietnamese = daysInVietnamese[(int)currentDay.DayOfWeek];
+                    lst.Add(new GridColumnModel() { Name = "colCode", Caption = dayOfWeekInVietnamese + $"\r\n ({currentDay.ToString("dd/MM/yyyy")})", FieldName = $"{day}", Visible = true });
+                }
+                lst.Add(new GridColumnModel() { Name = "colCode", Caption = "Tổng số công", FieldName = "SoCong", Visible = true });
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "clsInitialGridColumn", ex.ToString()); }
+            return lst;
+        }
+
         public static List<GridColumnModel> InitialUser()
         {
             List<GridColumnModel> lst = new List<GridColumnModel>();

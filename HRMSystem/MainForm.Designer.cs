@@ -54,6 +54,8 @@
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.Q = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.grpSalary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement26 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -87,8 +89,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
-            this.Q = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.CHam = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.Sidebar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Navigator)).BeginInit();
             this.Navigator.SuspendLayout();
@@ -437,6 +438,20 @@
             this.accordionControlElement24.Text = "Quản lý nhân thân";
             this.accordionControlElement24.Click += new System.EventHandler(this.accordionControlElement24_Click);
             // 
+            // Q
+            // 
+            this.Q.Name = "Q";
+            this.Q.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.Q.Text = "Quá trình đào tạo";
+            this.Q.Click += new System.EventHandler(this.Q_Click);
+            // 
+            // accordionControlElement15
+            // 
+            this.accordionControlElement15.Name = "accordionControlElement15";
+            this.accordionControlElement15.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement15.Text = "Quá trình công tác";
+            this.accordionControlElement15.Click += new System.EventHandler(this.accordionControlElement15_Click_1);
+            // 
             // grpSalary
             // 
             this.grpSalary.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -449,7 +464,8 @@
             this.accordionControlElement26,
             this.accordionControlElement27,
             this.accordionControlElement28,
-            this.accordionControlElement12});
+            this.accordionControlElement12,
+            this.CHam});
             this.grpSalary.Expanded = true;
             this.grpSalary.ImageOptions.SvgImage = global::HRMSystem.Properties.Resources.financial;
             this.grpSalary.Name = "grpSalary";
@@ -767,7 +783,6 @@
             // 
             this.npWelcome.Appearance.BackColor = System.Drawing.Color.White;
             this.npWelcome.Appearance.Options.UseBackColor = true;
-            this.npWelcome.Caption = "npWelcome";
             this.npWelcome.Controls.Add(this.label1);
             this.npWelcome.Font = new System.Drawing.Font("Tahoma", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.npWelcome.Margin = new System.Windows.Forms.Padding(5);
@@ -871,19 +886,12 @@
             this.skinBarSubItem1.Id = 0;
             this.skinBarSubItem1.Name = "skinBarSubItem1";
             // 
-            // Q
+            // CHam
             // 
-            this.Q.Name = "Q";
-            this.Q.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.Q.Text = "Quá trình đào tạo";
-            this.Q.Click += new System.EventHandler(this.Q_Click);
-            // 
-            // accordionControlElement15
-            // 
-            this.accordionControlElement15.Name = "accordionControlElement15";
-            this.accordionControlElement15.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement15.Text = "Quá trình công tác";
-            this.accordionControlElement15.Click += new System.EventHandler(this.accordionControlElement15_Click_1);
+            this.CHam.Name = "CHam";
+            this.CHam.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.CHam.Text = "Chấm công";
+            this.CHam.Click += new System.EventHandler(this.CHam_Click);
             // 
             // MainForm
             // 
@@ -976,5 +984,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
         private DevExpress.XtraBars.Navigation.AccordionControlElement Q;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement15;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement CHam;
     }
 }

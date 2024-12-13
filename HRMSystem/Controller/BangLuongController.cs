@@ -5,6 +5,7 @@ using HRMSystem.Interfaces;
 using HRMSystem.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -65,20 +66,6 @@ namespace HRMSystem.Controller
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
         }
 
-        //private void MasterForm_EditButtonClick(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        frmTimeKeeping frm = new frmTimeKeeping() { Dock = DockStyle.Fill };
-        //        frm.MaNV = Convert.ToInt32(masterForm.GetPrimaryKey("MaNV"));
-        //        var rs = frm.ShowDialog();
-        //        if (rs == DialogResult.OK)
-        //        {
-
-        //        }
-        //    }
-        //    catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
-        //}
 
         private void MasterForm_SearchButtonClick(int nam, int thang)
         {
@@ -89,7 +76,49 @@ namespace HRMSystem.Controller
         {
             try
             {
-               var query = SQLHelper.GetDataTableFromSP("GetLuongNhanVien", new string[] {"@nam", "@thang"}, new object[] {nam, thang});
+                DataTable query = SQLHelper.GetDataTableFromSP("GetInfoLuongNhanVien", new string[] { "@nam", "@thang" }, new object[] { nam, thang });
+
+                DataTable dt = query;
+                dt.Columns.Add("LuongCoBan", typeof(double));
+                dt.Columns.Add("LuongThoiGian", typeof(double));
+                dt.Columns.Add("TienK3", typeof(double));
+                dt.Columns.Add("TienAn", typeof(double));
+                dt.Columns.Add("TongLuong", typeof(double));
+                dt.Columns.Add("BHXH", typeof(double));
+                dt.Columns.Add("BHYT", typeof(double));
+                dt.Columns.Add("BHTN", typeof(double));
+                dt.Columns.Add("LuongGiamTru", typeof(double));
+                dt.Columns.Add("LuongThucNhan", typeof(double));
+                for (int i = 0; i < query.Rows.Count; i++)
+                {
+                    double mltt = (double)query.Rows[i]["MLTTC"]; // Mức lương tối thiểu
+                    double heSo = (double)query.Rows[i]["HeSo"]; // Hệ số lương
+                    double soCong = (double)query.Rows[i]["NgayCongTrongThang"]; // số công
+                    double dmxx = (double)query.Rows[i]["DMXX"]; //định mức xăng xe
+                    double ot = (double)query.Rows[i]["OT"]; // giờ OT
+                    double soTienTU = (double)query.Rows[i]["SoTienTU"]; // số tiền tạm ứng
+                    double luongcoban = mltt * heSo; // Lương cơ bản
+                    double LuongThoiGian = luongcoban / 26 * soCong; // Lương thời gian
+                    double TienK3 = luongcoban / 26 / 8 * ot * 2; // Tiền ot
+                    double TienAn = soCong * 25000; // Tiền ăn
+                    double TongLuong = LuongThoiGian + TienK3 + TienAn + dmxx; // Tiền ăn
+                    double BHXH = luongcoban * 8 / 100; // BHXH
+                    double BHYT = luongcoban * 1.5 / 100; // BHYT
+                    double BHTN = luongcoban * 1 / 100; // BHTN
+                    double luongGiamTru = BHXH + BHYT + BHTN + soTienTU; // Lương giảm trừ
+                    double luongThucNhan = TongLuong - luongGiamTru; // Lương thực nhận
+                    query.Rows[i]["LuongCoBan"] = luongcoban;
+                    query.Rows[i]["LuongThoiGian"] = LuongThoiGian;
+                    query.Rows[i]["TienK3"] = TienK3;
+                    query.Rows[i]["TienAn"] = TienAn;
+                    query.Rows[i]["TongLuong"] = TongLuong;
+                    query.Rows[i]["BHXH"] = BHXH;
+                    query.Rows[i]["BHYT"] = BHYT;
+                    query.Rows[i]["BHTN"] = BHTN;
+                    query.Rows[i]["LuongGiamTru"] = luongGiamTru;
+                    query.Rows[i]["LuongThucNhan"] = luongThucNhan;
+
+                }
 
                 clsCommon.OpenWaitingForm(View);
                 masterForm.SetTitle("Lập bảng lương");

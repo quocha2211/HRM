@@ -129,7 +129,7 @@ namespace HRMSystem.Controller
                 var query = SQLHelper.ExecuteSelect(queryBuilder.ToString());
 
                 clsCommon.OpenWaitingForm(View);
-                masterForm.SetTitle("Lập bảng lương");
+                masterForm.SetTitle("Quản lý chấm công");
                 masterForm.SetDataSource(query, clsInitialGridColumn.InitialBangChamCong());
                 masterForm.SetSpecialGridProperties();
             }

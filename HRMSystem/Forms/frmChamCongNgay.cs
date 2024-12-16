@@ -102,5 +102,28 @@ namespace HRMSystem.Forms
         {
             this.Close();
         }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var model = context.ChamCongNgays.FirstOrDefault(x => x.MaNV == MaNV && x.Ngay == Date);
+                    if (model != null)
+                    {
+                        context.ChamCongNgays.Remove(model);
+                        context.SaveChanges();
+                    }
+
+                }
+
+                DialogResult = MessageBox.Show("Đã xóa thành công.");
+
+                this.Close();
+
+            }
+            catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucChungChiDetail", ex.ToString()); }
+        }
     }
 }

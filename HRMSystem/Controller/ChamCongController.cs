@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static HRMSystem.Controls.ucBangLuong;
+using static HRMSystem.Controls.ucChamCong;
 
 namespace HRMSystem.Controller
 {
@@ -21,7 +21,7 @@ namespace HRMSystem.Controller
     {
         private ucBaseMasterDetail View;
         public BaseController masterController;
-        public ucBangLuong masterForm;
+        public ucChamCong masterForm;
         public frmChamCongNgay detailForm;
         public void Initialize(UserControl _view)
         {
@@ -37,12 +37,12 @@ namespace HRMSystem.Controller
                 if (masterForm != null)
                     masterForm.Dispose();
                 masterController = new BaseController();
-                masterForm = new ucBangLuong() { Dock = DockStyle.Fill };
+                masterForm = new ucChamCong() { Dock = DockStyle.Fill };
 
                 masterController.Initialize(masterForm);
                 masterController.Load += MasterController_Load;
-                masterForm.searchDelegate = new SearchButtonClick(MasterForm_SearchButtonClick);
-                masterForm.EditClick = new SearchButtonClick(MasterForm_EditButtonClick);
+                masterForm.searchDelegate = new SearchButton(MasterForm_SearchButtonClick);
+                masterForm.EditClick = new SearchButton(MasterForm_EditButtonClick);
 
                 View.PageMaster.Controls.Add(masterForm);
                 View.NavigatorFrame.SelectedPage = View.PageMaster;

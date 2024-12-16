@@ -37,7 +37,6 @@ namespace HRMSystem.Controller
                 masterController = new BaseController();
                 masterForm = new ucBangLuong() { Dock = DockStyle.Fill };
 
-
                 masterController.Initialize(masterForm);
                 masterController.Load += MasterController_Load;
                 masterForm.searchDelegate = new SearchButtonClick(MasterForm_SearchButtonClick);
@@ -49,7 +48,7 @@ namespace HRMSystem.Controller
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ex", ex.ToString()); }
         }
 
-        private void MasterForm_EditButtonClick(int nam, int thang)
+        private void MasterForm_EditButtonClick(int nam, int thang, double tienAn, double bhxh)
         {
             try
             {
@@ -60,19 +59,19 @@ namespace HRMSystem.Controller
                 var rs = frm.ShowDialog();
                 if (rs == DialogResult.OK)
                 {
-                    LoadData(nam, thang);
+                    LoadData(nam, thang, tienAn, bhxh);
                 }
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "SalaryScaleController", ex.ToString()); }
         }
 
 
-        private void MasterForm_SearchButtonClick(int nam, int thang)
+        private void MasterForm_SearchButtonClick(int nam, int thang, double tienAn, double bhxh)
         {
-            LoadData(nam, thang);
+            LoadData(nam, thang, tienAn, bhxh);
         }
 
-        private void LoadData(int nam, int thang)
+        private void LoadData(int nam, int thang, double tienAn1day, double bhxhHeso)
         {
             try
             {
@@ -100,9 +99,9 @@ namespace HRMSystem.Controller
                     double luongcoban = mltt * heSo; // Lương cơ bản
                     double LuongThoiGian = luongcoban / 26 * soCong; // Lương thời gian
                     double TienK3 = luongcoban / 26 / 8 * ot * 2; // Tiền ot
-                    double TienAn = soCong * 25000; // Tiền ăn
+                    double TienAn = soCong * tienAn1day; // Tiền ăn
                     double TongLuong = LuongThoiGian + TienK3 + TienAn + dmxx; // Tiền ăn
-                    double BHXH = luongcoban * 8 / 100; // BHXH
+                    double BHXH = luongcoban * bhxhHeso / 100; // BHXH
                     double BHYT = luongcoban * 1.5 / 100; // BHYT
                     double BHTN = luongcoban * 1 / 100; // BHTN
                     double luongGiamTru = BHXH + BHYT + BHTN + soTienTU; // Lương giảm trừ
@@ -133,7 +132,7 @@ namespace HRMSystem.Controller
 
         private void MasterController_Load(object sender, EventArgs e)
         {
-            LoadData(DateTime.Now.Year, DateTime.Now.Month);
+            LoadData(DateTime.Now.Year, DateTime.Now.Month, (double)25000, (double)8);
         }
 
         private void View_Load(object sender, EventArgs e)

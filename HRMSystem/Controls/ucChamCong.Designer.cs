@@ -1,6 +1,6 @@
 ﻿namespace HRMSystem.Controls
 {
-    partial class ucBangLuong
+    partial class ucChamCong
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBangLuong));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucChamCong));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.grdData = new DevExpress.XtraGrid.GridControl();
             this.grvData = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -43,11 +43,7 @@
             this.txtThang = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.lbtienAn = new DevExpress.XtraBars.BarStaticItem();
-            this.txtTienAn = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.lbBhxh = new DevExpress.XtraBars.BarStaticItem();
-            this.txtBHXH = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -158,12 +154,8 @@
             this.barStaticItem2,
             this.barButtonItem1,
             this.barButtonItem2,
-            this.txtTienAn,
             this.barEditItem1,
-            this.barButtonItem3,
-            this.lbtienAn,
-            this.lbBhxh,
-            this.txtBHXH});
+            this.barButtonItem3});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 18;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -186,11 +178,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.txtNam, "", false, true, true, 67),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem2),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.txtThang, "", false, true, true, 76),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.lbtienAn, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.txtTienAn),
-            new DevExpress.XtraBars.LinkPersistInfo(this.lbBhxh),
-            new DevExpress.XtraBars.LinkPersistInfo(this.txtBHXH)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
             this.bar2.OptionsBar.DrawBorder = false;
             this.bar2.OptionsBar.DrawDragBorder = false;
             this.bar2.OptionsBar.MultiLine = true;
@@ -245,39 +233,12 @@
             this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
-            // 
-            // lbtienAn
-            // 
-            this.lbtienAn.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.lbtienAn.Caption = "Tiền ăn";
-            this.lbtienAn.Id = 15;
-            this.lbtienAn.Name = "lbtienAn";
-            // 
-            // txtTienAn
-            // 
-            this.txtTienAn.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.txtTienAn.Edit = this.repositoryItemTextEdit1;
-            this.txtTienAn.Id = 11;
-            this.txtTienAn.Name = "txtTienAn";
-            // 
+           
             // repositoryItemTextEdit1
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // lbBhxh
-            // 
-            this.lbBhxh.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.lbBhxh.Caption = "BHXH(%)";
-            this.lbBhxh.Id = 16;
-            this.lbBhxh.Name = "lbBhxh";
-            // 
-            // txtBHXH
-            // 
-            this.txtBHXH.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.txtBHXH.Edit = this.repositoryItemTextEdit2;
-            this.txtBHXH.Id = 17;
-            this.txtBHXH.Name = "txtBHXH";
+           
             // 
             // repositoryItemTextEdit2
             // 
@@ -462,7 +423,7 @@
             this.barStaticItem3.Id = 8;
             this.barStaticItem3.Name = "barStaticItem3";
             // 
-            // ucBangLuong
+            // ucChamCong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -472,7 +433,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.Name = "ucBangLuong";
+            this.Name = "ucChamCong";
             this.Size = new System.Drawing.Size(944, 549);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -527,15 +488,11 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarEditItem txtTienAn;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
-        private DevExpress.XtraBars.BarStaticItem lbtienAn;
-        private DevExpress.XtraBars.BarStaticItem lbBhxh;
-        private DevExpress.XtraBars.BarEditItem txtBHXH;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
     }
 }

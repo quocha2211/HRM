@@ -320,6 +320,12 @@
     <Compile Include="Controller\ProvinceController.cs" />
     <Compile Include="Controller\ExpertiseController.cs" />
     <Compile Include="Controller\LevelSalaryController.cs" />
+    <Compile Include="Controls\ucChamCong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucChamCong.Designer.cs">
+      <DependentUpon>ucChamCong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucEmployee.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -604,6 +610,9 @@
     <Compile Include="Utilities\clsSystemSettings.cs" />
     <Compile Include="Utilities\SQLHelper.cs" />
     <Compile Include="Utilities\SQLiteHelper.cs" />
+    <EmbeddedResource Include="Controls\ucChamCong.resx">
+      <DependentUpon>ucChamCong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucEmployee.resx">
       <DependentUpon>ucEmployee.cs</DependentUpon>
     </EmbeddedResource>

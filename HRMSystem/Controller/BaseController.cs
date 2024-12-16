@@ -14,7 +14,9 @@ namespace HRMSystem.Controller
     {
 
         private ucBaseSingleList View;
+        private ucBaseDoubleList ucBaseDoubleList;
         private ucBangLuong BangLuong;
+        private ucChamCong ChamCong;
         private ucReportTemp ReportTemp;
         public event EventHandler Load;
         public void Initialize(UserControl _view)
@@ -23,10 +25,22 @@ namespace HRMSystem.Controller
             View.Load += View_Load;
         }
 
+        public void Initialize(ucBaseDoubleList _view)
+        {
+            ucBaseDoubleList = _view as ucBaseDoubleList;
+            ucBaseDoubleList.Load += View_Load;
+        }
+
         public void Initialize(ucBangLuong _view)
         {
             BangLuong = _view ;
             BangLuong.Load += View_Load;
+        }
+
+        public void Initialize(ucChamCong _view)
+        {
+            ChamCong = _view;
+            ChamCong.Load += View_Load;
         }
 
         public void Initialize(ucReportTemp _view)

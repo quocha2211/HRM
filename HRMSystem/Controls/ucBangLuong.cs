@@ -20,7 +20,7 @@ namespace HRMSystem.Controls
         public event EventHandler EditButtonClick;
         public event EventHandler DeleteButtonClick;
         public event EventHandler ReLoadButtonClick;
-        public delegate void SearchButtonClick(int nam, int thang);
+        public delegate void SearchButtonClick(int nam, int thang, double tienAn, double bhxh);
         public SearchButtonClick searchDelegate;
         public SearchButtonClick EditClick;
 
@@ -32,8 +32,12 @@ namespace HRMSystem.Controls
         public ucBangLuong()
         {
             InitializeComponent();
+            
+         
             txtNam.EditValue = DateTime.Now.Year.ToString();
             txtThang.EditValue = DateTime.Now.Month.ToString();
+            txtTienAn.EditValue = 25000;
+            txtBHXH.EditValue = 8;
         }
         public void SetTitle(string title)
         {
@@ -102,8 +106,10 @@ namespace HRMSystem.Controls
             EditButtonClick?.Invoke(sender, e);
             int nam = int.Parse(txtNam.EditValue.ToString());
             int thang = int.Parse(txtThang.EditValue.ToString());
+            double tienAn = double.Parse(txtTienAn.EditValue.ToString());
+            double bhxh = double.Parse(txtBHXH.EditValue.ToString());
 
-            EditClick(nam, thang);
+            EditClick(nam, thang, tienAn, bhxh);
         }
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -127,8 +133,10 @@ namespace HRMSystem.Controls
         {
             int nam = int.Parse(txtNam.EditValue.ToString());
             int thang = int.Parse(txtThang.EditValue.ToString());
+            double tienAn = double.Parse(txtTienAn.EditValue.ToString());
+            double bhxh = double.Parse(txtBHXH.EditValue.ToString());
 
-            searchDelegate(nam, thang);
+            searchDelegate(nam, thang, tienAn, bhxh);
 
         }
     }

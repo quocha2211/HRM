@@ -90,7 +90,7 @@ namespace HRMSystem.Forms
 
         private void btnBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            BackButtonClick?.Invoke(sender, e);
+            this.Close();
         }
     }
 }

@@ -82,7 +82,7 @@ namespace HRMSystem.Controller
         {
             try
             {
-                int daysInMonth = 30;
+                int daysInMonth = 31;
 
                 StringBuilder columnList = new StringBuilder();
                 for (int i = 1; i <= daysInMonth; i++)
@@ -127,7 +127,17 @@ namespace HRMSystem.Controller
                 queryBuilder.Append("Select nv.MaNV as MaNV1, TenNV, cc.* from NhanVien nv left join #temp1 cc on nv.MaNV = cc.MaNV;\r\n                      Drop Table #temp;      Drop Table #temp1;");
                 
                 var query = SQLHelper.ExecuteSelect(queryBuilder.ToString());
-
+                for (int i = 0; i < query.Rows.Count; i++)
+                {
+                    int count = 0;
+                    for (int j = 1; j <= 31; j++)
+                    {
+                        if (Convert.ToString(query.Rows[i][$"{j}"]) == "X")
+                            count++;
+                    }
+                    query.Rows[i][$"SoCong"] = count;
+                }
+             
                 clsCommon.OpenWaitingForm(View);
                 masterForm.SetTitle("Quản lý chấm công");
                 masterForm.SetDataSource(query, clsInitialGridColumn.InitialBangChamCong());

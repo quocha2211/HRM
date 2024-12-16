@@ -168,6 +168,7 @@ namespace HRMSystem.Controller
 
         private void LoadData()
         {
+            int rowIndex = masterForm.getRowIndex();
             try
             {
                 using (var context = new AppDbContext())
@@ -180,7 +181,7 @@ namespace HRMSystem.Controller
                                  from cv in CVGroup.DefaultIfEmpty()
                                  join pb in context.PhongBans on xl.MaPB equals pb.MaPB into pbGroup
                                  from pb in pbGroup.DefaultIfEmpty()
-                                   orderby xl.NgayBatDau descending
+                                 orderby nv.MaNV, xl.NgayBatDau descending
                                  select new
                                 {
                                     xl.MaQTCT,
@@ -219,7 +220,7 @@ namespace HRMSystem.Controller
                     masterForm.SetTitle("Quản lý Quá Trình Công Tác");
                     masterForm.SetDataSource(result, clsInitialGridColumn.InitialQuaTrinhCongTac());
                     masterForm.SetSpecialGridProperties();
-
+                    masterForm.setRowIndex(rowIndex);
                 }
             }
             catch (Exception ex) { SQLiteHelper.SaveToLog(ex.Message, "ucEmployeeMaster", ex.ToString()); }

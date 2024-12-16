@@ -28,6 +28,16 @@ namespace HRMSystem.Controls
         {
             lblTitle.Text = title;
         }
+        public int getRowIndex()
+        {
+            return grvData.FocusedRowHandle;
+        }
+
+        public void setRowIndex(int idx)
+        {
+            grvData.FocusedRowHandle = idx;
+        }
+
         public void SetDataSource(object dt, List<GridColumnModel> lstInitialGridColumn)
         {
             try

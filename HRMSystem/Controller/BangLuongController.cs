@@ -101,9 +101,9 @@ namespace HRMSystem.Controller
                     double TienK3 = luongcoban / 26 / 8 * ot * 2; // Tiền ot
                     double TienAn = soCong * tienAn1day; // Tiền ăn
                     double TongLuong = LuongThoiGian + TienK3 + TienAn + dmxx; // Tiền ăn
-                    double BHXH = luongcoban * bhxhHeso / 100; // BHXH
-                    double BHYT = luongcoban * 1.5 / 100; // BHYT
-                    double BHTN = luongcoban * 1 / 100; // BHTN
+                    double BHXH = LuongThoiGian * bhxhHeso / 100; // BHXH
+                    double BHYT = LuongThoiGian * 1.5 / 100; // BHYT
+                    double BHTN = LuongThoiGian * 1 / 100; // BHTN
                     double luongGiamTru = BHXH + BHYT + BHTN + soTienTU; // Lương giảm trừ
                     double luongThucNhan = TongLuong - luongGiamTru; // Lương thực nhận
                     query.Rows[i]["LuongCoBan"] = luongcoban;

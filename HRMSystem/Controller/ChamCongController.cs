@@ -132,7 +132,7 @@ namespace HRMSystem.Controller
                     int count = 0;
                     for (int j = 1; j <= 31; j++)
                     {
-                        if (Convert.ToString(query.Rows[i][$"{j}"]) == "X")
+                        if (Convert.ToString(query.Rows[i][$"{j}"]).Trim() == "X")
                             count++;
                     }
                     query.Rows[i][$"SoCong"] = count;
